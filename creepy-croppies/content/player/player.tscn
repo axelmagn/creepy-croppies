@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://b6ofto02bhrak"]
+
+[ext_resource type="Script" uid="uid://chv7lvsfc5bhi" path="res://content/character/character.gd" id="1_y66qv"]
+[ext_resource type="Texture2D" uid="uid://d32jwm5torsmv" path="res://assets/sprout_lands_basic/Characters/Basic Charakter Spritesheet.png" id="2_oq5wi"]
+[ext_resource type="Script" uid="uid://bm2hmmy33f2nn" path="res://content/player/player_controller.gd" id="3_oq5wi"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ugpfc"]
+radius = 4.0
+height = 14.0
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_y66qv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_ugpfc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 3
+texture = ExtResource("2_oq5wi")
+region_enabled = true
+region_rect = Rect2(16, 16, 16, 16)
+
+[node name="PlayerController" type="Node" parent="." node_paths=PackedStringArray("character")]
+script = ExtResource("3_oq5wi")
+character = NodePath("..")
+metadata/_custom_type_script = "uid://bm2hmmy33f2nn"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(3, 3)
+position_smoothing_enabled = true

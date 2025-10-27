@@ -1,0 +1,49 @@
+class_name GameTime extends Node
+
+signal day_start
+signal day_end
+signal minute_tick
+
+@export var start_hour: int = 6
+@export var end_hour: int = 2
+@export var minute_tick_rate: float = 1
+
+@export var minute_timer: Timer
+
+var day: int = 0
+var raw_minute: int = 1
+
+func _ready() -> void:
+	assert(minute_timer)
+	minute_timer.timeout.connect(advance_minute)
+	minute_timer.wait_time = minute_tick_rate
+	advance_day()
+
+func advance_minute() -> void:
+	raw_minute += 1
+	minute_tick.emit()
+	if hour() == end_hour:
+		day_end.emit()
+		# TODO: end of day screen - until then, just advance the day
+		advance_day()
+
+func advance_day() -> void:
+	raw_minute = start_hour * 60
+	day += 1
+	day_start.emit()
+
+
+func minute() -> int:
+	return raw_minute % 60
+
+func hour() -> int:
+	return int(raw_minute / 60) % 24
+
+func day_of_week() -> int:
+	return day % 7
+
+func stop() -> void:
+	minute_timer.stop()
+
+func start() -> void:
+	minute_timer.start()

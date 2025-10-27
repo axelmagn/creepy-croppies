@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=4 uid="uid://dhhvfktmpi1bi"]
 
 [ext_resource type="Script" uid="uid://dikj3661rgst8" path="res://content/levels/level.gd" id="1_askbe"]
-[ext_resource type="TileSet" uid="uid://bdptyi3vmfmwk" path="res://content/levels/sprout_land_tiles.tres" id="2_5hi3d"]
+[ext_resource type="TileSet" uid="uid://bdptyi3vmfmwk" path="res://content/terrain/sprout_land_tiles.tres" id="2_5hi3d"]
 [ext_resource type="PackedScene" uid="uid://b6ofto02bhrak" path="res://content/player/player.tscn" id="3_lhg3q"]
 
 [node name="MainLevel" type="Node2D"]

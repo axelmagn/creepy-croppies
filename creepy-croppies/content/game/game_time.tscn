@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cyfe0qh5oiog1"]
+
+[ext_resource type="Script" uid="uid://bwrdd3wk2put8" path="res://content/game/game_time.gd" id="1_xwd2j"]
+
+[node name="GameTime" type="Node" node_paths=PackedStringArray("minute_timer")]
+script = ExtResource("1_xwd2j")
+minute_timer = NodePath("MinuteTimer")
+metadata/_custom_type_script = "uid://bwrdd3wk2put8"
+
+[node name="MinuteTimer" type="Timer" parent="."]

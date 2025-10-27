@@ -1,0 +1,35 @@
+[gd_scene load_steps=2 format=3 uid="uid://c65b2rbxswdam"]
+
+[ext_resource type="Script" uid="uid://87w3ni3sy4xf" path="res://content/player/player_hud.gd" id="1_ebjuq"]
+
+[node name="PlayerHUD" type="Control" node_paths=PackedStringArray("action_state_label", "facing_dir_label", "time_label")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_ebjuq")
+action_state_label = NodePath("VBoxContainer/ActionStateLabel")
+facing_dir_label = NodePath("VBoxContainer/FacingDirLabel")
+time_label = NodePath("VBoxContainer/TimeLabel")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 135.0
+offset_bottom = 60.0
+
+[node name="ActionStateLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Action State"
+
+[node name="FacingDirLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Facing Direction"
+
+[node name="TimeLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Time"

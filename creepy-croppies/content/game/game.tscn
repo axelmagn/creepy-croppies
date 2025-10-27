@@ -1,15 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://ixd4jqkrcxmk"]
+[gd_scene load_steps=7 format=3 uid="uid://ixd4jqkrcxmk"]
 
 [ext_resource type="Script" uid="uid://bogh6746ikc7s" path="res://content/game/game.gd" id="1_r1esr"]
 [ext_resource type="PackedScene" uid="uid://dhhvfktmpi1bi" path="res://content/levels/main_level.tscn" id="2_gk6uf"]
 [ext_resource type="Script" uid="uid://37p2nbdb2i6v" path="res://content/ui/main_ui.gd" id="2_ryjdl"]
 [ext_resource type="PackedScene" uid="uid://dj2hnqgf47qho" path="res://content/ui/main_menu.tscn" id="3_u7hef"]
-[ext_resource type="PackedScene" uid="uid://c65b2rbxswdam" path="res://content/ui/player_hud.tscn" id="5_y33i4"]
+[ext_resource type="PackedScene" uid="uid://c65b2rbxswdam" path="res://content/player/player_hud.tscn" id="5_y33i4"]
+[ext_resource type="PackedScene" uid="uid://cyfe0qh5oiog1" path="res://content/game/game_time.tscn" id="6_pikl6"]
 
-[node name="Game" type="Node" node_paths=PackedStringArray("world", "ui")]
+[node name="Game" type="Node" node_paths=PackedStringArray("world", "ui", "time")]
 script = ExtResource("1_r1esr")
 world = NodePath("World")
 ui = NodePath("UI")
+time = NodePath("GameTime")
 main_level_scn = ExtResource("2_gk6uf")
 
 [node name="World" type="Node2D" parent="."]
@@ -23,3 +25,8 @@ player_hud = NodePath("PlayerHUD")
 [node name="MainMenu" parent="UI" instance=ExtResource("3_u7hef")]
 
 [node name="PlayerHUD" parent="UI" instance=ExtResource("5_y33i4")]
+
+[node name="GameTime" parent="." instance=ExtResource("6_pikl6")]
+start_hour = 9
+end_hour = 17
+minute_tick_rate = 0.001

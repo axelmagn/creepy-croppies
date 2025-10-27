@@ -1,0 +1,58 @@
+[gd_resource type="Resource" script_class="PlantConfig" load_steps=15 format=3 uid="uid://0ic5me2vsys0"]
+
+[ext_resource type="Script" uid="uid://cu6flw0wv5h4e" path="res://content/plant/plant_config.gd" id="1_pf41w"]
+[ext_resource type="Script" uid="uid://dottpy2k3wk" path="res://content/plant/growth_stage.gd" id="2_t2ndp"]
+[ext_resource type="Texture2D" uid="uid://2f1gd0g8ev3e" path="res://assets/sprout_lands_basic/Objects/Basic_Plants.png" id="3_t2ndp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s7mbv"]
+atlas = ExtResource("3_t2ndp")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="Resource" id="Resource_rh7dw"]
+script = ExtResource("2_t2ndp")
+texture = SubResource("AtlasTexture_s7mbv")
+metadata/_custom_type_script = "uid://dottpy2k3wk"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ulf1m"]
+load_path = "res://.godot/imported/Basic_Plants.png-50a06fb9a396801efbdf2f462818a27b.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ixuq"]
+atlas = SubResource("CompressedTexture2D_ulf1m")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="Resource" id="Resource_xb258"]
+script = ExtResource("2_t2ndp")
+day = 2
+texture = SubResource("AtlasTexture_7ixuq")
+metadata/_custom_type_script = "uid://dottpy2k3wk"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fv17c"]
+load_path = "res://.godot/imported/Basic_Plants.png-50a06fb9a396801efbdf2f462818a27b.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yb57u"]
+atlas = SubResource("CompressedTexture2D_fv17c")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="Resource" id="Resource_pt5el"]
+script = ExtResource("2_t2ndp")
+day = 3
+texture = SubResource("AtlasTexture_yb57u")
+metadata/_custom_type_script = "uid://dottpy2k3wk"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_t2ndp"]
+load_path = "res://.godot/imported/Basic_Plants.png-50a06fb9a396801efbdf2f462818a27b.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rh7dw"]
+atlas = SubResource("CompressedTexture2D_t2ndp")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="Resource" id="Resource_ulf1m"]
+script = ExtResource("2_t2ndp")
+day = 5
+texture = SubResource("AtlasTexture_rh7dw")
+metadata/_custom_type_script = "uid://dottpy2k3wk"
+
+[resource]
+script = ExtResource("1_pf41w")
+stages = Array[ExtResource("2_t2ndp")]([SubResource("Resource_rh7dw"), SubResource("Resource_xb258"), SubResource("Resource_pt5el"), SubResource("Resource_ulf1m")])
+metadata/_custom_type_script = "uid://cu6flw0wv5h4e"

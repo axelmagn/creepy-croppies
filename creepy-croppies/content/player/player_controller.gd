@@ -23,3 +23,11 @@ func apply_inputs() -> void:
 	# tmp plant placement
 	if Input.is_action_just_pressed("ui_select"):
 		character.tmp_place_plant()
+
+	# tool inputs	
+	if Input.is_action_just_pressed("tool_use_primary"):
+		character.request_use_tool()
+	if Input.is_action_just_pressed("tool_next"):
+		character.request_next_tool()
+	if Input.is_action_just_pressed("tool_prev"):
+		character.request_prev_tool()

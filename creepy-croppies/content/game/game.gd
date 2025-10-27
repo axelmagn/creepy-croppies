@@ -1,11 +1,13 @@
 class_name GameAutoload extends Node
 
-# TODO: custom classes
+@export var plants: PlantManager
 @export var world: Node2D
 @export var ui: MainUI
 @export var time: GameTime
 
+
 @export var main_level_scn: PackedScene
+
 
 var active_player: PlayerController = null
 var active_level: Level = null

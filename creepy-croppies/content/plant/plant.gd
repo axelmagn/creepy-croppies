@@ -1,4 +1,4 @@
-extends Node2D
+class_name Plant extends Node2D
 
 @export var config: PlantConfig
 @export var sprite: Sprite2D

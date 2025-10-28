@@ -22,7 +22,7 @@ func apply_inputs() -> void:
 	character.request_move(move)
 
 	# tool inputs	
-	if Input.is_action_just_pressed("tool_use_primary"):
+	if Input.is_action_pressed("tool_use_primary"):
 		character.request_use_tool()
 	if Input.is_action_just_pressed("tool_next"):
 		character.request_next_tool()

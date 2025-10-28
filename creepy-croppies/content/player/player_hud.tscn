@@ -1,8 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://c65b2rbxswdam"]
+[gd_scene load_steps=4 format=3 uid="uid://c65b2rbxswdam"]
 
 [ext_resource type="Script" uid="uid://87w3ni3sy4xf" path="res://content/player/player_hud.gd" id="1_ebjuq"]
+[ext_resource type="Texture2D" uid="uid://2f1gd0g8ev3e" path="res://assets/sprout_lands_basic/Objects/Basic_Plants.png" id="2_jtq8e"]
 
-[node name="PlayerHUD" type="Control" node_paths=PackedStringArray("action_state_label", "facing_dir_label", "time_label", "tool_label", "focus_cell_label", "can_use_label", "custom_label")]
+[sub_resource type="AtlasTexture" id="AtlasTexture_b3hcm"]
+atlas = ExtResource("2_jtq8e")
+region = Rect2(80, 16, 16, 16)
+
+[node name="PlayerHUD" type="Control" node_paths=PackedStringArray("action_state_label", "facing_dir_label", "time_label", "tool_label", "focus_cell_label", "can_use_label", "custom_label", "item_grid")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -18,6 +23,7 @@ tool_label = NodePath("VBoxContainer/ToolLabel")
 focus_cell_label = NodePath("VBoxContainer/FocusCellLabel")
 can_use_label = NodePath("VBoxContainer/CanUseLabel")
 custom_label = NodePath("VBoxContainer/CustomLabel")
+item_grid = NodePath("ItemsGrid")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 0
@@ -53,3 +59,23 @@ text = "FocusCellLabel"
 [node name="CustomLabel" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 text = "CustomLabels"
+
+[node name="ItemsGrid" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+columns = 2
+
+[node name="TextureRect" type="TextureRect" parent="ItemsGrid"]
+texture_filter = 3
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = SubResource("AtlasTexture_b3hcm")
+
+[node name="Label" type="Label" parent="ItemsGrid"]
+layout_mode = 2
+text = "1"

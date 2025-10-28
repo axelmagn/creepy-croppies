@@ -145,6 +145,6 @@ func _on_magnet_body_exited(body: Node2D) -> void:
 func _on_pickup_body_entered(body: Node2D) -> void:
 	printt("detected pickup collision")
 	if body is Item:
-		# TODO: add item resource
 		printt("picked up item:", body.config.name)
+		Game.player_items.add_item(body.config, 1)
 		body.queue_free()

@@ -9,6 +9,8 @@ class_name PlayerHUD extends Control
 @export var can_use_label: Label
 @export var custom_label: Label
 
+@export var item_grid: GridContainer
+
 
 var player: PlayerController = null
 
@@ -20,6 +22,11 @@ func _ready() -> void:
 	assert(focus_cell_label)
 	assert(can_use_label)
 	assert(custom_label)
+	assert(item_grid)
+
+	Game.player_items.items_changed.connect(update_item_grid)
+	update_item_grid()
+
 
 func _process(_delta: float) -> void:
 	update_view()
@@ -27,6 +34,7 @@ func _process(_delta: float) -> void:
 func update_view() -> void:
 	custom_label.text = "this is custom"
 	time_label.text = "[%03d] %02d:%02d" % [Game.time.day, Game.time.hour(), Game.time.minute()]
+
 	if player and player.character:
 		var character = player.character
 		var action_state = character.get_action_state()
@@ -54,6 +62,21 @@ func update_view() -> void:
 		tool_label.text = "N/A"
 		focus_cell_label.text = "N/A"
 		return
+
+func update_item_grid() -> void:
+	for child in item_grid.get_children():
+		child.queue_free()
+	var items = Game.player_items.items.keys()
+	items.sort()
+	for item in items:
+		var icon = TextureRect.new()
+		icon.texture = item.texture
+		icon.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST_WITH_MIPMAPS
+		icon.custom_minimum_size = Vector2(32, 32)
+		item_grid.add_child(icon)
+		var label = Label.new()
+		label.text = "%d" % Game.player_items.items[item]
+		item_grid.add_child(label)
 
 
 func register_player(player: PlayerController) -> void:

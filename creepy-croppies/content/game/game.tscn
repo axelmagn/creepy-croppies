@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://ixd4jqkrcxmk"]
+[gd_scene load_steps=16 format=3 uid="uid://ixd4jqkrcxmk"]
 
 [ext_resource type="Script" uid="uid://bogh6746ikc7s" path="res://content/game/game.gd" id="1_r1esr"]
 [ext_resource type="PackedScene" uid="uid://bi41vafaqtj0i" path="res://content/plant/plant.tscn" id="2_dck4f"]
@@ -10,6 +10,8 @@
 [ext_resource type="Script" uid="uid://dep5r7js3181m" path="res://content/item/item_manager.gd" id="5_t8pyj"]
 [ext_resource type="PackedScene" uid="uid://c65b2rbxswdam" path="res://content/player/player_hud.tscn" id="5_y33i4"]
 [ext_resource type="PackedScene" uid="uid://cyfe0qh5oiog1" path="res://content/game/game_time.tscn" id="6_pikl6"]
+[ext_resource type="Script" uid="uid://dqx63of8et0be" path="res://content/item/item_config.gd" id="7_4ebuv"]
+[ext_resource type="Script" uid="uid://1sh2lqokbbvk" path="res://content/item/item_container.gd" id="8_ib5ax"]
 
 [sub_resource type="Resource" id="Resource_xjc2w"]
 script = ExtResource("3_twpl5")
@@ -22,6 +24,10 @@ item_scn = ExtResource("4_xjc2w")
 propel_speed = 64.0
 metadata/_custom_type_script = "uid://dep5r7js3181m"
 
+[sub_resource type="Resource" id="Resource_dv1sk"]
+script = ExtResource("8_ib5ax")
+metadata/_custom_type_script = "uid://1sh2lqokbbvk"
+
 [node name="Game" type="Node" node_paths=PackedStringArray("world", "ui", "time")]
 script = ExtResource("1_r1esr")
 plants = SubResource("Resource_xjc2w")
@@ -30,6 +36,7 @@ world = NodePath("World")
 ui = NodePath("UI")
 time = NodePath("GameTime")
 main_level_scn = ExtResource("2_gk6uf")
+player_items = SubResource("Resource_dv1sk")
 
 [node name="World" type="Node2D" parent="."]
 texture_filter = 3

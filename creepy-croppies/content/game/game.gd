@@ -9,6 +9,7 @@ class_name GameAutoload extends Node
 
 @export var main_level_scn: PackedScene
 
+@export var player_items: ItemContainer
 
 var active_player: PlayerController = null
 var active_level: Level = null
@@ -20,6 +21,7 @@ func _ready() -> void:
 	assert(main_level_scn)
 	assert(plants)
 	assert(items)
+	assert(player_items)
 
 ## load a new level
 func load_level(level_scn: PackedScene) -> void:

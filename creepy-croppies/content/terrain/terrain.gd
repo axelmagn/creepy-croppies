@@ -49,4 +49,3 @@ class TerrainCoord extends RefCounted:
 	func has_flag(flag_name: String) -> bool:
 		var tdata = layer.get_cell_tile_data(coord)
 		return tdata.has_custom_data(flag_name) and bool(tdata.get_custom_data(flag_name))
-

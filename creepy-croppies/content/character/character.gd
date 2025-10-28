@@ -4,18 +4,22 @@ enum ActionState {IDLE, WALK}
 
 @export var max_speed: float = 64
 @export var interact_reach: float = 16
+@export_flags_2d_physics var interact_collision: int = 0
 
 @export var tmp_test_plant: PackedScene
 @export var tools: Array[Tool]
 ## TODO: cursor class?
-@export var cursor: Sprite2D
+@export var cursor: Node2D
+@export var cooldown_timer: Timer
 
 var _input_move: Vector2 = Vector2.ZERO
 var facing_dir: Vector2 = Vector2.DOWN
 var _active_tool_idx: int = 0
+var cooling_down: bool = false
 
 func _ready() -> void:
-	pass
+	assert(cooldown_timer)
+	cooldown_timer.timeout.connect(reset_cooldown)
 
 func _process(_delta: float) -> void:
 	_apply_move()
@@ -106,3 +110,19 @@ func get_active_tool() -> Tool:
 
 func get_active_tool_idx() -> int:
 	return _active_tool_idx
+
+func start_cooldown(time: float) -> void:
+	cooling_down = true
+	cooldown_timer.start(time)
+
+func reset_cooldown() -> void:
+	cooling_down = false
+
+## perform a collision cast at the interaction point
+func cast_interact() -> Array[Dictionary]:
+	var space_state = get_world_2d().direct_space_state
+	var qpoint = PhysicsPointQueryParameters2D.new()
+	qpoint.collide_with_areas = true
+	qpoint.collision_mask = interact_collision
+	qpoint.position = get_interact_point()
+	return space_state.intersect_point(qpoint)

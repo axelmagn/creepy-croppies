@@ -7,6 +7,7 @@ class_name PlayerHUD extends Control
 @export var tool_label: Label
 @export var focus_cell_label: Label
 @export var can_use_label: Label
+@export var custom_label: Label
 
 
 var player: PlayerController = null
@@ -18,11 +19,13 @@ func _ready() -> void:
 	assert(tool_label)
 	assert(focus_cell_label)
 	assert(can_use_label)
+	assert(custom_label)
 
 func _process(_delta: float) -> void:
 	update_view()
 
 func update_view() -> void:
+	custom_label.text = "this is custom"
 	time_label.text = "[%03d] %02d:%02d" % [Game.time.day, Game.time.hour(), Game.time.minute()]
 	if player and player.character:
 		var character = player.character
@@ -45,9 +48,6 @@ func update_view() -> void:
 			focus_cell_label.text = "%s %s" % [tcoord.layer.name, str(tcoord.coord)]
 		else:
 			focus_cell_label.text = "NONE"
-
-
-
 	else:
 		action_state_label.text = "N/A"
 		facing_dir_label.text = "N/A"

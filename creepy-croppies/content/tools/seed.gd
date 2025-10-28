@@ -5,8 +5,8 @@ class_name Seed extends Tool
 func use_primary(user: Character):
 	if not can_use(user):
 		return
+	super.use_primary(user)
 	# TODO: seed functionality
 	var loc = user.get_interact_point()
 	Game.plants.place_plant(loc, plant)
 	print("used seed")
-

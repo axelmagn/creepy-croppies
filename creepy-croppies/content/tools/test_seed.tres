@@ -8,4 +8,5 @@ script = ExtResource("1_xe32u")
 plant = ExtResource("1_ujhrx")
 display_name = "Test Seed"
 required_terrain_flag = "plantable"
+allow_overlaps = false
 metadata/_custom_type_script = "uid://cgqcvbtck2hn1"

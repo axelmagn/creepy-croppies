@@ -1,6 +1,7 @@
 class_name GameAutoload extends Node
 
 @export var plants: PlantManager
+@export var items: ItemManager
 @export var world: Node2D
 @export var ui: MainUI
 @export var time: GameTime
@@ -17,6 +18,8 @@ func _ready() -> void:
 	assert(ui)
 	assert(time)
 	assert(main_level_scn)
+	assert(plants)
+	assert(items)
 
 ## load a new level
 func load_level(level_scn: PackedScene) -> void:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://ixd4jqkrcxmk"]
+[gd_scene load_steps=13 format=3 uid="uid://ixd4jqkrcxmk"]
 
 [ext_resource type="Script" uid="uid://bogh6746ikc7s" path="res://content/game/game.gd" id="1_r1esr"]
 [ext_resource type="PackedScene" uid="uid://bi41vafaqtj0i" path="res://content/plant/plant.tscn" id="2_dck4f"]
@@ -6,6 +6,8 @@
 [ext_resource type="Script" uid="uid://37p2nbdb2i6v" path="res://content/ui/main_ui.gd" id="2_ryjdl"]
 [ext_resource type="Script" uid="uid://dlomrx0ekq0yi" path="res://content/plant/plant_manager.gd" id="3_twpl5"]
 [ext_resource type="PackedScene" uid="uid://dj2hnqgf47qho" path="res://content/ui/main_menu.tscn" id="3_u7hef"]
+[ext_resource type="PackedScene" uid="uid://dy8u031nrj081" path="res://content/item/item.tscn" id="4_xjc2w"]
+[ext_resource type="Script" uid="uid://dep5r7js3181m" path="res://content/item/item_manager.gd" id="5_t8pyj"]
 [ext_resource type="PackedScene" uid="uid://c65b2rbxswdam" path="res://content/player/player_hud.tscn" id="5_y33i4"]
 [ext_resource type="PackedScene" uid="uid://cyfe0qh5oiog1" path="res://content/game/game_time.tscn" id="6_pikl6"]
 
@@ -14,9 +16,16 @@ script = ExtResource("3_twpl5")
 plant_scn = ExtResource("2_dck4f")
 metadata/_custom_type_script = "uid://dlomrx0ekq0yi"
 
+[sub_resource type="Resource" id="Resource_4ebuv"]
+script = ExtResource("5_t8pyj")
+item_scn = ExtResource("4_xjc2w")
+propel_speed = 64.0
+metadata/_custom_type_script = "uid://dep5r7js3181m"
+
 [node name="Game" type="Node" node_paths=PackedStringArray("world", "ui", "time")]
 script = ExtResource("1_r1esr")
 plants = SubResource("Resource_xjc2w")
+items = SubResource("Resource_4ebuv")
 world = NodePath("World")
 ui = NodePath("UI")
 time = NodePath("GameTime")

@@ -33,3 +33,23 @@ func get_next_stage() -> GrowthStage:
 func update_internals() -> void:
 	var stage = get_active_stage()
 	sprite.texture = stage.texture
+
+
+func harvest() -> void:
+	# extract variables and queue free
+	var stage = get_active_stage()
+	var pos = global_position
+	queue_free()
+
+	# unwater tile
+	var tcoord = Game.active_level.terrain.get_showing_cell(pos)
+	printt("unwatering terrain:", str(tcoord.layer), str(tcoord.coord))
+	assert(tcoord)
+	Game.active_level.terrain.unwater(tcoord)
+
+	# drop items
+	if not stage.item_drop:
+		return
+	var n_items = randi_range(stage.item_drop.min_count, stage.item_drop.max_count)
+	for _i in range(n_items):
+		Game.items.spawn_item(stage.item_drop.item, pos, true)

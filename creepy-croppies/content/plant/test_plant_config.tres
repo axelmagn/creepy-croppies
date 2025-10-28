@@ -1,8 +1,10 @@
-[gd_resource type="Resource" script_class="PlantConfig" load_steps=15 format=3 uid="uid://0ic5me2vsys0"]
+[gd_resource type="Resource" script_class="PlantConfig" load_steps=18 format=3 uid="uid://0ic5me2vsys0"]
 
 [ext_resource type="Script" uid="uid://cu6flw0wv5h4e" path="res://content/plant/plant_config.gd" id="1_pf41w"]
 [ext_resource type="Script" uid="uid://dottpy2k3wk" path="res://content/plant/growth_stage.gd" id="2_t2ndp"]
 [ext_resource type="Texture2D" uid="uid://2f1gd0g8ev3e" path="res://assets/sprout_lands_basic/Objects/Basic_Plants.png" id="3_t2ndp"]
+[ext_resource type="Resource" uid="uid://nj66esh2rmhg" path="res://content/item/test_item.tres" id="4_rh7dw"]
+[ext_resource type="Script" uid="uid://c43nopgdmv1r5" path="res://content/item/item_drop.gd" id="5_ulf1m"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s7mbv"]
 atlas = ExtResource("3_t2ndp")
@@ -39,6 +41,13 @@ day = 3
 texture = SubResource("AtlasTexture_yb57u")
 metadata/_custom_type_script = "uid://dottpy2k3wk"
 
+[sub_resource type="Resource" id="Resource_7ixuq"]
+script = ExtResource("5_ulf1m")
+item = ExtResource("4_rh7dw")
+min_count = 1
+max_count = 3
+metadata/_custom_type_script = "uid://c43nopgdmv1r5"
+
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_t2ndp"]
 load_path = "res://.godot/imported/Basic_Plants.png-50a06fb9a396801efbdf2f462818a27b.ctex"
 
@@ -50,6 +59,7 @@ region = Rect2(64, 0, 16, 16)
 script = ExtResource("2_t2ndp")
 day = 5
 texture = SubResource("AtlasTexture_rh7dw")
+item_drop = SubResource("Resource_7ixuq")
 metadata/_custom_type_script = "uid://dottpy2k3wk"
 
 [resource]

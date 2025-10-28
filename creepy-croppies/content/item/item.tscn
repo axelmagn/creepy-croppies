@@ -1,21 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://dy8u031nrj081"]
+[gd_scene load_steps=6 format=3 uid="uid://dy8u031nrj081"]
 
 [ext_resource type="Script" uid="uid://cy2ayx27lu0lj" path="res://content/item/item.gd" id="1_klcp7"]
 [ext_resource type="Texture2D" uid="uid://dyduwm2cfv8ja" path="res://assets/sprout_lands_basic/Objects/Basic Plants.png" id="2_6630t"]
-[ext_resource type="Script" uid="uid://dqx63of8et0be" path="res://content/item/item_config.gd" id="2_vyobw"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_vyobw"]
-load_path = "res://.godot/imported/Basic Plants.png-9f2b1d57d02f2559e27bd12c0c5e3ec1.ctex"
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jbtps"]
-atlas = SubResource("CompressedTexture2D_vyobw")
-region = Rect2(80, 16, 16, 16)
-
-[sub_resource type="Resource" id="Resource_jbtps"]
-script = ExtResource("2_vyobw")
-name = "Test Item"
-texture = SubResource("AtlasTexture_jbtps")
-metadata/_custom_type_script = "uid://dqx63of8et0be"
+[ext_resource type="Resource" uid="uid://nj66esh2rmhg" path="res://content/item/test_item.tres" id="2_vyobw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vyobw"]
 atlas = ExtResource("2_6630t")
@@ -28,9 +15,9 @@ radius = 6.0
 texture_filter = 3
 collision_layer = 8
 script = ExtResource("1_klcp7")
-config = SubResource("Resource_jbtps")
+config = ExtResource("2_vyobw")
 sprite = NodePath("Sprite2D")
-accel = 64.0
+accel = 128.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = SubResource("AtlasTexture_vyobw")

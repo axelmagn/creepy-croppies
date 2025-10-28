@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ItemConfig" load_steps=4 format=3 uid="uid://nj66esh2rmhg"]
+
+[ext_resource type="Script" uid="uid://dqx63of8et0be" path="res://content/item/item_config.gd" id="1_wg566"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_vyobw"]
+load_path = "res://.godot/imported/Basic Plants.png-9f2b1d57d02f2559e27bd12c0c5e3ec1.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jbtps"]
+atlas = SubResource("CompressedTexture2D_vyobw")
+region = Rect2(80, 16, 16, 16)
+
+[resource]
+script = ExtResource("1_wg566")
+name = "Test Item"
+texture = SubResource("AtlasTexture_jbtps")
+metadata/_custom_type_script = "uid://dqx63of8et0be"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b6ofto02bhrak"]
+[gd_scene load_steps=14 format=3 uid="uid://b6ofto02bhrak"]
 
 [ext_resource type="Script" uid="uid://chv7lvsfc5bhi" path="res://content/character/character.gd" id="1_y66qv"]
 [ext_resource type="PackedScene" uid="uid://bi41vafaqtj0i" path="res://content/plant/plant.tscn" id="2_i4jjh"]
@@ -8,7 +8,6 @@
 [ext_resource type="Resource" uid="uid://cbgetlc22i6l" path="res://content/tools/watering_can.tres" id="4_bkj32"]
 [ext_resource type="Script" uid="uid://v6ts0vjwtkop" path="res://content/tools/scythe.gd" id="4_rmk25"]
 [ext_resource type="Resource" uid="uid://c152ypsyhcmff" path="res://content/tools/test_seed.tres" id="6_cvehv"]
-[ext_resource type="Script" path="res://content/character/cursor.gd" id="9_bkj32"]
 
 [sub_resource type="Resource" id="Resource_cvehv"]
 script = ExtResource("4_rmk25")
@@ -22,7 +21,13 @@ height = 8.0
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_bkj32"]
 size = Vector2(16, 16)
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("cursor", "cooldown_timer")]
+[sub_resource type="CircleShape2D" id="CircleShape2D_bkj32"]
+radius = 48.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rmk25"]
+radius = 8.0
+
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("cursor", "cooldown_timer", "magnet_area", "pickup_area")]
 z_index = 2
 script = ExtResource("1_y66qv")
 interact_collision = 2
@@ -30,6 +35,8 @@ tmp_test_plant = ExtResource("2_i4jjh")
 tools = Array[ExtResource("3_bkj32")]([ExtResource("4_bkj32"), SubResource("Resource_cvehv"), ExtResource("6_cvehv")])
 cursor = NodePath("Cursor")
 cooldown_timer = NodePath("CooldownTimer")
+magnet_area = NodePath("MagnetArea")
+pickup_area = NodePath("PickupArea")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 2)
@@ -51,10 +58,22 @@ zoom = Vector2(2, 2)
 position_smoothing_enabled = true
 
 [node name="Cursor" type="Node2D" parent="."]
-script = ExtResource("9_bkj32")
 
 [node name="CursorSprite" type="Sprite2D" parent="Cursor"]
 modulate = Color(1, 1, 1, 0.4745098)
 texture = SubResource("PlaceholderTexture2D_bkj32")
 
 [node name="CooldownTimer" type="Timer" parent="."]
+
+[node name="MagnetArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MagnetArea"]
+shape = SubResource("CircleShape2D_bkj32")
+
+[node name="PickupArea" type="Area2D" parent="."]
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupArea"]
+shape = SubResource("CircleShape2D_rmk25")

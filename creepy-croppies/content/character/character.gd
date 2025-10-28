@@ -11,6 +11,8 @@ enum ActionState {IDLE, WALK}
 ## TODO: cursor class?
 @export var cursor: Node2D
 @export var cooldown_timer: Timer
+@export var magnet_area: Area2D
+@export var pickup_area: Area2D
 
 var _input_move: Vector2 = Vector2.ZERO
 var facing_dir: Vector2 = Vector2.DOWN
@@ -20,6 +22,11 @@ var cooling_down: bool = false
 func _ready() -> void:
 	assert(cooldown_timer)
 	cooldown_timer.timeout.connect(reset_cooldown)
+	
+	if magnet_area:
+		magnet_area.body_entered.connect(_on_magnet_body_entered)
+	if pickup_area:
+		pickup_area.body_entered.connect(_on_pickup_body_entered)
 
 func _process(_delta: float) -> void:
 	_apply_move()
@@ -126,3 +133,18 @@ func cast_interact() -> Array[Dictionary]:
 	qpoint.collision_mask = interact_collision
 	qpoint.position = get_interact_point()
 	return space_state.intersect_point(qpoint)
+
+func _on_magnet_body_entered(body: Node2D) -> void:
+	if body is Item:
+		body.attractor = self
+
+func _on_magnet_body_exited(body: Node2D) -> void:
+	if body is Item and body.attractor == self:
+		body.attractor = null
+
+func _on_pickup_body_entered(body: Node2D) -> void:
+	printt("detected pickup collision")
+	if body is Item:
+		# TODO: add item resource
+		printt("picked up item:", body.config.name)
+		body.queue_free()

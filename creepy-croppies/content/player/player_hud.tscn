@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://87w3ni3sy4xf" path="res://content/player/player_hud.gd" id="1_ebjuq"]
 
-[node name="PlayerHUD" type="Control" node_paths=PackedStringArray("action_state_label", "facing_dir_label", "time_label", "tool_label")]
+[node name="PlayerHUD" type="Control" node_paths=PackedStringArray("action_state_label", "facing_dir_label", "time_label", "tool_label", "focus_cell_label", "can_use_label")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -15,6 +15,8 @@ action_state_label = NodePath("VBoxContainer/ActionStateLabel")
 facing_dir_label = NodePath("VBoxContainer/FacingDirLabel")
 time_label = NodePath("VBoxContainer/TimeLabel")
 tool_label = NodePath("VBoxContainer/ToolLabel")
+focus_cell_label = NodePath("VBoxContainer/FocusCellLabel")
+can_use_label = NodePath("VBoxContainer/CanUseLabel")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 0
@@ -38,3 +40,11 @@ text = "Time"
 [node name="ToolLabel" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 text = "Tool"
+
+[node name="CanUseLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Can Use"
+
+[node name="FocusCellLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "FocusCellLabel"

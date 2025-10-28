@@ -1,44 +1,41 @@
-[gd_scene load_steps=14 format=3 uid="uid://b6ofto02bhrak"]
+[gd_scene load_steps=12 format=3 uid="uid://b6ofto02bhrak"]
 
 [ext_resource type="Script" uid="uid://chv7lvsfc5bhi" path="res://content/character/character.gd" id="1_y66qv"]
 [ext_resource type="PackedScene" uid="uid://bi41vafaqtj0i" path="res://content/plant/plant.tscn" id="2_i4jjh"]
 [ext_resource type="Texture2D" uid="uid://d32jwm5torsmv" path="res://assets/sprout_lands_basic/Characters/Basic Charakter Spritesheet.png" id="2_oq5wi"]
-[ext_resource type="Script" uid="uid://fij8pm0a6ytj" path="res://content/tools/tool.gd" id="3_gdtqi"]
+[ext_resource type="Script" uid="uid://fij8pm0a6ytj" path="res://content/tools/tool.gd" id="3_bkj32"]
 [ext_resource type="Script" uid="uid://bm2hmmy33f2nn" path="res://content/player/player_controller.gd" id="3_oq5wi"]
+[ext_resource type="Resource" uid="uid://cbgetlc22i6l" path="res://content/tools/watering_can.tres" id="4_bkj32"]
 [ext_resource type="Script" uid="uid://v6ts0vjwtkop" path="res://content/tools/scythe.gd" id="4_rmk25"]
-[ext_resource type="Script" uid="uid://dc176gbpwjncg" path="res://content/tools/watering_can.gd" id="5_bkj32"]
-[ext_resource type="Resource" uid="uid://0ic5me2vsys0" path="res://content/plant/test_plant_config.tres" id="6_bkj32"]
-[ext_resource type="Script" uid="uid://cgqcvbtck2hn1" path="res://content/tools/seed.gd" id="7_cvehv"]
-
-[sub_resource type="Resource" id="Resource_vx4xa"]
-script = ExtResource("5_bkj32")
-display_name = "Watering Can"
-metadata/_custom_type_script = "uid://dc176gbpwjncg"
+[ext_resource type="Resource" uid="uid://c152ypsyhcmff" path="res://content/tools/test_seed.tres" id="6_cvehv"]
 
 [sub_resource type="Resource" id="Resource_cvehv"]
 script = ExtResource("4_rmk25")
 display_name = "Scythe"
 metadata/_custom_type_script = "uid://v6ts0vjwtkop"
 
-[sub_resource type="Resource" id="Resource_5unhu"]
-script = ExtResource("7_cvehv")
-plant = ExtResource("6_bkj32")
-display_name = "Test Seed"
-metadata/_custom_type_script = "uid://cgqcvbtck2hn1"
-
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ugpfc"]
 radius = 4.0
 height = 14.0
 
-[node name="Player" type="CharacterBody2D"]
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_bkj32"]
+size = Vector2(16, 16)
+
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("cursor")]
+z_index = 2
 script = ExtResource("1_y66qv")
 tmp_test_plant = ExtResource("2_i4jjh")
-tools = Array[ExtResource("3_gdtqi")]([SubResource("Resource_vx4xa"), SubResource("Resource_cvehv"), SubResource("Resource_5unhu")])
+tools = Array[ExtResource("3_bkj32")]([ExtResource("4_bkj32"), SubResource("Resource_cvehv"), ExtResource("6_cvehv")])
+cursor = NodePath("CursorSprite")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_ugpfc")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="CursorSprite" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.4745098)
+texture = SubResource("PlaceholderTexture2D_bkj32")
+
+[node name="CharacterSprite" type="Sprite2D" parent="."]
 texture_filter = 3
 texture = ExtResource("2_oq5wi")
 region_enabled = true

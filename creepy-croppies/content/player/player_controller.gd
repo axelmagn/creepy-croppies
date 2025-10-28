@@ -1,6 +1,7 @@
 class_name PlayerController extends Node
 
 @export var character: Character
+@export var cursor: Sprite2D
 
 func _ready() -> void:
 	Game.register_player(self)
@@ -19,10 +20,6 @@ func apply_inputs() -> void:
 	var move_y: float = Input.get_axis("move_up", "move_down")
 	var move: Vector2 = Vector2(move_x, move_y)
 	character.request_move(move)
-
-	# tmp plant placement
-	if Input.is_action_just_pressed("ui_select"):
-		character.tmp_place_plant()
 
 	# tool inputs	
 	if Input.is_action_just_pressed("tool_use_primary"):

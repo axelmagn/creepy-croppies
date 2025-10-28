@@ -7,6 +7,8 @@ enum ActionState {IDLE, WALK}
 
 @export var tmp_test_plant: PackedScene
 @export var tools: Array[Tool]
+## TODO: cursor class?
+@export var cursor: Sprite2D
 
 var _input_move: Vector2 = Vector2.ZERO
 var facing_dir: Vector2 = Vector2.DOWN
@@ -46,7 +48,14 @@ func get_action_state() -> ActionState:
 	
 ## global position of interaction point
 func get_interact_point() -> Vector2:
-	return global_position + facing_dir * interact_reach
+	var tcoord = get_interact_terrain()
+	if not tcoord:
+		return global_position + facing_dir * interact_reach
+	return tcoord.to_global()
+
+func get_interact_terrain() -> Terrain.TerrainCoord:
+	var ipos = global_position + facing_dir * interact_reach
+	return Game.active_level.terrain.get_showing_cell(ipos)
 
 # TODO: plant manager
 func tmp_place_plant() -> void:
@@ -72,6 +81,7 @@ func _apply_move() -> void:
 	velocity = _consume_move() * max_speed
 	update_facing_dir()
 	move_and_slide()
+	update_cursor()
 
 func update_facing_dir() -> void:
 	if velocity == Vector2.ZERO:
@@ -85,12 +95,14 @@ func update_facing_dir() -> void:
 			best_dot = x
 	facing_dir = best_match
 
+func update_cursor() -> void:
+	if not cursor or not Game.active_level or not Game.active_level.terrain:
+		return
+	cursor.global_position = get_interact_point()
+
+
 func get_active_tool() -> Tool:
 	return tools.get(_active_tool_idx)
 
 func get_active_tool_idx() -> int:
 	return _active_tool_idx
-
-
-
-

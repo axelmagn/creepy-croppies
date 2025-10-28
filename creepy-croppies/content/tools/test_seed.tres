@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Seed" load_steps=3 format=3 uid="uid://c152ypsyhcmff"]
+
+[ext_resource type="Resource" uid="uid://0ic5me2vsys0" path="res://content/plant/test_plant_config.tres" id="1_ujhrx"]
+[ext_resource type="Script" uid="uid://cgqcvbtck2hn1" path="res://content/tools/seed.gd" id="1_xe32u"]
+
+[resource]
+script = ExtResource("1_xe32u")
+plant = ExtResource("1_ujhrx")
+display_name = "Test Seed"
+required_terrain_flag = "plantable"
+metadata/_custom_type_script = "uid://cgqcvbtck2hn1"

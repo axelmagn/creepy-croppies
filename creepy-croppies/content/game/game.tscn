@@ -54,9 +54,9 @@ day_summary = NodePath("DaySummary")
 [node name="DaySummary" parent="UI" instance=ExtResource("8_twpl5")]
 visible = false
 
-[node name="MainMenu" parent="UI" instance=ExtResource("3_u7hef")]
-
 [node name="PlayerHUD" parent="UI" instance=ExtResource("5_y33i4")]
+
+[node name="MainMenu" parent="UI" instance=ExtResource("3_u7hef")]
 
 [node name="GameTime" parent="." instance=ExtResource("6_pikl6")]
 start_hour = 9

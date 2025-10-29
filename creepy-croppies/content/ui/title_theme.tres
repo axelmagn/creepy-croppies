@@ -1,0 +1,17 @@
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://bmx3qwc0068d1"]
+
+[ext_resource type="Texture2D" uid="uid://b2qcyt37uvemi" path="res://assets/kenney_ui-pack-pixel-adventure/Tilesheets/Large tiles/Thick outline/tilemap_packed.png" id="2_al02f"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eynet"]
+atlas = ExtResource("2_al02f")
+region = Rect2(128, 128, 96, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_al02f"]
+texture = SubResource("AtlasTexture_eynet")
+texture_margin_left = 32.0
+texture_margin_top = 12.0
+texture_margin_right = 32.0
+texture_margin_bottom = 12.0
+
+[resource]
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_al02f")

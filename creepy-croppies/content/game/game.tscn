@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://ixd4jqkrcxmk"]
+[gd_scene load_steps=24 format=3 uid="uid://ixd4jqkrcxmk"]
 
 [ext_resource type="Script" uid="uid://bogh6746ikc7s" path="res://content/game/game.gd" id="1_r1esr"]
 [ext_resource type="PackedScene" uid="uid://bi41vafaqtj0i" path="res://content/plant/plant.tscn" id="2_dck4f"]
@@ -77,7 +77,7 @@ visible = false
 [node name="GameTime" parent="." instance=ExtResource("6_pikl6")]
 start_hour = 9
 end_hour = 17
-minute_tick_rate = 0.005
+minute_tick_rate = 0.5
 
 [node name="DayManager" type="Node" parent="." node_paths=PackedStringArray("time", "ui")]
 script = ExtResource("14_dv1sk")

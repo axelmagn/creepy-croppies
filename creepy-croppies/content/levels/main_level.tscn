@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://dhhvfktmpi1bi"]
+[gd_scene load_steps=7 format=3 uid="uid://dhhvfktmpi1bi"]
 
 [ext_resource type="Script" uid="uid://dikj3661rgst8" path="res://content/levels/level.gd" id="1_askbe"]
 [ext_resource type="PackedScene" uid="uid://b6ofto02bhrak" path="res://content/player/player.tscn" id="3_lhg3q"]
 [ext_resource type="PackedScene" uid="uid://dy8u031nrj081" path="res://content/item/item.tscn" id="4_ojrfc"]
 [ext_resource type="PackedScene" uid="uid://ook0yg3kgo7o" path="res://content/terrain/terrain.tscn" id="4_ouwjy"]
+[ext_resource type="Resource" uid="uid://bxanckxw3qwl5" path="res://content/item/item_wheat.tres" id="5_ojrfc"]
+[ext_resource type="Resource" uid="uid://gvni2qnigbkt" path="res://content/item/item_radish.tres" id="6_wp74p"]
 
 [node name="MainLevel" type="Node2D" node_paths=PackedStringArray("terrain")]
 script = ExtResource("1_askbe")
@@ -16,5 +18,10 @@ position = Vector2(-782, 235)
 [node name="Player" parent="." instance=ExtResource("3_lhg3q")]
 position = Vector2(621, 359)
 
-[node name="Item" parent="." instance=ExtResource("4_ojrfc")]
+[node name="TestWheat" parent="." instance=ExtResource("4_ojrfc")]
 position = Vector2(704, 319)
+config = ExtResource("5_ojrfc")
+
+[node name="TestRadish" parent="." instance=ExtResource("4_ojrfc")]
+position = Vector2(706, 356)
+config = ExtResource("6_wp74p")

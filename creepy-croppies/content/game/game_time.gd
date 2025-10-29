@@ -20,6 +20,7 @@ func _ready() -> void:
 	minute_timer.timeout.connect(advance_minute)
 	minute_timer.wait_time = minute_tick_rate
 	advance_day()
+	day -= 1
 
 func advance_minute() -> void:
 	raw_minute += 1

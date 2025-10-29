@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Seed" load_steps=5 format=3 uid="uid://dui7j7ptnikpj"]
+
+[ext_resource type="Resource" uid="uid://boprnxcoj4fa0" path="res://content/plant/plant_radish.tres" id="1_nfupi"]
+[ext_resource type="Script" uid="uid://cgqcvbtck2hn1" path="res://content/tools/seed.gd" id="2_3ya46"]
+[ext_resource type="Texture2D" uid="uid://2f1gd0g8ev3e" path="res://assets/sprout_lands_basic/Objects/Basic_Plants.png" id="3_164se"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_skdgh"]
+atlas = ExtResource("3_164se")
+region = Rect2(0, 16, 16, 16)
+
+[resource]
+script = ExtResource("2_3ya46")
+plant = ExtResource("1_nfupi")
+display_name = "Radish"
+required_terrain_flag = "plantable"
+allow_overlaps = false
+texture = SubResource("AtlasTexture_skdgh")
+metadata/_custom_type_script = "uid://cgqcvbtck2hn1"

@@ -1,10 +1,12 @@
-class_name PlayerController extends Node
+class_name InputManager extends Node
 
-@export var character: Character
-@export var cursor: Sprite2D
+var character: Character
 
 func _ready() -> void:
-	Game.register_player(self)
+	Game.level_loaded.connect(_on_level_loaded)
+	
+func _on_level_loaded(level: Level) -> void:
+	character = level.character
 
 func _process(_delta: float) -> void:
 	if not character:
@@ -32,3 +34,7 @@ func apply_inputs() -> void:
 	# debug inputs
 	if Input.is_action_just_pressed("debug_next_day"):
 		Game.time.debug_advance_day()
+		
+	# interact with objects
+	if Input.is_action_just_pressed("interact"):
+		character.interact()

@@ -137,6 +137,13 @@ func cast_interact() -> Array[Dictionary]:
 	qpoint.collision_mask = interact_collision
 	qpoint.position = get_interact_point()
 	return space_state.intersect_point(qpoint)
+	
+func interact():
+	var objects: Array[Dictionary] = cast_interact()
+	for object in objects:
+		print(object)
+		if object["collider"].has_method("interact"):
+			object["collider"].interact()
 
 func _on_magnet_body_entered(body: Node2D) -> void:
 	if body is Item:

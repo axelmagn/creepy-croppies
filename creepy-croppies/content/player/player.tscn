@@ -1,10 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://b6ofto02bhrak"]
+[gd_scene load_steps=15 format=3 uid="uid://b6ofto02bhrak"]
 
 [ext_resource type="Script" uid="uid://chv7lvsfc5bhi" path="res://content/character/character.gd" id="1_y66qv"]
 [ext_resource type="PackedScene" uid="uid://bi41vafaqtj0i" path="res://content/plant/plant.tscn" id="2_i4jjh"]
 [ext_resource type="Texture2D" uid="uid://d32jwm5torsmv" path="res://assets/sprout_lands_basic/Characters/Basic Charakter Spritesheet.png" id="2_oq5wi"]
 [ext_resource type="Script" uid="uid://fij8pm0a6ytj" path="res://content/tools/tool.gd" id="3_bkj32"]
-[ext_resource type="Script" uid="uid://bm2hmmy33f2nn" path="res://content/player/player_controller.gd" id="3_oq5wi"]
 [ext_resource type="Resource" uid="uid://cbgetlc22i6l" path="res://content/tools/watering_can.tres" id="4_bkj32"]
 [ext_resource type="Script" uid="uid://v6ts0vjwtkop" path="res://content/tools/scythe.gd" id="4_rmk25"]
 [ext_resource type="Texture2D" uid="uid://cuuaia50i6neu" path="res://assets/sprout_lands_basic/Objects/Basic tools and meterials.png" id="6_bkj32"]
@@ -36,7 +35,7 @@ radius = 8.0
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("cursor", "cooldown_timer", "magnet_area", "pickup_area")]
 z_index = 2
 script = ExtResource("1_y66qv")
-interact_collision = 2
+interact_collision = 18
 tmp_test_plant = ExtResource("2_i4jjh")
 tools = Array[ExtResource("3_bkj32")]([ExtResource("4_bkj32"), SubResource("Resource_cvehv"), ExtResource("6_cvehv")])
 cursor = NodePath("Cursor")
@@ -53,11 +52,6 @@ texture_filter = 3
 texture = ExtResource("2_oq5wi")
 region_enabled = true
 region_rect = Rect2(16, 16, 16, 16)
-
-[node name="PlayerController" type="Node" parent="." node_paths=PackedStringArray("character")]
-script = ExtResource("3_oq5wi")
-character = NodePath("..")
-metadata/_custom_type_script = "uid://bm2hmmy33f2nn"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)

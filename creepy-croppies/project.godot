@@ -92,3 +92,4 @@ debug_next_day={
 2d_physics/layer_2="plant"
 2d_physics/layer_3="cursor"
 2d_physics/layer_4="item"
+2d_physics/layer_5="shop"

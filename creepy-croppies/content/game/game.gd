@@ -7,12 +7,13 @@ signal player_changed
 @export var world: Node2D
 @export var ui: MainUI
 @export var time: GameTime
-
 @export var main_level_scn: PackedScene
 
 @export var player_items: ItemContainer
 
-var active_player: PlayerController = null
+signal level_loaded(level: Level)
+
+var active_player: Character = null
 var active_level: Level = null
 
 func _ready() -> void:
@@ -37,10 +38,22 @@ func load_level(level_scn: PackedScene) -> void:
 		time.stop()
 	else:
 		time.start()
+	register_player(active_level.character)
+	level_loaded.emit(active_level)
 
 ## register a new player
-func register_player(player: PlayerController) -> void:
+func register_player(player: Character) -> void:
 	printt("new player registered:", player)
 	assert(active_player == null)
 	active_player = player
 	ui.player_hud.register_player(player)
+	
+func pause_game():
+	time.stop()
+	if active_level != null:
+		active_level.pause()
+
+func unpause_game():
+	time.start()
+	if active_level != null:
+		active_level.unpause()

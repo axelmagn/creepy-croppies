@@ -1,13 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://dhhvfktmpi1bi"]
+[gd_scene load_steps=6 format=3 uid="uid://dhhvfktmpi1bi"]
 
 [ext_resource type="Script" uid="uid://dikj3661rgst8" path="res://content/levels/level.gd" id="1_askbe"]
 [ext_resource type="PackedScene" uid="uid://b6ofto02bhrak" path="res://content/player/player.tscn" id="3_lhg3q"]
 [ext_resource type="PackedScene" uid="uid://dy8u031nrj081" path="res://content/item/item.tscn" id="4_ojrfc"]
 [ext_resource type="PackedScene" uid="uid://ook0yg3kgo7o" path="res://content/terrain/terrain.tscn" id="4_ouwjy"]
+[ext_resource type="PackedScene" uid="uid://g36a8sfrh3xy" path="res://content/shop/shop.tscn" id="5_ojrfc"]
 
-[node name="MainLevel" type="Node2D" node_paths=PackedStringArray("terrain")]
+[node name="MainLevel" type="Node2D" node_paths=PackedStringArray("terrain", "character", "shop")]
 script = ExtResource("1_askbe")
 terrain = NodePath("Terrain")
+character = NodePath("Player")
+shop = NodePath("Shop")
 metadata/_custom_type_script = "uid://dikj3661rgst8"
 
 [node name="Terrain" parent="." instance=ExtResource("4_ouwjy")]
@@ -18,3 +21,6 @@ position = Vector2(621, 359)
 
 [node name="Item" parent="." instance=ExtResource("4_ojrfc")]
 position = Vector2(704, 319)
+
+[node name="Shop" parent="." instance=ExtResource("5_ojrfc")]
+position = Vector2(712, 411)

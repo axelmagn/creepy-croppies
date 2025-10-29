@@ -28,3 +28,7 @@ func apply_inputs() -> void:
 		character.request_next_tool()
 	if Input.is_action_just_pressed("tool_prev"):
 		character.request_prev_tool()
+
+	# debug inputs
+	if Input.is_action_just_pressed("debug_next_day"):
+		Game.time.debug_advance_day()

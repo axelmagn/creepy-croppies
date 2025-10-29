@@ -10,7 +10,7 @@ var active_stage_idx: int = 0
 func _ready() -> void:
 	assert(config)
 	assert(sprite)
-	Game.time.day_start.connect(tick_day)
+	Game.time.day_end.connect(tick_day)
 	update_internals()
 
 func tick_day() -> void:

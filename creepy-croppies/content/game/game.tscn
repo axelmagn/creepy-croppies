@@ -53,4 +53,4 @@ player_hud = NodePath("PlayerHUD")
 [node name="GameTime" parent="." instance=ExtResource("6_pikl6")]
 start_hour = 9
 end_hour = 17
-minute_tick_rate = 0.001
+minute_tick_rate = 0.5

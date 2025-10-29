@@ -27,10 +27,16 @@ func advance_minute() -> void:
 		# TODO: end of day screen - until then, just advance the day
 		advance_day()
 
+
 func advance_day() -> void:
 	raw_minute = start_hour * 60
 	day += 1
 	day_start.emit()
+
+## used for debugging when we want to scroll through days
+func debug_advance_day():
+	day_end.emit()
+	advance_day()
 
 
 func minute() -> int:

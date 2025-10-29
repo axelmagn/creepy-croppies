@@ -5,6 +5,11 @@ class_name Terrain extends Node2D
 @export var dry_dirt_sid: int
 @export var wet_dirt_sid: int
 
+var watered_tiles: Array[TerrainCoord]
+
+func _ready():
+	Game.time.day_start.connect(unwater_all)
+
 ## translate a global position to local tile coordinates
 func _global_to_map(global_pos: Vector2, layer: TileMapLayer) -> Vector2i:
 	var local = layer.to_local(global_pos)
@@ -33,10 +38,24 @@ func get_showing_cell(global_pos: Vector2) -> TerrainCoord:
 func water(tcoord: TerrainCoord) -> void:
 	var acoord = tcoord.layer.get_cell_atlas_coords(tcoord.coord)
 	tcoord.layer.set_cell(tcoord.coord, wet_dirt_sid, acoord)
+	watered_tiles.append(tcoord)
 
 func unwater(tcoord: TerrainCoord) -> void:
 	var acoord = tcoord.layer.get_cell_atlas_coords(tcoord.coord)
 	tcoord.layer.set_cell(tcoord.coord, dry_dirt_sid, acoord)
+	for i in range(watered_tiles.size()):
+		var watered = watered_tiles[i]
+		if tcoord.equals(watered):
+			watered_tiles.remove_at(i)
+			return
+	assert(false, "found untracked watered tile")
+
+func unwater_all() -> void:
+	for tcoord in watered_tiles:
+		var acoord = tcoord.layer.get_cell_atlas_coords(tcoord.coord)
+		tcoord.layer.set_cell(tcoord.coord, dry_dirt_sid, acoord)
+	watered_tiles.clear()
+
 
 class TerrainCoord extends RefCounted:
 	var layer: TileMapLayer
@@ -49,3 +68,6 @@ class TerrainCoord extends RefCounted:
 	func has_flag(flag_name: String) -> bool:
 		var tdata = layer.get_cell_tile_data(coord)
 		return tdata.has_custom_data(flag_name) and bool(tdata.get_custom_data(flag_name))
+
+	func equals(other: TerrainCoord) -> bool:
+		return layer == other.layer and coord == other.coord

@@ -48,13 +48,19 @@ func unwater(tcoord: TerrainCoord) -> void:
 		if tcoord.equals(watered):
 			watered_tiles.remove_at(i)
 			return
-	assert(false, "found untracked watered tile")
 
 func unwater_all() -> void:
 	for tcoord in watered_tiles:
 		var acoord = tcoord.layer.get_cell_atlas_coords(tcoord.coord)
 		tcoord.layer.set_cell(tcoord.coord, dry_dirt_sid, acoord)
 	watered_tiles.clear()
+
+func is_watered(tcoord: TerrainCoord) -> bool:
+	for i in range(watered_tiles.size()):
+		var watered = watered_tiles[i]
+		if tcoord.equals(watered):
+			return true
+	return false
 
 
 class TerrainCoord extends RefCounted:

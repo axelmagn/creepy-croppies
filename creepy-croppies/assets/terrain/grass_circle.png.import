@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cvcq5usjym0ub"
-path="res://.godot/imported/CreepyGrass.png-9f89105c8eae42d61548671fa01539e9.ctex"
+uid="uid://fcvsw02mtmsq"
+path="res://.godot/imported/grass_circle.png-91d79eb443b8781d08b7b544e54d54d2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/terrain/CreepyGrass.png"
-dest_files=["res://.godot/imported/CreepyGrass.png-9f89105c8eae42d61548671fa01539e9.ctex"]
+source_file="res://assets/terrain/grass_circle.png"
+dest_files=["res://.godot/imported/grass_circle.png-91d79eb443b8781d08b7b544e54d54d2.ctex"]
 
 [params]
 

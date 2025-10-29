@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c6di4d6i3ctrr"
-path="res://.godot/imported/spooky_ground_circle.png-2b211ecd5817db530515fa799bc28f96.ctex"
+uid="uid://clyphyr30f5rs"
+path="res://.godot/imported/grass_tiles.png-e48fd1b7b403f23419c967fac28c7e67.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/terrain/spooky_ground_circle.png"
-dest_files=["res://.godot/imported/spooky_ground_circle.png-2b211ecd5817db530515fa799bc28f96.ctex"]
+source_file="res://assets/terrain/grass_tiles.png"
+dest_files=["res://.godot/imported/grass_tiles.png-e48fd1b7b403f23419c967fac28c7e67.ctex"]
 
 [params]
 

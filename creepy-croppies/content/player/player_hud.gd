@@ -10,6 +10,7 @@ class_name PlayerHUD extends Control
 @export var custom_label: Label
 
 @export var tools_indicator: ToolsIndicator
+@export var stamina_indicator: StaminaIndicator
 
 var player: Character = null
 
@@ -23,6 +24,7 @@ func _ready() -> void:
 	assert(custom_label)
 
 	assert(tools_indicator)
+	assert(stamina_indicator)
 
 	# Game.player_items.items_changed.connect(update_item_grid)
 	# update_item_grid()
@@ -67,3 +69,4 @@ func update_view() -> void:
 func register_player(player: Character) -> void:
 	self.player = player
 	tools_indicator.set_character(player)
+	stamina_indicator.set_character(player)

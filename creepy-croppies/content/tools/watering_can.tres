@@ -12,4 +12,5 @@ script = ExtResource("1_321pa")
 display_name = "Watering Can"
 required_terrain_flag = "waterable"
 texture = SubResource("AtlasTexture_yl7ic")
+stamina_cost = 4.0
 metadata/_custom_type_script = "uid://dc176gbpwjncg"

@@ -3,6 +3,7 @@ class_name Character extends CharacterBody2D
 enum ActionState {IDLE, WALK}
 
 signal active_tool_changed
+signal stamina_changed
 
 @export var max_speed: float = 64
 @export var interact_reach: float = 16
@@ -15,11 +16,14 @@ signal active_tool_changed
 @export var cooldown_timer: Timer
 @export var magnet_area: Area2D
 @export var pickup_area: Area2D
+@export var max_stamina: float = 100
 
 var _input_move: Vector2 = Vector2.ZERO
 var facing_dir: Vector2 = Vector2.DOWN
 var active_tool_idx: int = 0
 var cooling_down: bool = false
+
+var stamina: float = 0
 
 func _ready() -> void:
 	assert(cooldown_timer)
@@ -29,6 +33,9 @@ func _ready() -> void:
 		magnet_area.body_entered.connect(_on_magnet_body_entered)
 	if pickup_area:
 		pickup_area.body_entered.connect(_on_pickup_body_entered)
+	
+	Game.time.day_start.connect(_on_day_start)
+	stamina = max_stamina
 
 func _process(_delta: float) -> void:
 	_apply_move()
@@ -144,6 +151,12 @@ func interact():
 		print(object)
 		if object["collider"].has_method("interact"):
 			object["collider"].interact()
+	
+func set_stamina(value: float) -> void:
+	if stamina == value:
+		return
+	stamina = value
+	stamina_changed.emit()
 
 func _on_magnet_body_entered(body: Node2D) -> void:
 	if body is Item:
@@ -159,3 +172,6 @@ func _on_pickup_body_entered(body: Node2D) -> void:
 		printt("picked up item:", body.config.name)
 		Game.player_items.add_item(body.config, 1)
 		body.queue_free()
+
+func _on_day_start() -> void:
+	stamina = max_stamina

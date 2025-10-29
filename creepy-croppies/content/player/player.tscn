@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://b6ofto02bhrak"]
+[gd_scene load_steps=16 format=3 uid="uid://b6ofto02bhrak"]
 
 [ext_resource type="Script" uid="uid://chv7lvsfc5bhi" path="res://content/character/character.gd" id="1_y66qv"]
 [ext_resource type="PackedScene" uid="uid://bi41vafaqtj0i" path="res://content/plant/plant.tscn" id="2_i4jjh"]
@@ -19,6 +19,7 @@ region = Rect2(32, 0, 16, 16)
 script = ExtResource("4_rmk25")
 display_name = "Scythe"
 texture = SubResource("AtlasTexture_cvehv")
+stamina_cost = 4.0
 metadata/_custom_type_script = "uid://v6ts0vjwtkop"
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ugpfc"]

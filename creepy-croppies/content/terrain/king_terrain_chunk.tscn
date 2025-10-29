@@ -1,12 +1,12 @@
 [gd_scene load_steps=16 format=4 uid="uid://2i4lw1rsnc8e"]
 
-[ext_resource type="Texture2D" uid="uid://bbyb545wpuxnw" path="res://assets/terrain/water_tiles.png" id="1_vnocr"]
-[ext_resource type="Texture2D" uid="uid://cutwgli7pyou5" path="res://grass_tiles.png" id="2_c4iqu"]
-[ext_resource type="Texture2D" uid="uid://crgg1m7k3vrh5" path="res://water_tiles.png" id="3_dda3i"]
-[ext_resource type="Texture2D" uid="uid://7poqpuora3wb" path="res://assets/collision_tiles.png" id="4_ab37i"]
+[ext_resource type="Texture2D" uid="uid://bbyb545wpuxnw" path="res://assets/terrain/water_tiles.png" id="1_nk6vm"]
+[ext_resource type="Texture2D" uid="uid://cutwgli7pyou5" path="res://grass_tiles.png" id="2_bhs2k"]
+[ext_resource type="Texture2D" uid="uid://crgg1m7k3vrh5" path="res://water_tiles.png" id="3_ogibg"]
+[ext_resource type="Texture2D" uid="uid://7poqpuora3wb" path="res://assets/collision_tiles.png" id="4_1fvxm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p2u83"]
-texture = ExtResource("1_vnocr")
+texture = ExtResource("1_nk6vm")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -39,7 +39,7 @@ tile_data = PackedInt32Array(0, 458756, 805306368, 1, 458756, 2, 2, 458756, 8053
 tile_data = PackedInt32Array(0, 458756, 0, 1, 524292, 1610612737, 2, 458756, 0, 3, 458756, 268435456)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d1vun"]
-texture = ExtResource("2_c4iqu")
+texture = ExtResource("2_bhs2k")
 0:1/0 = 0
 0:2/0 = 0
 0:3/0 = 0
@@ -97,7 +97,7 @@ texture = ExtResource("2_c4iqu")
 10:2/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_66bi2"]
-texture = ExtResource("3_dda3i")
+texture = ExtResource("3_ogibg")
 0:1/0 = 0
 0:2/0 = 0
 0:3/0 = 0
@@ -164,7 +164,7 @@ pattern_2 = SubResource("TileMapPattern_ais2l")
 pattern_3 = SubResource("TileMapPattern_g6g14")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_utfh3"]
-texture = ExtResource("4_ab37i")
+texture = ExtResource("4_1fvxm")
 1:0/0 = 0
 1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(3.2077293, 8, 4.0416546, 6.922612, 6.0328217, 5.9395347, 8, 4.9936495, 8, 2.989656, 6.0328217, 3.0056877, 4.060892, 4.0958605, 2.0748563, 5.1360083, 1.0648437, 6.081893, 0.08689499, 7.091906, -0.13725853, 8)
 2:0/0 = 0

@@ -1,0 +1,33 @@
+[gd_scene load_steps=8 format=3 uid="uid://cuw8uygdpglxk"]
+
+[ext_resource type="Script" uid="uid://dikj3661rgst8" path="res://content/levels/level.gd" id="1_jwjkq"]
+[ext_resource type="PackedScene" uid="uid://c6teftib88pcu" path="res://content/terrain/king_terrain.tscn" id="2_jwjkq"]
+[ext_resource type="PackedScene" uid="uid://b6ofto02bhrak" path="res://content/player/player.tscn" id="3_qwucy"]
+[ext_resource type="PackedScene" uid="uid://dy8u031nrj081" path="res://content/item/item.tscn" id="4_n8pfq"]
+[ext_resource type="Resource" uid="uid://bxanckxw3qwl5" path="res://content/item/item_wheat.tres" id="5_frpgg"]
+[ext_resource type="Resource" uid="uid://gvni2qnigbkt" path="res://content/item/item_radish.tres" id="6_pdf8x"]
+[ext_resource type="PackedScene" uid="uid://g36a8sfrh3xy" path="res://content/shop/shop.tscn" id="7_f50eq"]
+
+[node name="KingLevel" type="Node2D" node_paths=PackedStringArray("terrain", "character", "shop")]
+script = ExtResource("1_jwjkq")
+terrain = NodePath("Terrain2")
+character = NodePath("Player")
+shop = NodePath("Shop")
+metadata/_custom_type_script = "uid://dikj3661rgst8"
+
+[node name="Terrain2" parent="." instance=ExtResource("2_jwjkq")]
+position = Vector2(-849, 347)
+
+[node name="Player" parent="." instance=ExtResource("3_qwucy")]
+position = Vector2(621, 359)
+
+[node name="TestWheat" parent="." instance=ExtResource("4_n8pfq")]
+position = Vector2(704, 319)
+config = ExtResource("5_frpgg")
+
+[node name="TestRadish" parent="." instance=ExtResource("4_n8pfq")]
+position = Vector2(706, 356)
+config = ExtResource("6_pdf8x")
+
+[node name="Shop" parent="." instance=ExtResource("7_f50eq")]
+position = Vector2(712, 411)

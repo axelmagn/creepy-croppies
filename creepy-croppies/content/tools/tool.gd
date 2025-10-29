@@ -5,6 +5,8 @@ class_name Tool extends Resource
 @export var required_terrain_flag: String
 @export var allow_overlaps: bool = true
 @export var cooldown: float = 0.2
+@export var texture: Texture
+@export var stamina_cost: float = 2
 
 func can_use(user: Character):
 	if user.cooling_down:
@@ -16,11 +18,14 @@ func can_use(user: Character):
 		return false
 	if not allow_overlaps and user.cast_interact().size() > 0:
 		return false
+	if user.stamina < stamina_cost:
+		return false
 	return true
 
 
 func use_primary(user: Character):
 	user.start_cooldown(cooldown)
+	user.set_stamina(user.stamina - stamina_cost)
 
 func use_secondary(user: Character):
 	# TODO: deprecate

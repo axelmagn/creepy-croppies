@@ -1,25 +1,30 @@
-[gd_scene load_steps=14 format=3 uid="uid://b6ofto02bhrak"]
+[gd_scene load_steps=16 format=3 uid="uid://b6ofto02bhrak"]
 
 [ext_resource type="Script" uid="uid://chv7lvsfc5bhi" path="res://content/character/character.gd" id="1_y66qv"]
 [ext_resource type="PackedScene" uid="uid://bi41vafaqtj0i" path="res://content/plant/plant.tscn" id="2_i4jjh"]
 [ext_resource type="Texture2D" uid="uid://d32jwm5torsmv" path="res://assets/sprout_lands_basic/Characters/Basic Charakter Spritesheet.png" id="2_oq5wi"]
 [ext_resource type="Script" uid="uid://fij8pm0a6ytj" path="res://content/tools/tool.gd" id="3_bkj32"]
-[ext_resource type="Script" uid="uid://bm2hmmy33f2nn" path="res://content/player/player_controller.gd" id="3_oq5wi"]
 [ext_resource type="Resource" uid="uid://cbgetlc22i6l" path="res://content/tools/watering_can.tres" id="4_bkj32"]
 [ext_resource type="Script" uid="uid://v6ts0vjwtkop" path="res://content/tools/scythe.gd" id="4_rmk25"]
-[ext_resource type="Resource" uid="uid://c152ypsyhcmff" path="res://content/tools/test_seed.tres" id="6_cvehv"]
+[ext_resource type="Texture2D" uid="uid://cuuaia50i6neu" path="res://assets/sprout_lands_basic/Objects/Basic tools and meterials.png" id="6_bkj32"]
+[ext_resource type="Resource" uid="uid://cwkciq0pi20lj" path="res://content/tools/seed_wheat.tres" id="7_vx4xa"]
+[ext_resource type="Resource" uid="uid://dui7j7ptnikpj" path="res://content/tools/seed_radish.tres" id="8_5unhu"]
+[ext_resource type="Texture2D" uid="uid://d1gpte07vmnn8" path="res://assets/kenney_crosshair-pack/PNG/White/crosshair026.png" id="10_cvehv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cvehv"]
+atlas = ExtResource("6_bkj32")
+region = Rect2(32, 0, 16, 16)
 
 [sub_resource type="Resource" id="Resource_cvehv"]
 script = ExtResource("4_rmk25")
 display_name = "Scythe"
+texture = SubResource("AtlasTexture_cvehv")
+stamina_cost = 4.0
 metadata/_custom_type_script = "uid://v6ts0vjwtkop"
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ugpfc"]
 radius = 4.0
 height = 8.0
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_bkj32"]
-size = Vector2(16, 16)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bkj32"]
 radius = 48.0
@@ -30,9 +35,9 @@ radius = 8.0
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("cursor", "cooldown_timer", "magnet_area", "pickup_area")]
 z_index = 2
 script = ExtResource("1_y66qv")
-interact_collision = 2
+interact_collision = 18
 tmp_test_plant = ExtResource("2_i4jjh")
-tools = Array[ExtResource("3_bkj32")]([ExtResource("4_bkj32"), SubResource("Resource_cvehv"), ExtResource("6_cvehv")])
+tools = Array[ExtResource("3_bkj32")]([ExtResource("4_bkj32"), SubResource("Resource_cvehv"), ExtResource("7_vx4xa"), ExtResource("8_5unhu")])
 cursor = NodePath("Cursor")
 cooldown_timer = NodePath("CooldownTimer")
 magnet_area = NodePath("MagnetArea")
@@ -48,11 +53,6 @@ texture = ExtResource("2_oq5wi")
 region_enabled = true
 region_rect = Rect2(16, 16, 16, 16)
 
-[node name="PlayerController" type="Node" parent="." node_paths=PackedStringArray("character")]
-script = ExtResource("3_oq5wi")
-character = NodePath("..")
-metadata/_custom_type_script = "uid://bm2hmmy33f2nn"
-
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
 position_smoothing_enabled = true
@@ -61,7 +61,9 @@ position_smoothing_enabled = true
 
 [node name="CursorSprite" type="Sprite2D" parent="Cursor"]
 modulate = Color(1, 1, 1, 0.4745098)
-texture = SubResource("PlaceholderTexture2D_bkj32")
+texture_filter = 3
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("10_cvehv")
 
 [node name="CooldownTimer" type="Timer" parent="."]
 

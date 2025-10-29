@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://ixd4jqkrcxmk"]
+[gd_scene load_steps=24 format=3 uid="uid://ixd4jqkrcxmk"]
 
 [ext_resource type="Script" uid="uid://bogh6746ikc7s" path="res://content/game/game.gd" id="1_r1esr"]
 [ext_resource type="PackedScene" uid="uid://bi41vafaqtj0i" path="res://content/plant/plant.tscn" id="2_dck4f"]
@@ -12,6 +12,14 @@
 [ext_resource type="PackedScene" uid="uid://cyfe0qh5oiog1" path="res://content/game/game_time.tscn" id="6_pikl6"]
 [ext_resource type="Script" uid="uid://dqx63of8et0be" path="res://content/item/item_config.gd" id="7_4ebuv"]
 [ext_resource type="Script" uid="uid://1sh2lqokbbvk" path="res://content/item/item_container.gd" id="8_ib5ax"]
+[ext_resource type="PackedScene" uid="uid://cpk6wyq8mwjf6" path="res://content/ui/day_summary.tscn" id="8_twpl5"]
+[ext_resource type="Resource" uid="uid://bxanckxw3qwl5" path="res://content/item/item_wheat.tres" id="8_upkcm"]
+[ext_resource type="Resource" uid="uid://gvni2qnigbkt" path="res://content/item/item_radish.tres" id="9_qhbyw"]
+[ext_resource type="Resource" uid="uid://bpxpxj7loip6" path="res://content/item/item_wheat_seed.tres" id="10_oq3ly"]
+[ext_resource type="Resource" uid="uid://b47jndxtask0c" path="res://content/item/item_radish_seed.tres" id="11_4aeii"]
+[ext_resource type="PackedScene" path="res://content/ui/shop_ui.tscn" id="13_ql74j"]
+[ext_resource type="Script" uid="uid://b5d2oq7w0l8wh" path="res://content/day/day_manager.gd" id="14_dv1sk"]
+[ext_resource type="Script" uid="uid://cje7qy2x248ac" path="res://content/input/input_manager.gd" id="16_upkcm"]
 
 [sub_resource type="Resource" id="Resource_xjc2w"]
 script = ExtResource("3_twpl5")
@@ -26,6 +34,12 @@ metadata/_custom_type_script = "uid://dep5r7js3181m"
 
 [sub_resource type="Resource" id="Resource_dv1sk"]
 script = ExtResource("8_ib5ax")
+items = Dictionary[ExtResource("7_4ebuv"), int]({
+ExtResource("8_upkcm"): 0,
+ExtResource("9_qhbyw"): 0,
+ExtResource("10_oq3ly"): 3,
+ExtResource("11_4aeii"): 3
+})
 metadata/_custom_type_script = "uid://1sh2lqokbbvk"
 
 [node name="Game" type="Node" node_paths=PackedStringArray("world", "ui", "time")]
@@ -39,18 +53,37 @@ main_level_scn = ExtResource("2_gk6uf")
 player_items = SubResource("Resource_dv1sk")
 
 [node name="World" type="Node2D" parent="."]
+process_mode = 1
 texture_filter = 3
 
-[node name="UI" type="CanvasLayer" parent="." node_paths=PackedStringArray("main_menu", "player_hud")]
+[node name="UI" type="CanvasLayer" parent="." node_paths=PackedStringArray("main_menu", "player_hud", "day_summary", "shop_ui")]
+process_mode = 3
 script = ExtResource("2_ryjdl")
 main_menu = NodePath("MainMenu")
 player_hud = NodePath("PlayerHUD")
+day_summary = NodePath("DaySummary")
+shop_ui = NodePath("ShopUi")
+
+[node name="DaySummary" parent="UI" instance=ExtResource("8_twpl5")]
+visible = false
+
+[node name="PlayerHUD" parent="UI" instance=ExtResource("5_y33i4")]
 
 [node name="MainMenu" parent="UI" instance=ExtResource("3_u7hef")]
 
-[node name="PlayerHUD" parent="UI" instance=ExtResource("5_y33i4")]
+[node name="ShopUi" parent="UI" instance=ExtResource("13_ql74j")]
+visible = false
 
 [node name="GameTime" parent="." instance=ExtResource("6_pikl6")]
 start_hour = 9
 end_hour = 17
-minute_tick_rate = 0.001
+minute_tick_rate = 0.5
+
+[node name="DayManager" type="Node" parent="." node_paths=PackedStringArray("time", "ui")]
+script = ExtResource("14_dv1sk")
+time = NodePath("../GameTime")
+ui = NodePath("../UI")
+
+[node name="InputManager" type="Node" parent="."]
+process_mode = 3
+script = ExtResource("16_upkcm")

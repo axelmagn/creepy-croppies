@@ -2,6 +2,9 @@ class_name Character extends CharacterBody2D
 
 enum ActionState {IDLE, WALK}
 
+signal active_tool_changed
+signal stamina_changed
+
 @export var max_speed: float = 64
 @export var interact_reach: float = 16
 @export_flags_2d_physics var interact_collision: int = 0
@@ -13,11 +16,14 @@ enum ActionState {IDLE, WALK}
 @export var cooldown_timer: Timer
 @export var magnet_area: Area2D
 @export var pickup_area: Area2D
+@export var max_stamina: float = 100
 
 var _input_move: Vector2 = Vector2.ZERO
 var facing_dir: Vector2 = Vector2.DOWN
-var _active_tool_idx: int = 0
+var active_tool_idx: int = 0
 var cooling_down: bool = false
+
+var stamina: float = 0
 
 func _ready() -> void:
 	assert(cooldown_timer)
@@ -27,6 +33,9 @@ func _ready() -> void:
 		magnet_area.body_entered.connect(_on_magnet_body_entered)
 	if pickup_area:
 		pickup_area.body_entered.connect(_on_pickup_body_entered)
+	
+	Game.time.day_start.connect(_on_day_start)
+	stamina = max_stamina
 
 func _process(_delta: float) -> void:
 	_apply_move()
@@ -43,14 +52,16 @@ func request_use_tool() -> void:
 func request_next_tool() -> void:
 	if tools.is_empty():
 		return
-	_active_tool_idx += 1
-	_active_tool_idx %= tools.size()
+	active_tool_idx += 1
+	active_tool_idx %= tools.size()
+	active_tool_changed.emit()
 
 func request_prev_tool() -> void:
 	if tools.is_empty():
 		return
-	_active_tool_idx += tools.size() - 1
-	_active_tool_idx %= tools.size()
+	active_tool_idx += tools.size() - 1
+	active_tool_idx %= tools.size()
+	active_tool_changed.emit()
 
 func get_action_state() -> ActionState:
 	if velocity.length_squared() > 0:
@@ -113,10 +124,10 @@ func update_cursor() -> void:
 
 
 func get_active_tool() -> Tool:
-	return tools.get(_active_tool_idx)
+	return tools.get(active_tool_idx)
 
 func get_active_tool_idx() -> int:
-	return _active_tool_idx
+	return active_tool_idx
 
 func start_cooldown(time: float) -> void:
 	cooling_down = true
@@ -133,6 +144,19 @@ func cast_interact() -> Array[Dictionary]:
 	qpoint.collision_mask = interact_collision
 	qpoint.position = get_interact_point()
 	return space_state.intersect_point(qpoint)
+	
+func interact():
+	var objects: Array[Dictionary] = cast_interact()
+	for object in objects:
+		print(object)
+		if object["collider"].has_method("interact"):
+			object["collider"].interact()
+	
+func set_stamina(value: float) -> void:
+	if stamina == value:
+		return
+	stamina = value
+	stamina_changed.emit()
 
 func _on_magnet_body_entered(body: Node2D) -> void:
 	if body is Item:
@@ -148,3 +172,6 @@ func _on_pickup_body_entered(body: Node2D) -> void:
 		printt("picked up item:", body.config.name)
 		Game.player_items.add_item(body.config, 1)
 		body.queue_free()
+
+func _on_day_start() -> void:
+	stamina = max_stamina

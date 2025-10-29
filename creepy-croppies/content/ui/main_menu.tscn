@@ -1,7 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://dj2hnqgf47qho"]
+[gd_scene load_steps=6 format=3 uid="uid://dj2hnqgf47qho"]
 
 [ext_resource type="Theme" uid="uid://c55ad4h1x0cgs" path="res://content/ui/main_theme.tres" id="1_jhhu4"]
 [ext_resource type="Script" uid="uid://hsjnoacosn7v" path="res://content/ui/main_menu.gd" id="1_myo1n"]
+[ext_resource type="Theme" uid="uid://bmx3qwc0068d1" path="res://content/ui/title_theme.tres" id="3_nxgiw"]
+
+[sub_resource type="Gradient" id="Gradient_jhhu4"]
+colors = PackedColorArray(0.8742511, 0.5064472, 0.09918059, 1, 7.797182e-06, 0.61698824, 0.78661567, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_nxgiw"]
+gradient = SubResource("Gradient_jhhu4")
 
 [node name="MainMenu" type="Control" node_paths=PackedStringArray("play_button", "exit_button")]
 layout_mode = 3
@@ -14,6 +21,15 @@ theme = ExtResource("1_jhhu4")
 script = ExtResource("1_myo1n")
 play_button = NodePath("VBoxContainer/VBoxContainer/PlayButton")
 exit_button = NodePath("VBoxContainer/VBoxContainer/ExitButton")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_nxgiw")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -29,8 +45,13 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="VBoxContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("3_nxgiw")
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer"]
+layout_mode = 2
+theme = ExtResource("3_nxgiw")
 theme_override_font_sizes/font_size = 64
 text = "Creepy Croppies"
 

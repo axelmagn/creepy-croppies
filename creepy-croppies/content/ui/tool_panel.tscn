@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://dt4q1xkadfoc5"]
+
+[ext_resource type="Theme" uid="uid://dwwduca38fsi3" path="res://content/ui/tools_indicator_theme.tres" id="1_c8ex1"]
+[ext_resource type="Texture2D" uid="uid://cg4b0ahl4eb0g" path="res://assets/sprout_lands_basic/Objects/Basic_tools_and_meterials.png" id="1_heill"]
+[ext_resource type="Script" uid="uid://dohivixuig737" path="res://content/ui/tool_panel.gd" id="1_rrv2x"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7xuoy"]
+atlas = ExtResource("1_heill")
+region = Rect2(0, 0, 16, 16)
+
+[node name="ToolPanel" type="PanelContainer" node_paths=PackedStringArray("texture_rect")]
+texture_filter = 3
+theme = ExtResource("1_c8ex1")
+script = ExtResource("1_rrv2x")
+texture_rect = NodePath("TextureRect")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = SubResource("AtlasTexture_7xuoy")
+stretch_mode = 4

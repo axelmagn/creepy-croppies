@@ -1,5 +1,7 @@
 class_name GameTime extends Node
 
+enum DayNameAbbr {Mon, Tue, Wed, Thu, Fri, Sat, Sun}
+
 signal day_start
 signal day_end
 signal minute_tick
@@ -47,6 +49,13 @@ func hour() -> int:
 
 func day_of_week() -> int:
 	return day % 7
+
+func day_of_month() -> int:
+	return day % 30
+
+func day_of_week_name() -> String:
+	var d = day_of_week()
+	return DayNameAbbr.keys()[d]
 
 func stop() -> void:
 	minute_timer.stop()

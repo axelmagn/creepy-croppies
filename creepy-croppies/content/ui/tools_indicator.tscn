@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://clbrlgyqed40b"]
+
+[ext_resource type="Texture2D" uid="uid://cg4b0ahl4eb0g" path="res://assets/sprout_lands_basic/Objects/Basic_tools_and_meterials.png" id="1_5goes"]
+[ext_resource type="Script" uid="uid://jrm8xj77bu6i" path="res://content/ui/tools_indicator.gd" id="1_f6ax4"]
+[ext_resource type="PackedScene" uid="uid://dt4q1xkadfoc5" path="res://content/ui/tool_panel.tscn" id="1_l5dxo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m1xjk"]
+atlas = ExtResource("1_5goes")
+region = Rect2(32, 0, 16, 16)
+
+[node name="ToolsIndicator" type="HBoxContainer"]
+texture_filter = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("1_f6ax4")
+tool_panel_scn = ExtResource("1_l5dxo")
+
+[node name="ToolPanel" parent="." instance=ExtResource("1_l5dxo")]
+layout_mode = 2
+
+[node name="ToolPanel2" type="PanelContainer" parent="."]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="ToolPanel2"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = SubResource("AtlasTexture_m1xjk")
+stretch_mode = 4

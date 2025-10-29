@@ -2,6 +2,8 @@ class_name Character extends CharacterBody2D
 
 enum ActionState {IDLE, WALK}
 
+signal active_tool_changed
+
 @export var max_speed: float = 64
 @export var interact_reach: float = 16
 @export_flags_2d_physics var interact_collision: int = 0
@@ -16,7 +18,7 @@ enum ActionState {IDLE, WALK}
 
 var _input_move: Vector2 = Vector2.ZERO
 var facing_dir: Vector2 = Vector2.DOWN
-var _active_tool_idx: int = 0
+var active_tool_idx: int = 0
 var cooling_down: bool = false
 
 func _ready() -> void:
@@ -43,14 +45,16 @@ func request_use_tool() -> void:
 func request_next_tool() -> void:
 	if tools.is_empty():
 		return
-	_active_tool_idx += 1
-	_active_tool_idx %= tools.size()
+	active_tool_idx += 1
+	active_tool_idx %= tools.size()
+	active_tool_changed.emit()
 
 func request_prev_tool() -> void:
 	if tools.is_empty():
 		return
-	_active_tool_idx += tools.size() - 1
-	_active_tool_idx %= tools.size()
+	active_tool_idx += tools.size() - 1
+	active_tool_idx %= tools.size()
+	active_tool_changed.emit()
 
 func get_action_state() -> ActionState:
 	if velocity.length_squared() > 0:
@@ -113,10 +117,10 @@ func update_cursor() -> void:
 
 
 func get_active_tool() -> Tool:
-	return tools.get(_active_tool_idx)
+	return tools.get(active_tool_idx)
 
 func get_active_tool_idx() -> int:
-	return _active_tool_idx
+	return active_tool_idx
 
 func start_cooldown(time: float) -> void:
 	cooling_down = true

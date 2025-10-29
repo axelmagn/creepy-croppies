@@ -1,11 +1,12 @@
 class_name GameAutoload extends Node
 
+signal player_changed
+
 @export var plants: PlantManager
 @export var items: ItemManager
 @export var world: Node2D
 @export var ui: MainUI
 @export var time: GameTime
-
 
 @export var main_level_scn: PackedScene
 

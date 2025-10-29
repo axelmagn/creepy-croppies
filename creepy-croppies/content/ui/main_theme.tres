@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=14 format=3 uid="uid://c55ad4h1x0cgs"]
+[gd_resource type="Theme" load_steps=16 format=3 uid="uid://c55ad4h1x0cgs"]
 
 [ext_resource type="Texture2D" uid="uid://b2qcyt37uvemi" path="res://assets/kenney_ui-pack-pixel-adventure/Tilesheets/Large tiles/Thick outline/tilemap_packed.png" id="1_ky6lw"]
 [ext_resource type="FontFile" uid="uid://dts4e6mk78opx" path="res://assets/kenney_kenney-fonts/Fonts/Kenney Pixel.ttf" id="1_u5b7a"]
@@ -58,14 +58,30 @@ texture_margin_right = 8.0
 texture_margin_bottom = 8.0
 modulate_color = Color(0.54, 0.54, 0.54, 1)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_33nnl"]
+atlas = ExtResource("1_ky6lw")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ptrjd"]
+texture = SubResource("AtlasTexture_33nnl")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+
 [resource]
 default_font_size = 32
 /font_sizes/default_font_size = 24
 Button/colors/font_disabled_color = Color(0.29, 0.29, 0.29, 1)
-Button/font_sizes/font_size = 64
+Button/font_sizes/font_size = 32
 Button/fonts/font = ExtResource("1_u5b7a")
 Button/styles/disabled = SubResource("StyleBoxTexture_2alah")
 Button/styles/focus = SubResource("StyleBoxTexture_dfstk")
 Button/styles/hover = SubResource("StyleBoxTexture_dfstk")
 Button/styles/normal = SubResource("StyleBoxTexture_dq0il")
 Button/styles/pressed = SubResource("StyleBoxTexture_33nnl")
+Label/colors/font_color = Color(0.47, 0.47, 0.47, 1)
+Label/font_sizes/font_size = 32
+Label/fonts/font = ExtResource("1_u5b7a")
+Panel/styles/panel = SubResource("StyleBoxTexture_ptrjd")
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_ptrjd")

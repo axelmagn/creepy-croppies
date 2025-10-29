@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://cyfe0qh5oiog1" path="res://content/game/game_time.tscn" id="6_pikl6"]
 [ext_resource type="Script" uid="uid://dqx63of8et0be" path="res://content/item/item_config.gd" id="7_4ebuv"]
 [ext_resource type="Script" uid="uid://1sh2lqokbbvk" path="res://content/item/item_container.gd" id="8_ib5ax"]
-[ext_resource type="PackedScene" uid="uid://dhh3in4yymx4t" path="res://content/ui/day_summary.tscn" id="8_twpl5"]
+[ext_resource type="PackedScene" uid="uid://cpk6wyq8mwjf6" path="res://content/ui/day_summary.tscn" id="8_twpl5"]
 [ext_resource type="Script" uid="uid://b5d2oq7w0l8wh" path="res://content/day/day_manager.gd" id="14_dv1sk"]
 
 [sub_resource type="Resource" id="Resource_xjc2w"]
@@ -61,7 +61,7 @@ visible = false
 [node name="GameTime" parent="." instance=ExtResource("6_pikl6")]
 start_hour = 9
 end_hour = 17
-minute_tick_rate = 0.005
+minute_tick_rate = 0.5
 
 [node name="DayManager" type="Node" parent="." node_paths=PackedStringArray("time", "ui")]
 script = ExtResource("14_dv1sk")

@@ -1,13 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://c65b2rbxswdam"]
+[gd_scene load_steps=6 format=3 uid="uid://c65b2rbxswdam"]
 
 [ext_resource type="Script" uid="uid://87w3ni3sy4xf" path="res://content/player/player_hud.gd" id="1_ebjuq"]
-[ext_resource type="Texture2D" uid="uid://2f1gd0g8ev3e" path="res://assets/sprout_lands_basic/Objects/Basic_Plants.png" id="2_jtq8e"]
+[ext_resource type="Theme" uid="uid://c55ad4h1x0cgs" path="res://content/ui/main_theme.tres" id="2_b3hcm"]
+[ext_resource type="PackedScene" uid="uid://d3b584cvukmyb" path="res://content/ui/time_indicator.tscn" id="4_caiy7"]
+[ext_resource type="PackedScene" uid="uid://cump5np5pp7g3" path="res://content/ui/items_indicator.tscn" id="4_m1xjk"]
+[ext_resource type="PackedScene" uid="uid://clbrlgyqed40b" path="res://content/ui/tools_indicator.tscn" id="5_m1xjk"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_b3hcm"]
-atlas = ExtResource("2_jtq8e")
-region = Rect2(80, 16, 16, 16)
-
-[node name="PlayerHUD" type="Control" node_paths=PackedStringArray("action_state_label", "facing_dir_label", "time_label", "tool_label", "focus_cell_label", "can_use_label", "custom_label", "item_grid")]
+[node name="PlayerHUD" type="Control" node_paths=PackedStringArray("action_state_label", "facing_dir_label", "time_label", "tool_label", "focus_cell_label", "can_use_label", "custom_label", "tools_indicator")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -15,6 +14,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+theme = ExtResource("2_b3hcm")
 script = ExtResource("1_ebjuq")
 action_state_label = NodePath("VBoxContainer/ActionStateLabel")
 facing_dir_label = NodePath("VBoxContainer/FacingDirLabel")
@@ -23,14 +23,15 @@ tool_label = NodePath("VBoxContainer/ToolLabel")
 focus_cell_label = NodePath("VBoxContainer/FocusCellLabel")
 can_use_label = NodePath("VBoxContainer/CanUseLabel")
 custom_label = NodePath("VBoxContainer/CustomLabel")
-item_grid = NodePath("ItemsGrid")
+tools_indicator = NodePath("ToolsIndicator")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
+visible = false
 layout_mode = 0
-offset_left = 10.0
-offset_top = 10.0
-offset_right = 135.0
-offset_bottom = 60.0
+offset_left = 543.0
+offset_top = 335.0
+offset_right = 703.0
+offset_bottom = 527.0
 
 [node name="ActionStateLabel" type="Label" parent="VBoxContainer"]
 layout_mode = 2
@@ -60,22 +61,27 @@ text = "FocusCellLabel"
 layout_mode = 2
 text = "CustomLabels"
 
-[node name="ItemsGrid" type="GridContainer" parent="."]
+[node name="TimeIndicator" parent="." instance=ExtResource("4_caiy7")]
 layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -40.0
-offset_bottom = 40.0
-grow_horizontal = 0
-columns = 2
+offset_left = -62.0
+offset_bottom = 68.0
 
-[node name="TextureRect" type="TextureRect" parent="ItemsGrid"]
-texture_filter = 3
-custom_minimum_size = Vector2(32, 32)
-layout_mode = 2
-texture = SubResource("AtlasTexture_b3hcm")
+[node name="ItemsIndicator" parent="." instance=ExtResource("4_m1xjk")]
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 60.0
+offset_bottom = 48.0
+grow_horizontal = 1
+grow_vertical = 1
 
-[node name="Label" type="Label" parent="ItemsGrid"]
-layout_mode = 2
-text = "1"
+[node name="ToolsIndicator" parent="." instance=ExtResource("5_m1xjk")]
+layout_mode = 1
+offset_left = -50.0
+offset_top = -48.0
+offset_right = 50.0

@@ -5,6 +5,7 @@ class_name Tool extends Resource
 @export var required_terrain_flag: String
 @export var allow_overlaps: bool = true
 @export var cooldown: float = 0.2
+@export var texture: Texture
 
 func can_use(user: Character):
 	if user.cooling_down:

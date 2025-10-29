@@ -29,6 +29,10 @@ window/stretch/mode="canvas_items"
 
 project/assembly_name="Creepy Croppies"
 
+[gui]
+
+theme/custom="uid://c55ad4h1x0cgs"
+
 [input]
 
 move_left={

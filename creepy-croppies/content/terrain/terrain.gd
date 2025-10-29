@@ -5,10 +5,12 @@ class_name Terrain extends Node2D
 @export var dry_dirt_sid: int
 @export var wet_dirt_sid: int
 
+@export var unwater_on_day_start: bool = true
+
 var watered_tiles: Array[TerrainCoord]
 
 func _ready():
-	Game.time.day_start.connect(unwater_all)
+	Game.time.day_start.connect(_on_day_start)
 
 ## translate a global position to local tile coordinates
 func _global_to_map(global_pos: Vector2, layer: TileMapLayer) -> Vector2i:
@@ -61,6 +63,10 @@ func is_watered(tcoord: TerrainCoord) -> bool:
 		if tcoord.equals(watered):
 			return true
 	return false
+
+func _on_day_start() -> void:
+	if unwater_on_day_start:
+		unwater_all()
 
 
 class TerrainCoord extends RefCounted:

@@ -11,7 +11,7 @@ region = Rect2(0, 0, 16, 16)
 [resource]
 script = ExtResource("1_xe32u")
 plant = ExtResource("1_ujhrx")
-display_name = "Test Seed"
+display_name = "Wheat"
 required_terrain_flag = "plantable"
 allow_overlaps = false
 texture = SubResource("AtlasTexture_skdgh")

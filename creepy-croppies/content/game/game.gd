@@ -10,6 +10,7 @@ signal player_changed
 @export var main_level_scn: PackedScene
 
 @export var player_items: ItemContainer
+@export var player_money: int = 10
 
 signal level_loaded(level: Level)
 

@@ -2,20 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-<<<<<<< HEAD
-uid="uid://di3qmutmknfw"
-=======
-uid="uid://fcvsw02mtmsq"
->>>>>>> upstream/main
-path="res://.godot/imported/grass_circle.png-91d79eb443b8781d08b7b544e54d54d2.ctex"
+uid="uid://bbyb545wpuxnw"
+path="res://.godot/imported/water_tiles.png-41aa28683d2cc64a1796f558bacc6b22.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/terrain/grass_circle.png"
-dest_files=["res://.godot/imported/grass_circle.png-91d79eb443b8781d08b7b544e54d54d2.ctex"]
+source_file="res://assets/terrain/water_tiles.png"
+dest_files=["res://.godot/imported/water_tiles.png-41aa28683d2cc64a1796f558bacc6b22.ctex"]
 
 [params]
 

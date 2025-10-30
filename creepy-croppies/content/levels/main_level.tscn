@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dhhvfktmpi1bi"]
+[gd_scene load_steps=9 format=3 uid="uid://dhhvfktmpi1bi"]
 
 [ext_resource type="Script" uid="uid://dikj3661rgst8" path="res://content/levels/level.gd" id="1_askbe"]
 [ext_resource type="PackedScene" uid="uid://b6ofto02bhrak" path="res://content/player/player.tscn" id="3_lhg3q"]
@@ -7,6 +7,7 @@
 [ext_resource type="Resource" uid="uid://bxanckxw3qwl5" path="res://content/item/item_wheat.tres" id="5_ojrfc"]
 [ext_resource type="Resource" uid="uid://gvni2qnigbkt" path="res://content/item/item_radish.tres" id="6_wp74p"]
 [ext_resource type="PackedScene" uid="uid://g36a8sfrh3xy" path="res://content/shop/shop.tscn" id="7_eim2b"]
+[ext_resource type="PackedScene" uid="uid://bl67eardp3wt" path="res://content/helper/helper_hut.tscn" id="8_rhklt"]
 
 [node name="MainLevel" type="Node2D" node_paths=PackedStringArray("terrain", "character", "shop")]
 script = ExtResource("1_askbe")
@@ -31,3 +32,9 @@ config = ExtResource("6_wp74p")
 
 [node name="Shop" parent="." instance=ExtResource("7_eim2b")]
 position = Vector2(712, 411)
+
+[node name="HelperHut" parent="." instance=ExtResource("8_rhklt")]
+position = Vector2(553, 270)
+collision_layer = 16
+collision_mask = 0
+fix_price = 100

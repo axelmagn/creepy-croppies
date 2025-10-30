@@ -1,0 +1,31 @@
+[gd_scene load_steps=9 format=3 uid="uid://bl67eardp3wt"]
+
+[ext_resource type="Script" uid="uid://6r3hpcynljge" path="res://content/helper/helper_hut.gd" id="1_qdfpp"]
+[ext_resource type="Texture2D" uid="uid://lggwsien8n6n" path="res://assets/sprout_lands_basic/Objects/Egg_item.png" id="1_qh4cj"]
+[ext_resource type="Script" uid="uid://dqx63of8et0be" path="res://content/item/item_config.gd" id="2_vyl0b"]
+[ext_resource type="Resource" uid="uid://bxanckxw3qwl5" path="res://content/item/item_wheat.tres" id="3_8yduy"]
+[ext_resource type="Script" uid="uid://1sh2lqokbbvk" path="res://content/item/item_container.gd" id="3_lyf2i"]
+[ext_resource type="Resource" uid="uid://gvni2qnigbkt" path="res://content/item/item_radish.tres" id="4_xluue"]
+
+[sub_resource type="Resource" id="Resource_8yduy"]
+script = ExtResource("3_lyf2i")
+items = Dictionary[ExtResource("2_vyl0b"), int]({
+ExtResource("3_8yduy"): 1,
+ExtResource("4_xluue"): 1
+})
+metadata/_custom_type_script = "uid://1sh2lqokbbvk"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qh4cj"]
+radius = 16.0
+
+[node name="HelperHut" type="Area2D"]
+script = ExtResource("1_qdfpp")
+routine_price = SubResource("Resource_8yduy")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 3
+scale = Vector2(2, 2)
+texture = ExtResource("1_qh4cj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_qh4cj")

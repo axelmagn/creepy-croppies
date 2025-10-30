@@ -1,0 +1,75 @@
+class_name HelperHutMenu extends Control
+
+
+@export var fix_button: Button
+@export var record_button: Button
+@export var activate_button: Button
+@export var close_button: Button
+@export var price_grid: GridContainer
+
+var hut: HelperHut
+
+func _ready() -> void:
+	assert(fix_button)
+	assert(record_button)
+	assert(activate_button)
+	assert(close_button)
+	assert(price_grid)
+
+	fix_button.pressed.connect(_on_fix)
+	record_button.pressed.connect(_on_record)
+	activate_button.pressed.connect(_on_activate)
+	close_button.pressed.connect(_on_close)
+
+func update_internals() -> void:
+	assert(hut)
+
+	fix_button.visible = not hut.is_fixed
+	fix_button.disabled = not hut.can_fix()
+
+	record_button.visible = hut.is_fixed
+	activate_button.visible = hut.is_fixed
+	activate_button.disabled = not hut.can_activate_routine()
+	# TODO: disable activate if no recording exists
+
+	for child in price_grid.get_children():
+		child.queue_free()
+	for item in hut.routine_price.items:
+		var icon = TextureRect.new()
+		icon.texture = item.texture
+		icon.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST_WITH_MIPMAPS
+		icon.custom_minimum_size = Vector2(32, 32)
+		price_grid.add_child(icon)
+		var label = Label.new()
+		label.text = "%d" % hut.routine_price.items[item]
+		price_grid.add_child(label)
+
+func enable(helper_hut: HelperHut) -> void:
+	visible = true
+	hut = helper_hut
+	process_mode = Node.PROCESS_MODE_ALWAYS
+	get_tree().paused = true
+	update_internals()
+
+func disable():
+	visible = false
+	process_mode = Node.PROCESS_MODE_DISABLED
+	get_tree().paused = false
+	hut = null
+
+func _on_close():
+	disable()
+
+func _on_fix():
+	if hut.can_fix():
+		hut.fix()
+		update_internals()
+
+func _on_record():
+	hut.record_routine()
+	update_internals()
+
+func _on_activate():
+	if hut.can_activate_routine():
+		hut.activate_routine()
+		update_internals()

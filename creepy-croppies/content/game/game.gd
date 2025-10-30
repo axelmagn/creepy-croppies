@@ -10,6 +10,7 @@ signal player_items_changed
 @export var time: GameTime
 @export var main_level_scn: PackedScene
 @export var rent: RentManager
+@export var day: DayManager
 
 @export var init_player_items: ItemContainer
 @export var init_player_money: int = 10
@@ -31,6 +32,7 @@ func _ready() -> void:
 	assert(items)
 	assert(init_player_items)
 	assert(rent)
+	assert(day)
 
 	player_items = init_player_items.duplicate()
 	player_items.items = init_player_items.items.duplicate()
@@ -62,6 +64,7 @@ func register_player(player: Character) -> void:
 	printt("new player registered:", player)
 	active_player = player
 	ui.player_hud.register_player(player)
+	player_changed.emit()
 	
 func pause_game():
 	time.stop()

@@ -29,7 +29,7 @@ item_scn = ExtResource("4_xjc2w")
 propel_speed = 64.0
 metadata/_custom_type_script = "uid://dep5r7js3181m"
 
-[node name="Game" type="Node" node_paths=PackedStringArray("world", "ui", "time", "rent")]
+[node name="Game" type="Node" node_paths=PackedStringArray("world", "ui", "time", "rent", "day")]
 script = ExtResource("1_r1esr")
 plants = SubResource("Resource_xjc2w")
 items = SubResource("Resource_4ebuv")
@@ -38,7 +38,9 @@ ui = NodePath("UI")
 time = NodePath("GameTime")
 main_level_scn = ExtResource("2_gk6uf")
 rent = NodePath("RentManager")
+day = NodePath("DayManager")
 init_player_items = ExtResource("7_qhbyw")
+init_player_money = 150
 
 [node name="World" type="Node2D" parent="."]
 process_mode = 1
@@ -82,4 +84,4 @@ script = ExtResource("16_upkcm")
 
 [node name="RentManager" type="Node" parent="."]
 script = ExtResource("16_qhbyw")
-rent_interval = 9
+rent_interval = 2

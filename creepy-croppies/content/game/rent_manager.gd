@@ -40,9 +40,11 @@ func can_deduct_rent() -> bool:
 	return Game.player_money > get_next_rent_amount()
 
 func deduct_rent() -> void:
-	Game.player_money -= get_next_rent_amount()
+	var rent_amt = get_next_rent_amount()
+	Game.player_money -= rent_amt
 	rent_idx += 1
 	rent_date += rent_interval
+	Game.day.stats.rent += rent_amt
 	rent_changed.emit()
 
 func get_next_rent_amount() -> int:

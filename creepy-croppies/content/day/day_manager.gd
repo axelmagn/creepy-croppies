@@ -3,6 +3,8 @@ class_name DayManager extends Node
 @export var time: GameTime
 @export var ui: MainUI
 
+var stats: DayStats = DayStats.new()
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	assert(time)
@@ -24,3 +26,5 @@ func _on_start_next_day() -> void:
 	ui.day_summary.disable()
 	Game.unpause_game()
 	Game.time.advance_day()
+	stats.reset()
+	stats.start_money = Game.player_money

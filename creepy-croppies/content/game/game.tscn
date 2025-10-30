@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://ixd4jqkrcxmk"]
+[gd_scene load_steps=23 format=3 uid="uid://ixd4jqkrcxmk"]
 
 [ext_resource type="Script" uid="uid://bogh6746ikc7s" path="res://content/game/game.gd" id="1_r1esr"]
 [ext_resource type="PackedScene" uid="uid://bi41vafaqtj0i" path="res://content/plant/plant.tscn" id="2_dck4f"]
@@ -18,6 +18,8 @@
 [ext_resource type="Script" uid="uid://b5d2oq7w0l8wh" path="res://content/day/day_manager.gd" id="14_dv1sk"]
 [ext_resource type="Script" uid="uid://bh1v8tekfu8a7" path="res://content/game/rent_manager.gd" id="16_qhbyw"]
 [ext_resource type="Script" uid="uid://cpxy7m8xpyoer" path="res://content/input/input_manager.gd" id="16_upkcm"]
+[ext_resource type="PackedScene" uid="uid://c1c2k121jo7h3" path="res://content/audio/AudioManager.tscn" id="19_4aeii"]
+[ext_resource type="AudioStream" uid="uid://dlotqxgaeq8aj" path="res://assets/sounds/halloween-background-music.mp3" id="20_ffjvq"]
 
 [sub_resource type="Resource" id="Resource_xjc2w"]
 script = ExtResource("3_twpl5")
@@ -30,10 +32,11 @@ item_scn = ExtResource("4_xjc2w")
 propel_speed = 64.0
 metadata/_custom_type_script = "uid://dep5r7js3181m"
 
-[node name="Game" type="Node" node_paths=PackedStringArray("world", "ui", "time", "rent", "day")]
+[node name="Game" type="Node" node_paths=PackedStringArray("audio", "world", "ui", "time", "rent", "day")]
 script = ExtResource("1_r1esr")
 plants = SubResource("Resource_xjc2w")
 items = SubResource("Resource_4ebuv")
+audio = NodePath("AudioManager")
 item_registry = ExtResource("6_oq3ly")
 world = NodePath("World")
 ui = NodePath("UI")
@@ -87,3 +90,11 @@ script = ExtResource("16_upkcm")
 [node name="RentManager" type="Node" parent="."]
 script = ExtResource("16_qhbyw")
 rent_interval = 2
+
+[node name="AudioManager" parent="." instance=ExtResource("19_4aeii")]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
+stream = ExtResource("20_ffjvq")
+volume_db = -10.0
+autoplay = true

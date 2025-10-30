@@ -23,11 +23,13 @@ func disable() -> void:
 
 func _on_retry_pressed() -> void:
 	print("retry pressed")
+	Game.audio.play_click()
 	Game.load_level(Game.main_level_scn)
 	get_tree().paused = false
 	disable()
 
 func _on_main_menu_pressed() -> void:
 	print("main menu pressed")
+	Game.audio.play_click()
 	Game.ui.main_menu.enable()
 	disable()

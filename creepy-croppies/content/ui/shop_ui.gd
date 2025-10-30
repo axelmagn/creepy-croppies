@@ -19,6 +19,9 @@ func _ready() -> void:
 	sell_all_button.connect("pressed", _on_sell_all_button_pressed)
 	_init_process_mode = process_mode
 	update_view()
+	
+func _process(delta: float) -> void:
+	sell_all_button.disabled = !Game.player_items.has_items_to_sell()
 
 func enable() -> void:
 	visible = true
@@ -57,9 +60,11 @@ func update_view():
 
 func _on_close_button_pressed() -> void:
 	print("close button pressed")
+	Game.audio.play_click()
 	close.emit()
 
 func _on_sell_all_button_pressed() -> void:
+	Game.audio.play_sell()
 	for item_config in Game.player_items.items:
 		if not item_config.sellable:
 			continue

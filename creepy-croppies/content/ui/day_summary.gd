@@ -30,6 +30,7 @@ func disable() -> void:
 
 func _on_continue_pressed() -> void:
 	print("continue pressed")
+	Game.audio.play_click()
 	continue_game.emit()
 
 func update_continue_text() -> void:

@@ -104,6 +104,11 @@ func _apply_move() -> void:
 	update_facing_dir()
 	move_and_slide()
 	update_cursor()
+	
+	if velocity.length_squared() > 0:
+		Game.audio.play_footstep()
+	else:
+		Game.audio.stop_footstep()
 
 func update_facing_dir() -> void:
 	if velocity == Vector2.ZERO:
@@ -171,6 +176,7 @@ func _on_pickup_body_entered(body: Node2D) -> void:
 	if body is Item:
 		printt("picked up item:", body.config.name)
 		Game.player_items.add_item(body.config, 1)
+		Game.audio.play_pick_up()
 		body.queue_free()
 
 func _on_day_start() -> void:

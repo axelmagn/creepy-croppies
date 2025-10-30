@@ -6,6 +6,7 @@ signal player_money_changed
 
 @export var plants: PlantManager
 @export var items: ItemManager
+@export var audio: AudioManager
 @export var item_registry: ItemRegistry
 @export var world: Node2D
 @export var ui: MainUI
@@ -40,6 +41,7 @@ func _ready() -> void:
 	assert(init_player_items)
 	assert(rent)
 	assert(day)
+	assert(audio)
 
 	player_items = init_player_items.duplicate()
 	player_items.items = init_player_items.items.duplicate()

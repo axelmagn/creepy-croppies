@@ -15,3 +15,9 @@ func has_enough(item: ItemConfig, count: int) -> bool:
 
 func reset() -> void:
 	items.clear()
+	
+func has_items_to_sell() -> bool:
+	for item in items:
+		if item.sellable && items[item] > 0:
+			return true
+	return false

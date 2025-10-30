@@ -15,7 +15,8 @@ func _ready() -> void:
 	assert(attention_label)
 	assert(attention_timer)
 	attention_timer.wait_time = config.attention_span
-	attention_timer.timeout.connect(_on_attention_timeout)
+	attention_timer.timeout.connect(cleanup)
+	Game.time.day_end.connect(cleanup)
 
 func _process(delta: float) -> void:
 	update_attention_label()
@@ -46,6 +47,6 @@ func update_attention_label() -> void:
 		var mins = int(attention_timer.time_left) % 60
 		attention_label.text = "%d:%02d" % [hrs, mins]
 
-func _on_attention_timeout() -> void:
+func cleanup() -> void:
 	# for now just delete
 	queue_free()

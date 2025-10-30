@@ -20,4 +20,5 @@ func use_primary(user: Character):
 		if collider is Plant:
 			collider.harvest()
 	# TODO: scythe functionality
+	Game.audio.play_tool_scythe()
 	print("used scythe")

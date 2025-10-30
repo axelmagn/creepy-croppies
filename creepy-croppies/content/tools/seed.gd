@@ -16,3 +16,4 @@ func use_primary(user: Character):
 	var loc = user.get_interact_point()
 	Game.plants.place_plant(loc, plant)
 	Game.player_items.add_item(consumed_item, -1)
+	Game.audio.play_plant_seed()

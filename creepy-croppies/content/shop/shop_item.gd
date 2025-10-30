@@ -48,6 +48,7 @@ func buy() -> void:
 	Game.player_items.add_item(item_config, 1 * multiplier)
 	Game.player_money -= price
 	Game.day.stats.add_expense(price)
+	Game.audio.play_pick_up()
 
 func sell() -> void:
 	var multiplier: int = 1
@@ -61,3 +62,4 @@ func sell() -> void:
 	var price =item_config.price * multiplier
 	Game.player_money += price
 	Game.day.stats.add_income(price)
+	Game.audio.play_sell()

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Scythe" load_steps=4 format=3 uid="uid://dmory34pyw5b7"]
+
+[ext_resource type="Script" uid="uid://v6ts0vjwtkop" path="res://content/tools/scythe.gd" id="1_1fd50"]
+[ext_resource type="Texture2D" uid="uid://cuuaia50i6neu" path="res://assets/sprout_lands_basic/Objects/Basic tools and meterials.png" id="2_bo0nv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cvehv"]
+atlas = ExtResource("2_bo0nv")
+region = Rect2(32, 0, 16, 16)
+
+[resource]
+script = ExtResource("1_1fd50")
+display_name = "Scythe"
+texture = SubResource("AtlasTexture_cvehv")
+stamina_cost = 4.0
+metadata/_custom_type_script = "uid://v6ts0vjwtkop"

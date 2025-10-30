@@ -5,6 +5,7 @@ class_name MainUI extends CanvasLayer
 @export var player_hud: PlayerHUD
 @export var day_summary: DaySummary
 @export var shop_ui: ShopUi
+@export var hut: HelperHutMenu
 
 func _ready() -> void:
 	assert(main_menu)
@@ -12,5 +13,7 @@ func _ready() -> void:
 	assert(player_hud)
 	assert(day_summary)
 	assert(shop_ui)
+	assert(hut)
 	day_summary.disable()
 	shop_ui.disable()
+	hut.disable()

@@ -1,0 +1,93 @@
+[gd_scene load_steps=5 format=3 uid="uid://dbkatxojfvhre"]
+
+[ext_resource type="Script" uid="uid://bdb2l4l2dna8f" path="res://content/helper/helper_hut_menu.gd" id="1_mdsfh"]
+[ext_resource type="Texture2D" uid="uid://2f1gd0g8ev3e" path="res://assets/sprout_lands_basic/Objects/Basic_Plants.png" id="2_k7qid"]
+[ext_resource type="Theme" uid="uid://cavmbd5qbntu7" path="res://content/ui/header_theme.tres" id="3_c0ubp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w7nb0"]
+atlas = ExtResource("2_k7qid")
+region = Rect2(80, 16, 16, 16)
+
+[node name="HelperHutMenu" type="Control" node_paths=PackedStringArray("fix_button", "record_button", "activate_button", "close_button", "price_grid")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mdsfh")
+fix_button = NodePath("PanelContainer/VBoxContainer/FixButton")
+record_button = NodePath("PanelContainer/VBoxContainer/RecordButton")
+activate_button = NodePath("PanelContainer/VBoxContainer/ActivateButton")
+close_button = NodePath("PanelContainer/VBoxContainer/CloseButton")
+price_grid = NodePath("PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/GridContainer")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="TitleContainer" type="PanelContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_c0ubp")
+
+[node name="Title" type="Label" parent="PanelContainer/VBoxContainer/TitleContainer"]
+layout_mode = 2
+theme = ExtResource("3_c0ubp")
+text = "Helper"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Routine Price"
+vertical_alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="PanelContainer/VBoxContainer/HBoxContainer/PanelContainer"]
+layout_mode = 2
+columns = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/GridContainer"]
+texture_filter = 3
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+texture = SubResource("AtlasTexture_w7nb0")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/GridContainer"]
+layout_mode = 2
+text = "3"
+
+[node name="FixButton" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Fix: $100"
+
+[node name="RecordButton" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Teach Routine"
+
+[node name="ActivateButton" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Activate"
+
+[node name="CloseButton" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Close"

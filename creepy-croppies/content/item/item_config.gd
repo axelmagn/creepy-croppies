@@ -3,3 +3,5 @@ class_name ItemConfig extends Resource
 @export var name: String = ""
 @export var texture: Texture
 @export var price: int = 1
+@export var buyable: bool = false
+@export var sellable: bool = true

@@ -13,4 +13,5 @@ region = Rect2(0, 16, 16, 16)
 script = ExtResource("1_reooj")
 name = "Test Item"
 texture = SubResource("AtlasTexture_jbtps")
+buyable = true
 metadata/_custom_type_script = "uid://dqx63of8et0be"

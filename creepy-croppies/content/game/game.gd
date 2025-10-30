@@ -6,6 +6,7 @@ signal player_money_changed
 
 @export var plants: PlantManager
 @export var items: ItemManager
+@export var item_registry: ItemRegistry
 @export var world: Node2D
 @export var ui: MainUI
 @export var time: GameTime

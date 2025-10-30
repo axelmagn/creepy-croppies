@@ -37,15 +37,23 @@ func action() -> void:
 		sell()
 	
 func buy() -> void:
-	if Game.player_money < item_config.price:
+	var multiplier: int = 1
+	if Input.is_key_pressed(KEY_SHIFT):
+		multiplier = 10
+		
+	if Game.player_money < item_config.price * multiplier:
 		return
 		
-	Game.player_items.add_item(item_config, 1)
-	Game.player_money -= item_config.price
+	Game.player_items.add_item(item_config, 1 * multiplier)
+	Game.player_money -= item_config.price * multiplier
 
 func sell() -> void:
-	if !Game.player_items.has_enough(item_config, 1):
+	var multiplier: int = 1
+	if Input.is_key_pressed(KEY_SHIFT):
+		multiplier = 10
+		
+	if !Game.player_items.has_enough(item_config, 1 * multiplier):
 		return
 		
-	Game.player_items.add_item(item_config, -1)
-	Game.player_money += item_config.price
+	Game.player_items.add_item(item_config, -1 * multiplier)
+	Game.player_money += item_config.price * multiplier

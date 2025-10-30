@@ -8,7 +8,7 @@
 [ext_resource type="Resource" uid="uid://b47jndxtask0c" path="res://content/item/item_radish_seed.tres" id="4_e6bso"]
 [ext_resource type="Resource" uid="uid://gvni2qnigbkt" path="res://content/item/item_radish.tres" id="7_ep17b"]
 
-[node name="ShopUi" type="Control" node_paths=PackedStringArray("close_button")]
+[node name="ShopUi" type="Control" node_paths=PackedStringArray("close_button", "sell_all_button", "buy_section", "sell_section")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -18,6 +18,10 @@ grow_vertical = 2
 theme = ExtResource("1_uc6cn")
 script = ExtResource("1_5anh0")
 close_button = NodePath("Panel/MarginContainer/VBoxContainer/CloseButton")
+sell_all_button = NodePath("Panel/MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/VBoxContainer/VBoxContainerSell/SellAllButton")
+buy_section = NodePath("Panel/MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/VBoxContainer/VBoxContainerBuy/ItemsToBuy")
+sell_section = NodePath("Panel/MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/VBoxContainer/VBoxContainerSell/ItemsToSell")
+shop_item = ExtResource("2_2wmkg")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -64,45 +68,65 @@ size_flags_vertical = 3
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer/VBoxContainer/MarginContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel/MarginContainer/VBoxContainer/MarginContainer"]
 layout_mode = 2
 
-[node name="VBoxContainerBuy" type="VBoxContainer" parent="Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer/VBoxContainer/MarginContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainerBuy" type="VBoxContainer" parent="Panel/MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Buy" type="Label" parent="Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/VBoxContainerBuy"]
+[node name="Buy" type="Label" parent="Panel/MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/VBoxContainer/VBoxContainerBuy"]
 layout_mode = 2
 text = "Buy"
 horizontal_alignment = 1
 
-[node name="Wheat" parent="Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/VBoxContainerBuy" instance=ExtResource("2_2wmkg")]
+[node name="ItemsToBuy" type="VBoxContainer" parent="Panel/MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/VBoxContainer/VBoxContainerBuy"]
+layout_mode = 2
+
+[node name="Wheat" parent="Panel/MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/VBoxContainer/VBoxContainerBuy/ItemsToBuy" instance=ExtResource("2_2wmkg")]
 layout_mode = 2
 item_config = ExtResource("3_q1h0i")
 
-[node name="Radish" parent="Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/VBoxContainerBuy" instance=ExtResource("2_2wmkg")]
+[node name="Radish" parent="Panel/MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/VBoxContainer/VBoxContainerBuy/ItemsToBuy" instance=ExtResource("2_2wmkg")]
 layout_mode = 2
 item_config = ExtResource("4_e6bso")
 
-[node name="Spacer" type="Control" parent="Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+[node name="Spacer" type="Control" parent="Panel/MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
-[node name="VBoxContainerSell" type="VBoxContainer" parent="Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+[node name="VBoxContainerSell" type="VBoxContainer" parent="Panel/MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Buy" type="Label" parent="Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/VBoxContainerSell"]
+[node name="Buy" type="Label" parent="Panel/MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/VBoxContainer/VBoxContainerSell"]
 layout_mode = 2
 text = "Sell"
 horizontal_alignment = 1
 
-[node name="Wheat" parent="Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/VBoxContainerSell" instance=ExtResource("2_2wmkg")]
+[node name="ItemsToSell" type="VBoxContainer" parent="Panel/MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/VBoxContainer/VBoxContainerSell"]
+layout_mode = 2
+
+[node name="Wheat" parent="Panel/MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/VBoxContainer/VBoxContainerSell/ItemsToSell" instance=ExtResource("2_2wmkg")]
 layout_mode = 2
 type = 1
 
-[node name="Radish" parent="Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/VBoxContainerSell" instance=ExtResource("2_2wmkg")]
+[node name="Radish" parent="Panel/MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/VBoxContainer/VBoxContainerSell/ItemsToSell" instance=ExtResource("2_2wmkg")]
 layout_mode = 2
 item_config = ExtResource("7_ep17b")
 type = 1
+
+[node name="Spacer" type="Control" parent="Panel/MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/VBoxContainer/VBoxContainerSell"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="SellAllButton" type="Button" parent="Panel/MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/VBoxContainer/VBoxContainerSell"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = " Sell All "
 
 [node name="CloseButton" type="Button" parent="Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2

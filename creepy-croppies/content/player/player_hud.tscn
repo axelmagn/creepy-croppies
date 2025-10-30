@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://c65b2rbxswdam"]
+[gd_scene load_steps=8 format=3 uid="uid://c65b2rbxswdam"]
 
 [ext_resource type="Script" uid="uid://87w3ni3sy4xf" path="res://content/player/player_hud.gd" id="1_ebjuq"]
 [ext_resource type="Theme" uid="uid://c55ad4h1x0cgs" path="res://content/ui/main_theme.tres" id="2_b3hcm"]
+[ext_resource type="PackedScene" uid="uid://bkqtlp6ieg24c" path="res://content/ui/money_indicator.tscn" id="4_buk7q"]
 [ext_resource type="PackedScene" uid="uid://d3b584cvukmyb" path="res://content/ui/time_indicator.tscn" id="4_caiy7"]
 [ext_resource type="PackedScene" uid="uid://cump5np5pp7g3" path="res://content/ui/items_indicator.tscn" id="4_m1xjk"]
 [ext_resource type="PackedScene" uid="uid://clbrlgyqed40b" path="res://content/ui/tools_indicator.tscn" id="5_m1xjk"]
@@ -63,10 +64,21 @@ text = "FocusCellLabel"
 layout_mode = 2
 text = "CustomLabels"
 
-[node name="TimeIndicator" parent="." instance=ExtResource("4_caiy7")]
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
 layout_mode = 1
-offset_left = -62.0
-offset_bottom = 68.0
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -96.0
+offset_top = -2.0
+offset_bottom = 110.0
+grow_horizontal = 0
+
+[node name="TimeIndicator" parent="VBoxContainer2" instance=ExtResource("4_caiy7")]
+layout_mode = 2
+
+[node name="MoneyIndicator" parent="VBoxContainer2" instance=ExtResource("4_buk7q")]
+layout_mode = 2
 
 [node name="ItemsIndicator" parent="." instance=ExtResource("4_m1xjk")]
 layout_mode = 0

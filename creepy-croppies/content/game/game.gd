@@ -1,6 +1,7 @@
 class_name GameAutoload extends Node
 
 signal player_changed
+signal player_items_changed
 
 @export var plants: PlantManager
 @export var items: ItemManager
@@ -8,14 +9,18 @@ signal player_changed
 @export var ui: MainUI
 @export var time: GameTime
 @export var main_level_scn: PackedScene
+@export var rent: RentManager
 
-@export var player_items: ItemContainer
-@export var player_money: int = 10
+@export var init_player_items: ItemContainer
+@export var init_player_money: int = 10
 
 signal level_loaded(level: Level)
 
 var active_player: Character = null
 var active_level: Level = null
+
+var player_items: ItemContainer
+var player_money: int
 
 func _ready() -> void:
 	assert(world)
@@ -24,7 +29,14 @@ func _ready() -> void:
 	assert(main_level_scn)
 	assert(plants)
 	assert(items)
-	assert(player_items)
+	assert(init_player_items)
+	assert(rent)
+
+	player_items = init_player_items.duplicate()
+	player_items.items = init_player_items.items.duplicate()
+	player_money = init_player_money
+	player_items_changed.emit()
+
 
 ## load a new level
 func load_level(level_scn: PackedScene) -> void:
@@ -40,12 +52,14 @@ func load_level(level_scn: PackedScene) -> void:
 	else:
 		time.start()
 	register_player(active_level.character)
+	reset_global_state()
+	ui.day_summary.disable()
+	get_tree().paused = false
 	level_loaded.emit(active_level)
 
 ## register a new player
 func register_player(player: Character) -> void:
 	printt("new player registered:", player)
-	assert(active_player == null)
 	active_player = player
 	ui.player_hud.register_player(player)
 	
@@ -58,3 +72,10 @@ func unpause_game():
 	time.start()
 	if active_level != null:
 		active_level.unpause()
+
+func reset_global_state():
+	time.reset()
+	player_items = init_player_items.duplicate()
+	player_items.items = init_player_items.items.duplicate()
+	player_money = init_player_money
+	player_items_changed.emit()

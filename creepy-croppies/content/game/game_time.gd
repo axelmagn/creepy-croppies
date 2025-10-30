@@ -19,8 +19,7 @@ func _ready() -> void:
 	assert(minute_timer)
 	minute_timer.timeout.connect(advance_minute)
 	minute_timer.wait_time = minute_tick_rate
-	advance_day()
-	day -= 1
+	raw_minute = start_hour * 60
 
 func advance_minute() -> void:
 	raw_minute += 1
@@ -29,6 +28,10 @@ func advance_minute() -> void:
 		day_end.emit()
 		# TODO: end of day screen - until then, just advance the day
 		advance_day()
+
+func reset() -> void:
+	day = 0
+	raw_minute = start_hour * 60
 
 
 func advance_day() -> void:

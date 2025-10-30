@@ -35,7 +35,7 @@ func _ready() -> void:
 		pickup_area.body_entered.connect(_on_pickup_body_entered)
 	
 	Game.time.day_start.connect(_on_day_start)
-	stamina = max_stamina
+	set_stamina(max_stamina)
 
 func _process(_delta: float) -> void:
 	_apply_move()
@@ -174,4 +174,4 @@ func _on_pickup_body_entered(body: Node2D) -> void:
 		body.queue_free()
 
 func _on_day_start() -> void:
-	stamina = max_stamina
+	set_stamina(max_stamina)

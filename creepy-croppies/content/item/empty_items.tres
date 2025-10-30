@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ItemContainer" load_steps=7 format=3 uid="uid://b2m86nmfkvwaj"]
+
+[ext_resource type="Script" uid="uid://dqx63of8et0be" path="res://content/item/item_config.gd" id="1_1eghn"]
+[ext_resource type="Resource" uid="uid://bxanckxw3qwl5" path="res://content/item/item_wheat.tres" id="2_mf4pl"]
+[ext_resource type="Script" uid="uid://1sh2lqokbbvk" path="res://content/item/item_container.gd" id="2_qe3d0"]
+[ext_resource type="Resource" uid="uid://gvni2qnigbkt" path="res://content/item/item_radish.tres" id="3_qkfj4"]
+[ext_resource type="Resource" uid="uid://b47jndxtask0c" path="res://content/item/item_radish_seed.tres" id="4_m3fox"]
+[ext_resource type="Resource" uid="uid://bpxpxj7loip6" path="res://content/item/item_wheat_seed.tres" id="5_lsl0h"]
+
+[resource]
+script = ExtResource("2_qe3d0")
+items = Dictionary[ExtResource("1_1eghn"), int]({
+ExtResource("2_mf4pl"): 0,
+ExtResource("3_qkfj4"): 0,
+ExtResource("4_m3fox"): 0,
+ExtResource("5_lsl0h"): 0
+})
+metadata/_custom_type_script = "uid://1sh2lqokbbvk"

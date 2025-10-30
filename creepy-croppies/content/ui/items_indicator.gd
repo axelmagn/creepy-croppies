@@ -6,8 +6,18 @@ var item_container: ItemContainer
 
 func _ready() -> void:
 	assert(item_grid)
-	if not item_container:
-		item_container = Game.player_items
+	if item_container:
+		update_item_grid()
+	else:
+		if Game.player_items:
+			set_item_container(Game.player_items)
+		Game.player_items_changed.connect(set_player_item_container)
+
+func set_player_item_container() -> void:
+	set_item_container(Game.player_items)
+
+func set_item_container(container: ItemContainer) -> void:
+	item_container = container
 	item_container.items_changed.connect(update_item_grid)
 	update_item_grid()
 

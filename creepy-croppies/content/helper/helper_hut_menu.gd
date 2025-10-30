@@ -61,17 +61,21 @@ func disable():
 
 func _on_close():
 	disable()
+	Game.audio.play_click()
 
 func _on_fix():
 	if hut.can_fix():
 		hut.fix()
 		update_internals()
+		Game.audio.play_click()
 
 func _on_record():
 	hut.record_routine()
 	disable()
+	Game.audio.play_click()
 
 func _on_activate():
 	if hut.can_activate_routine():
 		hut.activate_routine()
 		disable()
+		Game.audio.play_click()

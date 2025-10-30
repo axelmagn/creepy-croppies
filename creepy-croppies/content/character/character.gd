@@ -136,6 +136,11 @@ func _apply_move() -> void:
 	update_facing_dir()
 	move_and_slide()
 	update_cursor()
+	
+	if velocity.length_squared() > 0:
+		Game.audio.play_footstep()
+	else:
+		Game.audio.stop_footstep()
 
 	if recording_track and recording_track.dt_since_last_action() > recording_poll_rate:
 		recording_track.record_move(global_position, facing_dir)
@@ -206,6 +211,7 @@ func _on_pickup_body_entered(body: Node2D) -> void:
 	if body is Item:
 		printt("picked up item:", body.config.name)
 		Game.player_items.add_item(body.config, 1)
+		Game.audio.play_pick_up()
 		body.queue_free()
 
 func _on_day_start() -> void:

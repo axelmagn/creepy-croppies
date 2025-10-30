@@ -1,0 +1,36 @@
+[gd_scene load_steps=9 format=3 uid="uid://c1c2k121jo7h3"]
+
+[ext_resource type="Script" uid="uid://m5k70kwxjh" path="res://content/audio/audio_manager.gd" id="1_dw3g6"]
+[ext_resource type="AudioStream" uid="uid://dt7yvu6avpx7x" path="res://assets/sounds/click3.ogg" id="2_jdeuo"]
+[ext_resource type="AudioStream" uid="uid://btuj1pwyom421" path="res://assets/sounds/footstep_grass_000.ogg" id="3_6owep"]
+[ext_resource type="AudioStream" uid="uid://dvj3nxoodunjf" path="res://assets/sounds/click2.ogg" id="3_tx78q"]
+[ext_resource type="AudioStream" uid="uid://31xsalc26vrx" path="res://assets/sounds/water-splash.mp3" id="4_6owep"]
+[ext_resource type="AudioStream" uid="uid://dptnjpihvix12" path="res://assets/sounds/bush-cut.mp3" id="5_6owep"]
+[ext_resource type="AudioStream" uid="uid://dxyvw7naff2h" path="res://assets/sounds/sharp-pop-328170.mp3" id="7_yvfqr"]
+[ext_resource type="AudioStream" uid="uid://bdofqhmybihg7" path="res://assets/sounds/cash-register-kaching-376867.mp3" id="8_jixwo"]
+
+[node name="AudioManager" type="Node"]
+script = ExtResource("1_dw3g6")
+click_sound = ExtResource("2_jdeuo")
+footstep_sound = ExtResource("3_6owep")
+plant_seed_sound = ExtResource("3_tx78q")
+tool_watering_sound = ExtResource("4_6owep")
+tool_scythe_sound = ExtResource("5_6owep")
+pick_up_sound = ExtResource("7_yvfqr")
+sell_sound = ExtResource("8_jixwo")
+
+[node name="AudioStreamPlayerClick" type="AudioStreamPlayer" parent="."]
+
+[node name="AudioStreamPlayerFootstep" type="AudioStreamPlayer" parent="."]
+volume_db = -15.0
+pitch_scale = 4.0
+
+[node name="AudioStreamPlayerPlantSeed" type="AudioStreamPlayer" parent="."]
+
+[node name="AudioStreamPlayerToolScythe" type="AudioStreamPlayer" parent="."]
+
+[node name="AudioStreamPlayerToolWatering" type="AudioStreamPlayer" parent="."]
+
+[node name="AudioStreamPlayerPickUp" type="AudioStreamPlayer" parent="."]
+
+[node name="AudioStreamPlayerSell" type="AudioStreamPlayer" parent="."]

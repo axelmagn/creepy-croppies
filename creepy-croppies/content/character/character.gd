@@ -17,11 +17,13 @@ signal stamina_changed
 @export var magnet_area: Area2D
 @export var pickup_area: Area2D
 @export var max_stamina: float = 100
+@export var recording_poll_rate: float = 0.1
 
 var _input_move: Vector2 = Vector2.ZERO
 var facing_dir: Vector2 = Vector2.DOWN
 var active_tool_idx: int = 0
 var cooling_down: bool = false
+var recording_track: HelperTrack = null
 
 var stamina: float = 0
 
@@ -43,11 +45,28 @@ func _process(_delta: float) -> void:
 func request_move(dir: Vector2) -> void:
 	_input_move += dir
 
+func start_recording_track(track: HelperTrack) -> void:
+	recording_track = track
+	track.record_move(global_position, facing_dir)
+
+func stop_recording_track() -> void:
+	if recording_track:
+		recording_track = null
+
 func request_use_tool() -> void:
 	var active_tool: Tool = get_active_tool()
 	if not active_tool:
+		printt("active tool not found:", active_tool_idx, self)
 		return
+	if not active_tool.can_use(self):
+		# printt("cannot use active tool:", active_tool_idx, self)
+		return
+	printt("using tool:", active_tool_idx, self)
 	active_tool.use_primary(self)
+	if recording_track:
+		recording_track.record_move(global_position, facing_dir)
+		recording_track.record_tool_use(active_tool_idx)
+
 
 func request_next_tool() -> void:
 	if tools.is_empty():
@@ -62,6 +81,11 @@ func request_prev_tool() -> void:
 	active_tool_idx += tools.size() - 1
 	active_tool_idx %= tools.size()
 	active_tool_changed.emit()
+
+func set_tool(tool_idx: int) -> void:
+	active_tool_idx = tool_idx
+	active_tool_changed.emit()
+
 
 func get_action_state() -> ActionState:
 	if velocity.length_squared() > 0:
@@ -109,6 +133,9 @@ func _apply_move() -> void:
 		Game.audio.play_footstep()
 	else:
 		Game.audio.stop_footstep()
+
+	if recording_track and recording_track.dt_since_last_action() > recording_poll_rate:
+		recording_track.record_move(global_position, facing_dir)
 
 func update_facing_dir() -> void:
 	if velocity == Vector2.ZERO:

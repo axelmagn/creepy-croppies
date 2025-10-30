@@ -1,30 +1,37 @@
-[gd_scene format=3 uid="uid://bl6fqoqfqbv3v"]
+[gd_scene load_steps=2 format=3 uid="uid://bl6fqoqfqbv3v"]
 
-[node name="DayStatsContent" type="Control"]
+[ext_resource type="Script" uid="uid://dwenrgfxw2sp2" path="res://content/ui/day_stats_content.gd" id="1_x47fo"]
+
+[node name="DayStatsContent" type="Control" node_paths=PackedStringArray("grid")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_x47fo")
+grid = NodePath("VBoxContainer/LineItemsGrid")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = 5
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
+offset_left = -62.0
+offset_right = 62.0
+offset_bottom = 88.0
 grow_horizontal = 2
-grow_vertical = 2
 
 [node name="LineItemsGrid" type="GridContainer" parent="VBoxContainer"]
 layout_mode = 2
-columns = 3
+columns = 4
 
 [node name="Label" type="Label" parent="VBoxContainer/LineItemsGrid"]
 layout_mode = 2
 text = "Assets"
+
+[node name="Label10" type="Label" parent="VBoxContainer/LineItemsGrid"]
+layout_mode = 2
 
 [node name="Label2" type="Label" parent="VBoxContainer/LineItemsGrid"]
 layout_mode = 2
@@ -39,6 +46,10 @@ horizontal_alignment = 2
 [node name="Label3" type="Label" parent="VBoxContainer/LineItemsGrid"]
 layout_mode = 2
 text = "Income"
+
+[node name="Label11" type="Label" parent="VBoxContainer/LineItemsGrid"]
+layout_mode = 2
+text = "+"
 
 [node name="Label4" type="Label" parent="VBoxContainer/LineItemsGrid"]
 layout_mode = 2
@@ -59,11 +70,18 @@ layout_mode = 2
 [node name="HSeparator3" type="HSeparator" parent="VBoxContainer/LineItemsGrid"]
 layout_mode = 2
 
+[node name="HSeparator4" type="HSeparator" parent="VBoxContainer/LineItemsGrid"]
+layout_mode = 2
+
 [node name="Label7" type="Label" parent="VBoxContainer/LineItemsGrid"]
 layout_mode = 2
 text = "Total"
 
 [node name="Label8" type="Label" parent="VBoxContainer/LineItemsGrid"]
+layout_mode = 2
+horizontal_alignment = 2
+
+[node name="Label12" type="Label" parent="VBoxContainer/LineItemsGrid"]
 layout_mode = 2
 text = "$"
 horizontal_alignment = 2

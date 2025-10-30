@@ -2,6 +2,7 @@ class_name GameAutoload extends Node
 
 signal player_changed
 signal player_items_changed
+signal player_money_changed
 
 @export var plants: PlantManager
 @export var items: ItemManager
@@ -21,7 +22,12 @@ var active_player: Character = null
 var active_level: Level = null
 
 var player_items: ItemContainer
-var player_money: int
+var player_money: int:
+	set(value):
+		if player_money == value:
+			return
+		player_money = value
+		player_money_changed.emit()
 
 func _ready() -> void:
 	assert(world)
@@ -57,6 +63,8 @@ func load_level(level_scn: PackedScene) -> void:
 	reset_global_state()
 	ui.day_summary.disable()
 	get_tree().paused = false
+	time.day_start.emit()
+	rent.reset()
 	level_loaded.emit(active_level)
 
 ## register a new player

@@ -12,9 +12,13 @@ func _ready() -> void:
 	time.day_start.connect(_on_day_start)
 	time.day_end.connect(_on_day_end)
 	ui.day_summary.continue_game.connect(_on_start_next_day)
+	printt("player money on day manager ready:", Game.player_money)
+	stats.reset()
 
 func _on_day_start() -> void:
 	print("day start")
+	printt("player money on day start:", Game.player_money)
+	stats.reset()
 
 func _on_day_end() -> void:
 	print("day end")
@@ -26,5 +30,3 @@ func _on_start_next_day() -> void:
 	ui.day_summary.disable()
 	Game.unpause_game()
 	Game.time.advance_day()
-	stats.reset()
-	stats.start_money = Game.player_money

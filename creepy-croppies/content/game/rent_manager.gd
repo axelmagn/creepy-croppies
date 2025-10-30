@@ -44,7 +44,7 @@ func deduct_rent() -> void:
 	Game.player_money -= rent_amt
 	rent_idx += 1
 	rent_date += rent_interval
-	Game.day.stats.rent += rent_amt
+	Game.day.stats.add_rent(rent_amt)
 	rent_changed.emit()
 
 func get_next_rent_amount() -> int:

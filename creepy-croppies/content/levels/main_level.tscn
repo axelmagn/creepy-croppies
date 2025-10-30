@@ -8,6 +8,7 @@
 [ext_resource type="Resource" uid="uid://gvni2qnigbkt" path="res://content/item/item_radish.tres" id="6_wp74p"]
 [ext_resource type="PackedScene" uid="uid://g36a8sfrh3xy" path="res://content/shop/shop.tscn" id="7_eim2b"]
 [ext_resource type="PackedScene" uid="uid://bl67eardp3wt" path="res://content/helper/helper_hut.tscn" id="8_rhklt"]
+[ext_resource type="PackedScene" uid="uid://bxdidkys0vkam" path="res://content/merchant/merchant.tscn" id="8_rhkly"]
 
 [node name="MainLevel" type="Node2D" node_paths=PackedStringArray("terrain", "character", "shop")]
 script = ExtResource("1_askbe")
@@ -38,3 +39,18 @@ position = Vector2(553, 270)
 collision_layer = 16
 collision_mask = 0
 fix_price = 100
+
+[node name="Merchant" parent="." instance=ExtResource("8_rhkly")]
+position = Vector2(498, 468)
+enter = NodePath("../MerchantEnter")
+spot = NodePath("../MerchantSpot")
+exit = NodePath("../MerchantExit")
+
+[node name="MerchantEnter" type="Marker2D" parent="."]
+position = Vector2(498, 468)
+
+[node name="MerchantSpot" type="Marker2D" parent="."]
+position = Vector2(630, 448)
+
+[node name="MerchantExit" type="Marker2D" parent="."]
+position = Vector2(753, 470)

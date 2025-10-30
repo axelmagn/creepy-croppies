@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://b8stxhsumdhpp" path="res://content/shop/shop.gd" id="1_u5g8j"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lfk0e"]
-radius = 20.248457
+radius = 13.038404
 
 [node name="Shop" type="Area2D"]
 collision_layer = 16

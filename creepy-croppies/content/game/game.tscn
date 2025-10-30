@@ -43,7 +43,7 @@ main_level_scn = ExtResource("2_gk6uf")
 rent = NodePath("RentManager")
 day = NodePath("DayManager")
 init_player_items = ExtResource("7_qhbyw")
-init_player_money = 150
+init_player_money = 10000
 
 [node name="World" type="Node2D" parent="."]
 process_mode = 1

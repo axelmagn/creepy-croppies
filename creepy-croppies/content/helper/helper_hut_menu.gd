@@ -28,20 +28,22 @@ func update_internals() -> void:
 	fix_button.disabled = not hut.can_fix()
 
 	record_button.visible = hut.is_fixed
+	record_button.disabled = not hut.can_record_routine()
+
 	activate_button.visible = hut.is_fixed
 	activate_button.disabled = not hut.can_activate_routine()
 	# TODO: disable activate if no recording exists
 
 	for child in price_grid.get_children():
 		child.queue_free()
-	for item in hut.routine_price.items:
+	for item in hut.helper_config.price.items:
 		var icon = TextureRect.new()
 		icon.texture = item.texture
 		icon.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST_WITH_MIPMAPS
 		icon.custom_minimum_size = Vector2(32, 32)
 		price_grid.add_child(icon)
 		var label = Label.new()
-		label.text = "%d" % hut.routine_price.items[item]
+		label.text = "%d" % hut.helper_config.price.items[item]
 		price_grid.add_child(label)
 
 func enable(helper_hut: HelperHut) -> void:
@@ -67,9 +69,9 @@ func _on_fix():
 
 func _on_record():
 	hut.record_routine()
-	update_internals()
+	disable()
 
 func _on_activate():
 	if hut.can_activate_routine():
 		hut.activate_routine()
-		update_internals()
+		disable()

@@ -1,0 +1,89 @@
+[gd_scene load_steps=13 format=3 uid="uid://lws3xjhlhglb"]
+
+[ext_resource type="Script" uid="uid://v5wonh51qcld" path="res://content/helper/helper.gd" id="1_7vupc"]
+[ext_resource type="Script" uid="uid://fij8pm0a6ytj" path="res://content/tools/tool.gd" id="3_nkics"]
+[ext_resource type="Resource" uid="uid://dmory34pyw5b7" path="res://content/tools/scythe.tres" id="4_2xkrj"]
+[ext_resource type="Resource" uid="uid://cbgetlc22i6l" path="res://content/tools/watering_can.tres" id="4_a3coh"]
+[ext_resource type="Resource" uid="uid://cwkciq0pi20lj" path="res://content/tools/seed_wheat.tres" id="7_60ei3"]
+[ext_resource type="Resource" uid="uid://dui7j7ptnikpj" path="res://content/tools/seed_radish.tres" id="8_iu73q"]
+[ext_resource type="Texture2D" uid="uid://dtlaq6wvfwl87" path="res://assets/sprout_lands_basic/Characters/Free Chicken Sprites.png" id="9_y14g2"]
+[ext_resource type="Texture2D" uid="uid://d1gpte07vmnn8" path="res://assets/kenney_crosshair-pack/PNG/White/crosshair026.png" id="10_vuje2"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ugpfc"]
+radius = 4.0
+height = 8.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bkj32"]
+radius = 48.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rmk25"]
+radius = 8.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_7vupc"]
+
+[node name="Helper" type="CharacterBody2D" node_paths=PackedStringArray("attention_label", "attention_timer", "cursor", "cooldown_timer", "magnet_area", "pickup_area")]
+z_index = 2
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_7vupc")
+attention_label = NodePath("AttentionLabel")
+attention_timer = NodePath("AttentionTimer")
+interact_collision = 2
+tools = Array[ExtResource("3_nkics")]([ExtResource("4_a3coh"), ExtResource("4_2xkrj"), ExtResource("7_60ei3"), ExtResource("8_iu73q")])
+cursor = NodePath("Cursor")
+cooldown_timer = NodePath("CooldownTimer")
+magnet_area = NodePath("MagnetArea")
+pickup_area = NodePath("PickupArea")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+shape = SubResource("CapsuleShape2D_ugpfc")
+
+[node name="CharacterSprite" type="Sprite2D" parent="."]
+texture_filter = 3
+texture = ExtResource("9_y14g2")
+region_enabled = true
+region_rect = Rect2(16, 16, 16, 16)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
+position_smoothing_enabled = true
+
+[node name="Cursor" type="Node2D" parent="."]
+visible = false
+
+[node name="CursorSprite" type="Sprite2D" parent="Cursor"]
+modulate = Color(1, 1, 1, 0.4745098)
+texture_filter = 3
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("10_vuje2")
+
+[node name="CooldownTimer" type="Timer" parent="."]
+
+[node name="MagnetArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MagnetArea"]
+shape = SubResource("CircleShape2D_bkj32")
+
+[node name="PickupArea" type="Area2D" parent="."]
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupArea"]
+shape = SubResource("CircleShape2D_rmk25")
+
+[node name="AttentionTimer" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
+
+[node name="AttentionLabel" type="Label" parent="."]
+texture_filter = 3
+offset_left = -20.0
+offset_top = -19.0
+offset_right = 20.0
+offset_bottom = -7.0
+text = "1:00"
+label_settings = SubResource("LabelSettings_7vupc")
+horizontal_alignment = 1
+vertical_alignment = 2

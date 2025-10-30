@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cpk6wyq8mwjf6"]
 
 [ext_resource type="Theme" uid="uid://c55ad4h1x0cgs" path="res://content/ui/main_theme.tres" id="1_in648"]
-[ext_resource type="Script" path="res://content/ui/day_summary.gd" id="1_mkl7j"]
+[ext_resource type="Script" uid="uid://1ym5d830mp2e" path="res://content/ui/day_summary.gd" id="1_mkl7j"]
 [ext_resource type="Theme" uid="uid://cavmbd5qbntu7" path="res://content/ui/header_theme.tres" id="3_31h0c"]
 
 [node name="DaySummary" type="Control" node_paths=PackedStringArray("continue_button")]

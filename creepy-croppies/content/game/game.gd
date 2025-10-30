@@ -79,3 +79,9 @@ func reset_global_state():
 	player_items.items = init_player_items.items.duplicate()
 	player_money = init_player_money
 	player_items_changed.emit()
+
+
+func trigger_game_over(win: bool) -> void:
+	get_tree().paused = true
+	ui.game_over_menu.win = win
+	ui.game_over_menu.enable()

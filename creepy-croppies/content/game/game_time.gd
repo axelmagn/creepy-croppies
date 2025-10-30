@@ -27,7 +27,7 @@ func advance_minute() -> void:
 	if hour() == end_hour:
 		day_end.emit()
 		# TODO: end of day screen - until then, just advance the day
-		advance_day()
+		# advance_day()
 
 func reset() -> void:
 	day = 0
@@ -42,7 +42,7 @@ func advance_day() -> void:
 ## used for debugging when we want to scroll through days
 func debug_advance_day():
 	day_end.emit()
-	advance_day()
+	# advance_day()
 
 
 func minute() -> int:
@@ -57,8 +57,19 @@ func day_of_week() -> int:
 func day_of_month() -> int:
 	return day % 30
 
+
 func day_of_week_name() -> String:
 	var d = day_of_week()
+	return DayNameAbbr.keys()[d]
+
+func to_day_of_week(d: int) -> int:
+	return d % 7
+
+func to_day_of_month(d: int) -> int:
+	return d % 30
+
+func to_day_of_week_name(d: int) -> String:
+	d = to_day_of_week(d)
 	return DayNameAbbr.keys()[d]
 
 func stop() -> void:

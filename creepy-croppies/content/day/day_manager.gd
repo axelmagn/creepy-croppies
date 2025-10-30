@@ -23,3 +23,4 @@ func _on_start_next_day() -> void:
 	print("continue game")
 	ui.day_summary.disable()
 	Game.unpause_game()
+	Game.time.advance_day()

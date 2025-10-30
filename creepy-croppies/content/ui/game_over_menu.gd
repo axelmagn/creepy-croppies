@@ -2,6 +2,7 @@ class_name GameOverMenu extends Control
 
 @export var retry_button: Button
 @export var main_menu_button: Button
+@export var win: bool = false
 
 var _init_process_mode: ProcessMode
 

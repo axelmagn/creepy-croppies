@@ -6,6 +6,7 @@ class_name TimeIndicator extends PanelContainer
 func _ready() -> void:
 	assert(date_label)
 	assert(time_label)
+	Game.time.day_start.connect(update_internals)
 	Game.time.minute_tick.connect(update_internals)
 	update_internals()
 

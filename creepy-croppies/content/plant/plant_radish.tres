@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="PlantConfig" load_steps=20 format=3 uid="uid://boprnxcoj4fa0"]
+[gd_resource type="Resource" script_class="PlantConfig" load_steps=21 format=3 uid="uid://boprnxcoj4fa0"]
 
 [ext_resource type="Script" uid="uid://cu6flw0wv5h4e" path="res://content/plant/plant_config.gd" id="1_7nog7"]
 [ext_resource type="Script" uid="uid://dottpy2k3wk" path="res://content/plant/growth_stage.gd" id="2_qcig4"]
@@ -7,6 +7,13 @@
 [ext_resource type="Script" uid="uid://c43nopgdmv1r5" path="res://content/item/item_drop.gd" id="5_my65c"]
 [ext_resource type="Resource" uid="uid://b47jndxtask0c" path="res://content/item/item_radish_seed.tres" id="6_qcig4"]
 
+[sub_resource type="Resource" id="Resource_qcig4"]
+script = ExtResource("5_my65c")
+item = ExtResource("6_qcig4")
+min_count = 1
+max_count = 1
+metadata/_custom_type_script = "uid://c43nopgdmv1r5"
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_s7mbv"]
 atlas = ExtResource("3_xnx8q")
 region = Rect2(16, 16, 16, 16)
@@ -14,6 +21,7 @@ region = Rect2(16, 16, 16, 16)
 [sub_resource type="Resource" id="Resource_rh7dw"]
 script = ExtResource("2_qcig4")
 texture = SubResource("AtlasTexture_s7mbv")
+item_drop = SubResource("Resource_qcig4")
 metadata/_custom_type_script = "uid://dottpy2k3wk"
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ulf1m"]

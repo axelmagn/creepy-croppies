@@ -82,3 +82,4 @@ script = ExtResource("16_upkcm")
 
 [node name="RentManager" type="Node" parent="."]
 script = ExtResource("16_qhbyw")
+rent_interval = 9

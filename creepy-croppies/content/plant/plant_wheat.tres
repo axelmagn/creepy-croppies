@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="PlantConfig" load_steps=20 format=3 uid="uid://b1ivwqgkielt2"]
+[gd_resource type="Resource" script_class="PlantConfig" load_steps=21 format=3 uid="uid://b1ivwqgkielt2"]
 
 [ext_resource type="Script" uid="uid://cu6flw0wv5h4e" path="res://content/plant/plant_config.gd" id="1_rgmpm"]
 [ext_resource type="Script" uid="uid://dottpy2k3wk" path="res://content/plant/growth_stage.gd" id="2_2hhxa"]
@@ -7,6 +7,13 @@
 [ext_resource type="Script" uid="uid://c43nopgdmv1r5" path="res://content/item/item_drop.gd" id="5_04yuw"]
 [ext_resource type="Resource" uid="uid://bpxpxj7loip6" path="res://content/item/item_wheat_seed.tres" id="6_2hhxa"]
 
+[sub_resource type="Resource" id="Resource_2hhxa"]
+script = ExtResource("5_04yuw")
+item = ExtResource("6_2hhxa")
+min_count = 1
+max_count = 1
+metadata/_custom_type_script = "uid://c43nopgdmv1r5"
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_s7mbv"]
 atlas = ExtResource("3_460my")
 region = Rect2(16, 0, 16, 16)
@@ -14,6 +21,7 @@ region = Rect2(16, 0, 16, 16)
 [sub_resource type="Resource" id="Resource_rh7dw"]
 script = ExtResource("2_2hhxa")
 texture = SubResource("AtlasTexture_s7mbv")
+item_drop = SubResource("Resource_2hhxa")
 metadata/_custom_type_script = "uid://dottpy2k3wk"
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ulf1m"]

@@ -52,17 +52,17 @@ func harvest() -> void:
 	Game.active_level.terrain.unwater(tcoord)
 
 	# drop items
-	if not stage.item_drop:
-		return
-	var n_items = randi_range(stage.item_drop.min_count, stage.item_drop.max_count)
-	for _i in range(n_items):
-		Game.items.spawn_item(stage.item_drop.item, pos, true)
-	var seed_days = days_watered - stage.day
-	var min_seeds = min(stage.seed_drop.min_count, seed_days)
-	var max_seeds = min(stage.seed_drop.max_count, seed_days)
-	var n_seeds = randi_range(min_seeds, max_seeds)
-	for _i in range(n_seeds):
-		Game.items.spawn_item(stage.seed_drop.item, pos, true)
+	if stage.item_drop:
+		var n_items = randi_range(stage.item_drop.min_count, stage.item_drop.max_count)
+		for _i in range(n_items):
+			Game.items.spawn_item(stage.item_drop.item, pos, true)
+	if stage.seed_drop:
+		var seed_days = days_watered - stage.day
+		var min_seeds = min(stage.seed_drop.min_count, seed_days)
+		var max_seeds = min(stage.seed_drop.max_count, seed_days)
+		var n_seeds = randi_range(min_seeds, max_seeds)
+		for _i in range(n_seeds):
+			Game.items.spawn_item(stage.seed_drop.item, pos, true)
 
 func is_watered() -> bool:
 	var tcoord = Game.active_level.terrain.get_showing_cell(global_position)

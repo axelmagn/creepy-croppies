@@ -21,3 +21,11 @@ func validate_balance():
 func add_rent(amt: int) -> void:
 	rent += amt
 	changed.emit()
+
+func add_expense(amt: int) -> void:
+	expenses += amt
+	changed.emit()
+
+func add_income(amt: int) -> void:
+	income += amt
+	changed.emit()

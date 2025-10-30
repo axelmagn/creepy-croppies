@@ -41,11 +41,13 @@ func buy() -> void:
 	if Input.is_key_pressed(KEY_SHIFT):
 		multiplier = 10
 		
-	if Game.player_money < item_config.price * multiplier:
+	var price = item_config.price * multiplier
+	if Game.player_money < price:
 		return
 		
 	Game.player_items.add_item(item_config, 1 * multiplier)
-	Game.player_money -= item_config.price * multiplier
+	Game.player_money -= price
+	Game.day.stats.add_expense(price)
 
 func sell() -> void:
 	var multiplier: int = 1
@@ -56,4 +58,6 @@ func sell() -> void:
 		return
 		
 	Game.player_items.add_item(item_config, -1 * multiplier)
-	Game.player_money += item_config.price * multiplier
+	var price =item_config.price * multiplier
+	Game.player_money += price
+	Game.day.stats.add_income(price)

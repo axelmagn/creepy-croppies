@@ -11,7 +11,8 @@ region = Rect2(0, 16, 16, 16)
 
 [resource]
 script = ExtResource("1_reooj")
-name = "Test Item"
+name = "Radish Seed"
 texture = SubResource("AtlasTexture_jbtps")
 buyable = true
+sellable = false
 metadata/_custom_type_script = "uid://dqx63of8et0be"

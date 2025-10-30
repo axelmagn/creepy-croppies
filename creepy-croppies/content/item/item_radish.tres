@@ -11,6 +11,6 @@ region = Rect2(80, 16, 16, 16)
 
 [resource]
 script = ExtResource("1_mr2ms")
-name = "Test Item"
+name = "Radish"
 texture = SubResource("AtlasTexture_jbtps")
 metadata/_custom_type_script = "uid://dqx63of8et0be"

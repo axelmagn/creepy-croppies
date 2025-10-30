@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ItemContainer" load_steps=7 format=3 uid="uid://b2m86nmfkvwaj"]
+[gd_resource type="Resource" script_class="ItemContainer" load_steps=7 format=3 uid="uid://ttfhsoykwwe3"]
 
 [ext_resource type="Script" uid="uid://dqx63of8et0be" path="res://content/item/item_config.gd" id="1_1eghn"]
 [ext_resource type="Resource" uid="uid://bxanckxw3qwl5" path="res://content/item/item_wheat.tres" id="2_mf4pl"]

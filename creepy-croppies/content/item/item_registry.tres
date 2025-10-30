@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemRegistry" load_steps=7 format=3 uid="uid://dpocek472e181"]
+
+[ext_resource type="Script" uid="uid://dqx63of8et0be" path="res://content/item/item_config.gd" id="1_mxfuf"]
+[ext_resource type="Script" uid="uid://co1rpbkok5e28" path="res://content/item/item_registry.gd" id="1_ulomg"]
+[ext_resource type="Resource" uid="uid://bpxpxj7loip6" path="res://content/item/item_wheat_seed.tres" id="2_xsic5"]
+[ext_resource type="Resource" uid="uid://b47jndxtask0c" path="res://content/item/item_radish_seed.tres" id="3_3nnwn"]
+[ext_resource type="Resource" uid="uid://bxanckxw3qwl5" path="res://content/item/item_wheat.tres" id="4_jkfjs"]
+[ext_resource type="Resource" uid="uid://gvni2qnigbkt" path="res://content/item/item_radish.tres" id="5_jv4v6"]
+
+[resource]
+script = ExtResource("1_ulomg")
+items = Array[ExtResource("1_mxfuf")]([ExtResource("2_xsic5"), ExtResource("3_3nnwn"), ExtResource("4_jkfjs"), ExtResource("5_jv4v6")])

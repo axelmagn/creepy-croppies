@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://ixd4jqkrcxmk"]
+[gd_scene load_steps=21 format=3 uid="uid://ixd4jqkrcxmk"]
 
 [ext_resource type="Script" uid="uid://bogh6746ikc7s" path="res://content/game/game.gd" id="1_r1esr"]
 [ext_resource type="PackedScene" uid="uid://bi41vafaqtj0i" path="res://content/plant/plant.tscn" id="2_dck4f"]
@@ -9,14 +9,15 @@
 [ext_resource type="PackedScene" uid="uid://dy8u031nrj081" path="res://content/item/item.tscn" id="4_xjc2w"]
 [ext_resource type="Script" uid="uid://dep5r7js3181m" path="res://content/item/item_manager.gd" id="5_t8pyj"]
 [ext_resource type="PackedScene" uid="uid://c65b2rbxswdam" path="res://content/player/player_hud.tscn" id="5_y33i4"]
+[ext_resource type="Resource" uid="uid://dpocek472e181" path="res://content/item/item_registry.tres" id="6_oq3ly"]
 [ext_resource type="PackedScene" uid="uid://cyfe0qh5oiog1" path="res://content/game/game_time.tscn" id="6_pikl6"]
 [ext_resource type="Resource" uid="uid://bnkbjme5y2iy7" path="res://content/item/init_player_items.tres" id="7_qhbyw"]
 [ext_resource type="PackedScene" uid="uid://cpk6wyq8mwjf6" path="res://content/ui/day_summary.tscn" id="8_twpl5"]
-[ext_resource type="PackedScene" uid="uid://c10gpo11yxc07" path="res://content/ui/game_over_menu.tscn" id="10_ql74j"]
+[ext_resource type="PackedScene" path="res://content/ui/game_over_menu.tscn" id="10_ql74j"]
 [ext_resource type="PackedScene" uid="uid://bgbwveu3rsqvu" path="res://content/ui/shop_ui.tscn" id="13_ql74j"]
 [ext_resource type="Script" uid="uid://b5d2oq7w0l8wh" path="res://content/day/day_manager.gd" id="14_dv1sk"]
 [ext_resource type="Script" uid="uid://bh1v8tekfu8a7" path="res://content/game/rent_manager.gd" id="16_qhbyw"]
-[ext_resource type="Script" uid="uid://cje7qy2x248ac" path="res://content/input/input_manager.gd" id="16_upkcm"]
+[ext_resource type="Script" uid="uid://cpxy7m8xpyoer" path="res://content/input/input_manager.gd" id="16_upkcm"]
 
 [sub_resource type="Resource" id="Resource_xjc2w"]
 script = ExtResource("3_twpl5")
@@ -33,6 +34,7 @@ metadata/_custom_type_script = "uid://dep5r7js3181m"
 script = ExtResource("1_r1esr")
 plants = SubResource("Resource_xjc2w")
 items = SubResource("Resource_4ebuv")
+item_registry = ExtResource("6_oq3ly")
 world = NodePath("World")
 ui = NodePath("UI")
 time = NodePath("GameTime")

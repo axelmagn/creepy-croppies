@@ -1,9 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://bgbwveu3rsqvu"]
+[gd_scene load_steps=8 format=3 uid="uid://bgbwveu3rsqvu"]
 
 [ext_resource type="Script" uid="uid://b3mra66t3kkqs" path="res://content/ui/shop_ui.gd" id="1_5anh0"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_7op6u"]
-font_size = 26
+[ext_resource type="Theme" uid="uid://c55ad4h1x0cgs" path="res://content/ui/main_theme.tres" id="1_uc6cn"]
+[ext_resource type="PackedScene" uid="uid://ca0cgsrsg2mrp" path="res://content/ui/shop_item.tscn" id="2_2wmkg"]
+[ext_resource type="Theme" uid="uid://cavmbd5qbntu7" path="res://content/ui/header_theme.tres" id="2_e6bso"]
+[ext_resource type="Resource" uid="uid://bpxpxj7loip6" path="res://content/item/item_wheat_seed.tres" id="3_q1h0i"]
+[ext_resource type="Resource" uid="uid://b47jndxtask0c" path="res://content/item/item_radish_seed.tres" id="4_e6bso"]
+[ext_resource type="Resource" uid="uid://gvni2qnigbkt" path="res://content/item/item_radish.tres" id="7_ep17b"]
 
 [node name="ShopUi" type="Control" node_paths=PackedStringArray("close_button")]
 layout_mode = 3
@@ -12,6 +15,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_uc6cn")
 script = ExtResource("1_5anh0")
 close_button = NodePath("Panel/MarginContainer/VBoxContainer/CloseButton")
 
@@ -44,10 +48,14 @@ theme_override_constants/margin_bottom = 10
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer"]
 layout_mode = 2
 
-[node name="Title" type="Label" parent="Panel/MarginContainer/VBoxContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("2_e6bso")
+
+[node name="Title" type="Label" parent="Panel/MarginContainer/VBoxContainer/PanelContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
 text = "Shop"
-label_settings = SubResource("LabelSettings_7op6u")
 horizontal_alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="Panel/MarginContainer/VBoxContainer"]
@@ -56,9 +64,45 @@ size_flags_vertical = 3
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="SummaryGridContainer" type="GridContainer" parent="Panel/MarginContainer/VBoxContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer/VBoxContainer/MarginContainer"]
 layout_mode = 2
-columns = 2
+
+[node name="VBoxContainerBuy" type="VBoxContainer" parent="Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Buy" type="Label" parent="Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/VBoxContainerBuy"]
+layout_mode = 2
+text = "Buy"
+horizontal_alignment = 1
+
+[node name="Wheat" parent="Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/VBoxContainerBuy" instance=ExtResource("2_2wmkg")]
+layout_mode = 2
+item_config = ExtResource("3_q1h0i")
+
+[node name="Radish" parent="Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/VBoxContainerBuy" instance=ExtResource("2_2wmkg")]
+layout_mode = 2
+item_config = ExtResource("4_e6bso")
+
+[node name="Spacer" type="Control" parent="Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="VBoxContainerSell" type="VBoxContainer" parent="Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Buy" type="Label" parent="Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/VBoxContainerSell"]
+layout_mode = 2
+text = "Sell"
+horizontal_alignment = 1
+
+[node name="Wheat" parent="Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/VBoxContainerSell" instance=ExtResource("2_2wmkg")]
+layout_mode = 2
+type = 1
+
+[node name="Radish" parent="Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/VBoxContainerSell" instance=ExtResource("2_2wmkg")]
+layout_mode = 2
+item_config = ExtResource("7_ep17b")
+type = 1
 
 [node name="CloseButton" type="Button" parent="Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2

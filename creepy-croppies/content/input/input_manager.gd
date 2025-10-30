@@ -38,3 +38,9 @@ func apply_inputs() -> void:
 	# interact with objects
 	if Input.is_action_just_pressed("interact"):
 		character.interact()
+
+	if Input.is_action_just_pressed("menu_pause"):
+		if Game.active_level and not get_tree().paused:
+			Game.ui.pause_menu.enable()
+		elif Game.active_level and Game.ui.pause_menu.visible:
+			Game.ui.pause_menu.disable()

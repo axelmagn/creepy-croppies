@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://td0kuaumlteb"]
+
+[ext_resource type="Script" uid="uid://b8dnu5qr1m1mk" path="res://content/cutscenes/cutscenes_manager.gd" id="1_oy8gq"]
+
+[node name="CutsceneManager" type="Node"]
+script = ExtResource("1_oy8gq")

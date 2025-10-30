@@ -8,28 +8,43 @@
 atlas = ExtResource("1_5goes")
 region = Rect2(32, 0, 16, 16)
 
-[node name="ToolsIndicator" type="HBoxContainer"]
-texture_filter = 3
+[node name="ToolsIndicator" type="VBoxContainer" node_paths=PackedStringArray("tool_panels_root", "active_tool_label")]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -20.0
-offset_top = -40.0
-offset_right = 20.0
+offset_left = -66.0
+offset_top = -80.0
+offset_right = 66.0
 grow_horizontal = 2
 grow_vertical = 0
+alignment = 2
 script = ExtResource("1_f6ax4")
 tool_panel_scn = ExtResource("1_l5dxo")
+tool_panels_root = NodePath("ToolPanels")
+active_tool_label = NodePath("PanelContainer/ActiveToolLabel")
 
-[node name="ToolPanel" parent="." instance=ExtResource("1_l5dxo")]
+[node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 2
 
-[node name="ToolPanel2" type="PanelContainer" parent="."]
+[node name="ActiveToolLabel" type="Label" parent="PanelContainer"]
+layout_mode = 2
+text = "Selected Tool"
+horizontal_alignment = 1
+
+[node name="ToolPanels" type="HBoxContainer" parent="."]
+texture_filter = 3
+layout_mode = 2
+alignment = 1
+
+[node name="ToolPanel" parent="ToolPanels" instance=ExtResource("1_l5dxo")]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="ToolPanel2"]
+[node name="ToolPanel2" type="PanelContainer" parent="ToolPanels"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="ToolPanels/ToolPanel2"]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 texture = SubResource("AtlasTexture_m1xjk")

@@ -22,6 +22,15 @@ activate_button = NodePath("PanelContainer/VBoxContainer/ActivateButton")
 close_button = NodePath("PanelContainer/VBoxContainer/CloseButton")
 price_grid = NodePath("PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/GridContainer")
 
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"ShadedPanel"
+
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8

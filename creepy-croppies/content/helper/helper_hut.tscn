@@ -1,13 +1,13 @@
-[gd_scene load_steps=12 format=3 uid="uid://bl67eardp3wt"]
+[gd_scene load_steps=15 format=3 uid="uid://bl67eardp3wt"]
 
 [ext_resource type="Script" uid="uid://6r3hpcynljge" path="res://content/helper/helper_hut.gd" id="1_qdfpp"]
-[ext_resource type="Texture2D" uid="uid://lggwsien8n6n" path="res://assets/sprout_lands_basic/Objects/Egg_item.png" id="1_qh4cj"]
 [ext_resource type="Script" uid="uid://dqx63of8et0be" path="res://content/item/item_config.gd" id="2_vyl0b"]
 [ext_resource type="PackedScene" uid="uid://lws3xjhlhglb" path="res://content/helper/helper.tscn" id="2_xluue"]
 [ext_resource type="Resource" uid="uid://bxanckxw3qwl5" path="res://content/item/item_wheat.tres" id="3_8yduy"]
 [ext_resource type="Script" uid="uid://1sh2lqokbbvk" path="res://content/item/item_container.gd" id="3_lyf2i"]
 [ext_resource type="Resource" uid="uid://gvni2qnigbkt" path="res://content/item/item_radish.tres" id="4_xluue"]
 [ext_resource type="Script" uid="uid://qk2fns3jmhln" path="res://content/helper/helper_config.gd" id="6_ehwxl"]
+[ext_resource type="Texture2D" uid="uid://wvg3q0cup3og" path="res://assets/cozy_farm/Buildings/buildings.png" id="8_ehwxl"]
 
 [sub_resource type="Resource" id="Resource_hxg6j"]
 script = ExtResource("3_lyf2i")
@@ -22,20 +22,41 @@ script = ExtResource("6_ehwxl")
 price = SubResource("Resource_hxg6j")
 metadata/_custom_type_script = "uid://qk2fns3jmhln"
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_qh4cj"]
-radius = 16.0
+[sub_resource type="AtlasTexture" id="AtlasTexture_ehwxl"]
+atlas = ExtResource("8_ehwxl")
+region = Rect2(736, 704, 96, 64)
 
-[node name="HelperHut" type="Area2D"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_hxg6j"]
+atlas = ExtResource("8_ehwxl")
+region = Rect2(0, 704, 96, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_puta4"]
+size = Vector2(81, 55)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ehwxl"]
+size = Vector2(71, 47.5)
+
+[node name="HelperHut" type="Area2D" node_paths=PackedStringArray("sprite")]
 collision_layer = 16
 collision_mask = 0
 script = ExtResource("1_qdfpp")
 helper_scn = ExtResource("2_xluue")
 helper_config = SubResource("Resource_puta4")
+fixed_tex = SubResource("AtlasTexture_ehwxl")
+sprite = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 3
-scale = Vector2(2, 2)
-texture = ExtResource("1_qh4cj")
+texture = SubResource("AtlasTexture_hxg6j")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_qh4cj")
+position = Vector2(-0.5, 2.5)
+shape = SubResource("RectangleShape2D_puta4")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 64
+collision_mask = 65
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1.5, 2.25)
+shape = SubResource("RectangleShape2D_ehwxl")

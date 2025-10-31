@@ -1,20 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://bxdidkys0vkam"]
+[gd_scene load_steps=3 format=3 uid="uid://bxdidkys0vkam"]
 
 [ext_resource type="Script" uid="uid://pd6bltvx73fp" path="res://content/merchant/merchant.gd" id="1_6lnbc"]
-[ext_resource type="Texture2D" uid="uid://n8bxa3yvm5va" path="res://assets/sprout_lands_basic/Objects/Basic Furniture.png" id="2_jlk80"]
 [ext_resource type="PackedScene" uid="uid://g36a8sfrh3xy" path="res://content/shop/shop.tscn" id="3_xl4w4"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_wtql6"]
-atlas = ExtResource("2_jlk80")
-region = Rect2(80, 80, 32, 16)
-
 [node name="Merchant" type="Node2D" node_paths=PackedStringArray("shop")]
+z_index = 5
 script = ExtResource("1_6lnbc")
 shop = NodePath("Shop")
-
-[node name="Boat" type="Sprite2D" parent="."]
-scale = Vector2(2, 2)
-texture = SubResource("AtlasTexture_wtql6")
-region_rect = Rect2(0, 0, 100, 50)
 
 [node name="Shop" parent="." instance=ExtResource("3_xl4w4")]

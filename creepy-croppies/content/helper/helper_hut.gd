@@ -2,6 +2,8 @@ class_name HelperHut extends Area2D
 
 @export var helper_scn: PackedScene
 @export var helper_config: HelperConfig
+@export var fixed_tex: Texture
+@export var sprite: Sprite2D
 
 @export var fix_price: int
 @export var is_fixed: bool = false
@@ -14,6 +16,8 @@ var tween: Tween = null
 func _ready() -> void:
 	assert(helper_scn)
 	assert(helper_config)
+	assert(fixed_tex)
+	assert(sprite)
 
 func interact() -> void:
 	Game.ui.hut.enable(self)
@@ -24,6 +28,7 @@ func can_fix() -> bool:
 func fix() -> void:
 	Game.player_money -= fix_price
 	Game.day.stats.expenses += fix_price
+	sprite.texture = fixed_tex
 	is_fixed = true
 
 func can_record_routine() -> bool:

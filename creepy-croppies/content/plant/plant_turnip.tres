@@ -48,14 +48,14 @@ metadata/_custom_type_script = "uid://dottpy2k3wk"
 script = ExtResource("4_hbtjn")
 item = ExtResource("6_5funm")
 min_count = 1
-max_count = 4
+max_count = 1
 metadata/_custom_type_script = "uid://c43nopgdmv1r5"
 
 [sub_resource type="Resource" id="Resource_pckpv"]
 script = ExtResource("4_hbtjn")
 item = ExtResource("3_v6283")
 min_count = 1
-max_count = 4
+max_count = 3
 metadata/_custom_type_script = "uid://c43nopgdmv1r5"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hbtjn"]

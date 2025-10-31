@@ -48,7 +48,7 @@ metadata/_custom_type_script = "uid://dottpy2k3wk"
 script = ExtResource("4_4xdg5")
 item = ExtResource("6_w3gfq")
 min_count = 1
-max_count = 4
+max_count = 1
 metadata/_custom_type_script = "uid://c43nopgdmv1r5"
 
 [sub_resource type="Resource" id="Resource_b2dp3"]

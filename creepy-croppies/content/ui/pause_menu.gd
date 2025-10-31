@@ -14,6 +14,7 @@ func enable() -> void:
 	visible = true
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	get_tree().paused = true
+	continue_button.grab_focus()
 
 func disable() -> void:
 	visible = false

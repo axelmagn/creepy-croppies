@@ -46,12 +46,20 @@ func update_internals() -> void:
 		label.text = "%d" % hut.helper_config.price.items[item]
 		price_grid.add_child(label)
 
+func reset_focus() -> void:
+	for button in [fix_button, record_button, activate_button, close_button]:
+		if button.visible and not button.disabled:
+			button.grab_focus()
+			return
+
 func enable(helper_hut: HelperHut) -> void:
 	visible = true
 	hut = helper_hut
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	get_tree().paused = true
 	update_internals()
+	reset_focus()
+
 
 func disable():
 	visible = false
@@ -67,6 +75,8 @@ func _on_fix():
 	if hut.can_fix():
 		hut.fix()
 		update_internals()
+		# reset_focus()
+		record_button.grab_focus()
 		Game.audio.play_click()
 
 func _on_record():

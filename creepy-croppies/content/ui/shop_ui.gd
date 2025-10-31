@@ -27,6 +27,7 @@ func enable() -> void:
 	visible = true
 	process_mode = _init_process_mode
 	update_view()
+	close_button.grab_focus()
 
 func disable() -> void:
 	visible = false

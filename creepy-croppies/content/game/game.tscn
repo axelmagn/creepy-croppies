@@ -52,6 +52,7 @@ rent = NodePath("RentManager")
 day = NodePath("DayManager")
 cutscenes = NodePath("CutsceneManager")
 init_player_items = ExtResource("7_qhbyw")
+init_player_money = 200
 
 [node name="World" type="Node2D" parent="."]
 process_mode = 1

@@ -4,9 +4,9 @@
 [ext_resource type="Script" uid="uid://fij8pm0a6ytj" path="res://content/tools/tool.gd" id="3_nkics"]
 [ext_resource type="Resource" uid="uid://1croiuqutd76" path="res://content/tools/scythe.tres" id="4_2xkrj"]
 [ext_resource type="Resource" uid="uid://cbgetlc22i6l" path="res://content/tools/watering_can.tres" id="4_a3coh"]
+[ext_resource type="Texture2D" uid="uid://bkb3e06vx1mwx" path="res://assets/objects/helper.png" id="7_2xkrj"]
 [ext_resource type="Resource" uid="uid://cwkciq0pi20lj" path="res://content/tools/tool_seed_wheat.tres" id="7_60ei3"]
 [ext_resource type="Resource" uid="uid://dui7j7ptnikpj" path="res://content/tools/tool_seed_radish.tres" id="8_iu73q"]
-[ext_resource type="Texture2D" uid="uid://dtlaq6wvfwl87" path="res://assets/sprout_lands_basic/Characters/Free Chicken Sprites.png" id="9_y14g2"]
 [ext_resource type="Texture2D" uid="uid://d1gpte07vmnn8" path="res://assets/kenney_crosshair-pack/PNG/White/crosshair026.png" id="10_vuje2"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ugpfc"]
@@ -41,8 +41,7 @@ shape = SubResource("CapsuleShape2D_ugpfc")
 
 [node name="CharacterSprite" type="Sprite2D" parent="."]
 texture_filter = 3
-texture = ExtResource("9_y14g2")
-region_enabled = true
+texture = ExtResource("7_2xkrj")
 region_rect = Rect2(16, 16, 16, 16)
 
 [node name="Camera2D" type="Camera2D" parent="."]

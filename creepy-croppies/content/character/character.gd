@@ -79,8 +79,18 @@ func request_next_tool() -> void:
 		return
 	if tools.is_empty():
 		return
+		
+	var last_tool_idx := active_tool_idx
 	active_tool_idx += 1
 	active_tool_idx %= tools.size()
+		
+	while active_tool_idx != last_tool_idx:
+		if tools[active_tool_idx] is not Seed or tools[active_tool_idx].has_enough_resources_to_use():
+			break
+			
+		active_tool_idx += 1
+		active_tool_idx %= tools.size()
+		
 	active_tool_changed.emit()
 
 func request_prev_tool() -> void:
@@ -88,8 +98,18 @@ func request_prev_tool() -> void:
 		return
 	if tools.is_empty():
 		return
+	
+	var last_tool_idx := active_tool_idx
 	active_tool_idx += tools.size() - 1
 	active_tool_idx %= tools.size()
+		
+	while active_tool_idx != last_tool_idx:
+		if tools[active_tool_idx] is not Seed or tools[active_tool_idx].has_enough_resources_to_use():
+			break
+			
+		active_tool_idx += tools.size() - 1
+		active_tool_idx %= tools.size()
+		
 	active_tool_changed.emit()
 
 func set_tool(tool_idx: int) -> void:

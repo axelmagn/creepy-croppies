@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://cuw8uygdpglxk"]
+[gd_scene load_steps=9 format=3 uid="uid://cuw8uygdpglxk"]
 
 [ext_resource type="Script" uid="uid://dikj3661rgst8" path="res://content/levels/level.gd" id="1_iep8p"]
-[ext_resource type="PackedScene" path="res://content/terrain/king_terrain.tscn" id="2_8e4aw"]
+[ext_resource type="PackedScene" uid="uid://brhexstgl81ff" path="res://content/terrain/king_terrain.tscn" id="2_8e4aw"]
 [ext_resource type="PackedScene" uid="uid://b6ofto02bhrak" path="res://content/player/player.tscn" id="3_aiuew"]
 [ext_resource type="PackedScene" uid="uid://g36a8sfrh3xy" path="res://content/shop/shop.tscn" id="4_aiuew"]
 [ext_resource type="PackedScene" uid="uid://bxdidkys0vkam" path="res://content/merchant/merchant.tscn" id="5_41qb8"]
+[ext_resource type="PackedScene" uid="uid://cilonyl1i77ws" path="res://content/bridge/bridge.tscn" id="6_1g7v2"]
 
 [sub_resource type="Curve2D" id="Curve2D_41qb8"]
 _data = {
@@ -43,3 +44,6 @@ curve = SubResource("Curve2D_41qb8")
 
 [node name="MerchantExitPath" type="Path2D" parent="."]
 curve = SubResource("Curve2D_1g7v2")
+
+[node name="Bridge" parent="." instance=ExtResource("6_1g7v2")]
+position = Vector2(208, 232)

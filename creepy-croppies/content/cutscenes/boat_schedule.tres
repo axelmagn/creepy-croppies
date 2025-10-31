@@ -7,6 +7,5 @@ script = ExtResource("1_i1t2r")
 lines = Array[String](["Melker's Merchant Marine
 Arrives Daily
 
-9AM-11AM
-"])
+9AM-11AM"])
 metadata/_custom_type_script = "uid://16kpwiuhc11o"

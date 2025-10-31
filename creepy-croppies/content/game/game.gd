@@ -49,6 +49,7 @@ func _ready() -> void:
 	player_items.items = init_player_items.items.duplicate()
 	player_money = init_player_money
 	player_items_changed.emit()
+	get_tree().paused = true
 
 
 ## load a new level

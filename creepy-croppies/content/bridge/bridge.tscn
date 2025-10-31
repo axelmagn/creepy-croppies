@@ -24,11 +24,12 @@ a = Vector2(0, -14)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0uvh1"]
 size = Vector2(30, 34)
 
-[node name="Bridge" type="Node2D" node_paths=PackedStringArray("broken_bridge", "broken_bridge_collider", "fixed_bridge")]
+[node name="Bridge" type="Node2D" node_paths=PackedStringArray("broken_bridge", "broken_bridge_collider", "fixed_bridge", "interactionArea")]
 script = ExtResource("1_osvkl")
 broken_bridge = NodePath("BrokenBridge")
 broken_bridge_collider = NodePath("BrokenBridge/StaticBody2D/CollisionShape2D")
 fixed_bridge = NodePath("FixedBridge")
+interactionArea = NodePath("InteractionArea2D")
 
 [node name="BrokenBridge" type="Sprite2D" parent="."]
 visible = false

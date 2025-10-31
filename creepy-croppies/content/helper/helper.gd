@@ -14,8 +14,8 @@ func _ready() -> void:
 	assert(config)
 	assert(attention_label)
 	assert(attention_timer)
-	attention_timer.wait_time = config.attention_span
 	attention_timer.timeout.connect(cleanup)
+	attention_timer.start(config.attention_span)
 	Game.time.day_end.connect(cleanup)
 
 func _process(delta: float) -> void:

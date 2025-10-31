@@ -1,7 +1,7 @@
 [gd_scene load_steps=39 format=3 uid="uid://cuw8uygdpglxk"]
 
 [ext_resource type="Script" uid="uid://dikj3661rgst8" path="res://content/levels/level.gd" id="1_iep8p"]
-[ext_resource type="PackedScene" uid="uid://brhexstgl81ff" path="res://content/terrain/king_terrain.tscn" id="2_8e4aw"]
+[ext_resource type="PackedScene" uid="uid://c6teftib88pcu" path="res://content/terrain/king_terrain.tscn" id="2_8e4aw"]
 [ext_resource type="PackedScene" uid="uid://b6ofto02bhrak" path="res://content/player/player.tscn" id="3_aiuew"]
 [ext_resource type="PackedScene" uid="uid://bxdidkys0vkam" path="res://content/merchant/merchant.tscn" id="5_41qb8"]
 [ext_resource type="PackedScene" uid="uid://qmkef7x310yd" path="res://content/house/house.tscn" id="5_pdf8x"]

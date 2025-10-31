@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://cuw8uygdpglxk"]
+[gd_scene load_steps=37 format=3 uid="uid://cuw8uygdpglxk"]
 
 [ext_resource type="Script" uid="uid://dikj3661rgst8" path="res://content/levels/level.gd" id="1_iep8p"]
 [ext_resource type="PackedScene" uid="uid://brhexstgl81ff" path="res://content/terrain/king_terrain.tscn" id="2_8e4aw"]
@@ -23,6 +23,7 @@
 [ext_resource type="Resource" uid="uid://bp4l4u7gypy27" path="res://content/item/item_eggplant.tres" id="14_81fcs"]
 [ext_resource type="Resource" uid="uid://ddtm0b2kmpa4l" path="res://content/cutscenes/helper_intro.tres" id="14_mjs31"]
 [ext_resource type="Script" uid="uid://16kpwiuhc11o" path="res://content/cutscenes/cutscene_config.gd" id="15_g37ea"]
+[ext_resource type="Resource" uid="uid://bptybi2x16g4w" path="res://content/item/item_pumpkin_seed.tres" id="18_14hqh"]
 [ext_resource type="PackedScene" uid="uid://cq7kn1ku4f0hn" path="res://content/sign/sign.tscn" id="24_hibrm"]
 [ext_resource type="Resource" uid="uid://di68almhwuq7d" path="res://content/cutscenes/boat_schedule.tres" id="25_hibrm"]
 
@@ -117,17 +118,17 @@ position = Vector2(-3, 39)
 [node name="HelperHut" parent="." instance=ExtResource("8_gifuw")]
 position = Vector2(546, 134)
 helper_config = SubResource("Resource_75x37")
-fix_price = 100
+fix_price = 50
 
 [node name="HelperHut2" parent="." instance=ExtResource("8_gifuw")]
 position = Vector2(28, 193)
 helper_config = SubResource("Resource_26brk")
-fix_price = 200
+fix_price = 150
 
 [node name="HelperHut3" parent="." instance=ExtResource("8_gifuw")]
 position = Vector2(30, 318)
 helper_config = SubResource("Resource_t23yo")
-fix_price = 400
+fix_price = 300
 
 [node name="Item" parent="." instance=ExtResource("9_n8pfq")]
 position = Vector2(188, 132)
@@ -136,6 +137,10 @@ config = ExtResource("10_f50eq")
 [node name="Item2" parent="." instance=ExtResource("9_n8pfq")]
 position = Vector2(257, 191)
 config = ExtResource("10_f50eq")
+
+[node name="Item6" parent="." instance=ExtResource("9_n8pfq")]
+position = Vector2(238, 264)
+config = ExtResource("18_14hqh")
 
 [node name="Item5" parent="." instance=ExtResource("9_n8pfq")]
 position = Vector2(418, 94)
@@ -168,7 +173,6 @@ texture = SubResource("AtlasTexture_mjs31")
 
 [node name="Bridge" parent="." instance=ExtResource("6_1g7v2")]
 position = Vector2(208, 232)
-fix_cost = 300
 
 [node name="CutsceneTrigger2" parent="." instance=ExtResource("6_gifuw")]
 position = Vector2(545, 147)

@@ -19,16 +19,16 @@
 script = ExtResource("6_ubb76")
 items = Dictionary[ExtResource("1_uvo8a"), int]({
 ExtResource("2_0ejd8"): 0,
-ExtResource("3_8rf1o"): 10,
-ExtResource("4_b3882"): 10,
+ExtResource("3_8rf1o"): 0,
+ExtResource("4_b3882"): 0,
 ExtResource("5_uvo8a"): 0,
 ExtResource("6_wxtg3"): 0,
-ExtResource("7_lkjxp"): 10,
+ExtResource("7_lkjxp"): 0,
 ExtResource("8_ums44"): 0,
-ExtResource("9_lfr8c"): 10,
+ExtResource("9_lfr8c"): 0,
 ExtResource("10_boaoc"): 0,
-ExtResource("11_io88p"): 10,
+ExtResource("11_io88p"): 0,
 ExtResource("12_6b7v3"): 0,
-ExtResource("13_3muyw"): 10
+ExtResource("13_3muyw"): 0
 })
 metadata/_custom_type_script = "uid://1sh2lqokbbvk"

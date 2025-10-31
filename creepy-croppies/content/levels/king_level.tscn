@@ -1,17 +1,18 @@
-[gd_scene load_steps=12 format=3 uid="uid://cuw8uygdpglxk"]
+[gd_scene load_steps=17 format=3 uid="uid://cuw8uygdpglxk"]
 
 [ext_resource type="Script" uid="uid://dikj3661rgst8" path="res://content/levels/level.gd" id="1_iep8p"]
 [ext_resource type="PackedScene" uid="uid://brhexstgl81ff" path="res://content/terrain/king_terrain.tscn" id="2_8e4aw"]
 [ext_resource type="PackedScene" uid="uid://b6ofto02bhrak" path="res://content/player/player.tscn" id="3_aiuew"]
 [ext_resource type="PackedScene" uid="uid://g36a8sfrh3xy" path="res://content/shop/shop.tscn" id="4_aiuew"]
+[ext_resource type="PackedScene" uid="uid://bxdidkys0vkam" path="res://content/merchant/merchant.tscn" id="5_41qb8"]
 [ext_resource type="Texture2D" uid="uid://smt2r45cgtj6" path="res://assets/objects/house.png" id="5_jwjkq"]
+[ext_resource type="PackedScene" uid="uid://cilonyl1i77ws" path="res://content/bridge/bridge.tscn" id="6_1g7v2"]
 [ext_resource type="PackedScene" uid="uid://obwxs5xvc524" path="res://content/cutscenes/cutscene_trigger.tscn" id="6_gifuw"]
 [ext_resource type="Resource" uid="uid://378eohomjbg1" path="res://content/cutscenes/ghost_intro.tres" id="7_qwucy"]
 [ext_resource type="PackedScene" uid="uid://bl67eardp3wt" path="res://content/helper/helper_hut.tscn" id="8_gifuw"]
 [ext_resource type="PackedScene" uid="uid://dy8u031nrj081" path="res://content/item/item.tscn" id="9_n8pfq"]
-[ext_resource type="Resource" uid="uid://bptybi2x16g4w" path="res://content/item/item_pumpkin_seed.tres" id="10_frpgg"]
-[ext_resource type="PackedScene" uid="uid://bxdidkys0vkam" path="res://content/merchant/merchant.tscn" id="5_41qb8"]
-[ext_resource type="PackedScene" uid="uid://cilonyl1i77ws" path="res://content/bridge/bridge.tscn" id="6_1g7v2"]
+[ext_resource type="Resource" uid="uid://dgjictjq4ffj1" path="res://content/item/item_carrot.tres" id="10_f50eq"]
+[ext_resource type="Resource" uid="uid://cx2mwgvwaqm1g" path="res://content/item/item_turnip.tres" id="11_mjs31"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gifuw"]
 size = Vector2(134, 47)
@@ -26,6 +27,7 @@ point_count = 9
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 390, 463, 0, 0, 0, 0, 432, 474, 0, 0, 0, 0, 519, 475, 0, 0, 0, 0, 543, 459, 0, 0, 0, 0, 553, 436, 0, 0, 0, 0, 564, 418, 0, 0, 0, 0, 584, 411, 0, 0, 0, 0, 606, 411, 0, 0, 0, 0, 628, 413, 0, 0, 0, 0, 635, 438, 0, 0, 0, 0, 651, 454, 0, 0, 0, 0, 686, 459)
 }
+point_count = 12
 
 [node name="KingLevel" type="Node2D" node_paths=PackedStringArray("terrain", "character")]
 script = ExtResource("1_iep8p")
@@ -40,6 +42,7 @@ collision_mask = 97
 
 [node name="Shop" parent="." instance=ExtResource("4_aiuew")]
 position = Vector2(326, 421)
+
 [node name="House" type="Sprite2D" parent="."]
 position = Vector2(373, 56)
 texture = ExtResource("5_jwjkq")
@@ -63,22 +66,20 @@ position = Vector2(-22, 21)
 position = Vector2(500, 58)
 
 [node name="Item" parent="." instance=ExtResource("9_n8pfq")]
-position = Vector2(173, 83)
-config = ExtResource("10_frpgg")
+position = Vector2(159, 85)
+config = ExtResource("10_f50eq")
 
 [node name="Item2" parent="." instance=ExtResource("9_n8pfq")]
-position = Vector2(241, 121)
-config = ExtResource("10_frpgg")
+position = Vector2(202, 135)
+config = ExtResource("10_f50eq")
 
 [node name="Item3" parent="." instance=ExtResource("9_n8pfq")]
-position = Vector2(260, 70)
-config = ExtResource("10_frpgg")
+position = Vector2(202, 63)
+config = ExtResource("10_f50eq")
 
 [node name="Item4" parent="." instance=ExtResource("9_n8pfq")]
-position = Vector2(531, 154)
-config = ExtResource("10_frpgg")
-
-[editable path="CutsceneTrigger"]
+position = Vector2(527, 137)
+config = ExtResource("11_mjs31")
 
 [node name="Merchant" parent="." node_paths=PackedStringArray("enterPath", "exitPath") instance=ExtResource("5_41qb8")]
 position = Vector2(-146, 386)
@@ -95,3 +96,5 @@ curve = SubResource("Curve2D_1g7v2")
 
 [node name="Bridge" parent="." instance=ExtResource("6_1g7v2")]
 position = Vector2(208, 232)
+
+[editable path="CutsceneTrigger"]

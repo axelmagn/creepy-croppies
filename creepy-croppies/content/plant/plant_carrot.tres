@@ -1,8 +1,7 @@
-[gd_resource type="Resource" script_class="PlantConfig" load_steps=19 format=3 uid="uid://b280d6sjrmq06"]
+[gd_resource type="Resource" script_class="PlantConfig" load_steps=18 format=3 uid="uid://b280d6sjrmq06"]
 
 [ext_resource type="Script" uid="uid://cu6flw0wv5h4e" path="res://content/plant/plant_config.gd" id="1_jlld2"]
 [ext_resource type="Script" uid="uid://dottpy2k3wk" path="res://content/plant/growth_stage.gd" id="2_5jdpm"]
-[ext_resource type="Resource" uid="uid://dqb81a4nmh008" path="res://content/item/item_corn_seed.tres" id="3_2huwn"]
 [ext_resource type="Resource" uid="uid://gvq8mxymlu20" path="res://content/item/item_carrot_seed.tres" id="3_o32ew"]
 [ext_resource type="Script" uid="uid://c43nopgdmv1r5" path="res://content/item/item_drop.gd" id="4_yua3g"]
 [ext_resource type="Resource" uid="uid://dgjictjq4ffj1" path="res://content/item/item_carrot.tres" id="5_5jdpm"]
@@ -49,7 +48,7 @@ metadata/_custom_type_script = "uid://c43nopgdmv1r5"
 
 [sub_resource type="Resource" id="Resource_i4tct"]
 script = ExtResource("4_yua3g")
-item = ExtResource("3_2huwn")
+item = ExtResource("3_o32ew")
 min_count = 1
 max_count = 3
 metadata/_custom_type_script = "uid://c43nopgdmv1r5"

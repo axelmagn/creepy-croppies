@@ -13,8 +13,8 @@
 [ext_resource type="PackedScene" uid="uid://cuw8uygdpglxk" path="res://content/levels/king_level.tscn" id="7_3n3lw"]
 [ext_resource type="Resource" uid="uid://bnkbjme5y2iy7" path="res://content/item/init_player_items.tres" id="7_qhbyw"]
 [ext_resource type="PackedScene" uid="uid://cpk6wyq8mwjf6" path="res://content/ui/day_summary.tscn" id="8_twpl5"]
-[ext_resource type="PackedScene" path="res://content/ui/game_over_menu.tscn" id="10_ql74j"]
-[ext_resource type="PackedScene" path="res://content/ui/pause_menu.tscn" id="12_ffjvq"]
+[ext_resource type="PackedScene" uid="uid://c10gpo11yxc07" path="res://content/ui/game_over_menu.tscn" id="10_ql74j"]
+[ext_resource type="PackedScene" uid="uid://cpprvyahw8xkc" path="res://content/ui/pause_menu.tscn" id="12_ffjvq"]
 [ext_resource type="PackedScene" uid="uid://bgbwveu3rsqvu" path="res://content/ui/shop_ui.tscn" id="13_ql74j"]
 [ext_resource type="Script" uid="uid://b5d2oq7w0l8wh" path="res://content/day/day_manager.gd" id="14_dv1sk"]
 [ext_resource type="PackedScene" uid="uid://2cvpmn6sbih6" path="res://content/cutscenes/cutscene.tscn" id="14_s02on"]
@@ -51,7 +51,6 @@ rent = NodePath("RentManager")
 day = NodePath("DayManager")
 cutscenes = NodePath("CutsceneManager")
 init_player_items = ExtResource("7_qhbyw")
-init_player_money = 10000
 
 [node name="World" type="Node2D" parent="."]
 process_mode = 1
@@ -99,9 +98,8 @@ visible = false
 visible = false
 
 [node name="GameTime" parent="." instance=ExtResource("6_pikl6")]
-start_hour = 9
-end_hour = 17
-minute_tick_rate = 0.5
+end_hour = 24
+minute_tick_rate = 0.25
 
 [node name="DayManager" type="Node" parent="." node_paths=PackedStringArray("time", "ui")]
 script = ExtResource("14_dv1sk")

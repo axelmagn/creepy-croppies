@@ -7,4 +7,4 @@ func _ready() -> void:
 
 func interact() -> void:
 	printt("sign interacted")
-	Game.ui.cutscenes.play(cutscene)
+	Game.ui.cutscene.play(cutscene)

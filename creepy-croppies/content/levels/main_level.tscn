@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dhhvfktmpi1bi"]
+[gd_scene load_steps=10 format=3 uid="uid://dhhvfktmpi1bi"]
 
 [ext_resource type="Script" uid="uid://dikj3661rgst8" path="res://content/levels/level.gd" id="1_askbe"]
 [ext_resource type="PackedScene" uid="uid://b6ofto02bhrak" path="res://content/player/player.tscn" id="3_lhg3q"]
@@ -54,3 +54,6 @@ position = Vector2(630, 448)
 
 [node name="MerchantExit" type="Marker2D" parent="."]
 position = Vector2(753, 470)
+
+[node name="HelperHut2" parent="." instance=ExtResource("8_rhklt")]
+position = Vector2(601, 273)

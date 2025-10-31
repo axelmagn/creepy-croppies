@@ -1,11 +1,15 @@
-class_name ToolsIndicator extends HBoxContainer
+class_name ToolsIndicator extends Control
 
 @export var tool_panel_scn: PackedScene
+@export var tool_panels_root: Container
+@export var active_tool_label: Label
 
 var character
 
 func _ready() -> void:
 	assert(tool_panel_scn)
+	assert(tool_panels_root)
+	assert(active_tool_label)
 
 func set_character(character: Character) -> void:
 	self.character = character
@@ -13,7 +17,7 @@ func set_character(character: Character) -> void:
 	update_internals()
 
 func update_internals() -> void:
-	for child in get_children():
+	for child in tool_panels_root.get_children():
 		child.queue_free()
 	if not Game.active_player:
 		return
@@ -25,4 +29,5 @@ func update_internals() -> void:
 		panel.set_tool(player_tool)
 		if i == active_tool_idx:
 			panel.activate()
-		add_child(panel)
+		tool_panels_root.add_child(panel)
+	active_tool_label.text = character.tools[active_tool_idx].display_name

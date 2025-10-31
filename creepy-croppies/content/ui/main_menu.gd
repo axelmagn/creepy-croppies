@@ -15,10 +15,12 @@ func _ready() -> void:
 func enable() -> void:
 	visible = true
 	process_mode = _init_process_mode
+	get_tree().paused = true
 
 func disable() -> void:
 	visible = false
 	process_mode = Node.PROCESS_MODE_DISABLED
+	get_tree().paused = false
 
 func _on_play_pressed() -> void:
 	print("play pressed")

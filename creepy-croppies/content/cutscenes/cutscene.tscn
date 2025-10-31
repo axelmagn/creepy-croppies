@@ -1,0 +1,172 @@
+[gd_scene load_steps=10 format=3 uid="uid://2cvpmn6sbih6"]
+
+[ext_resource type="Texture2D" uid="uid://6avnfenwflpa" path="res://assets/sprout_lands_basic/Characters/Free Cow Sprites.png" id="1_34pc2"]
+[ext_resource type="Script" uid="uid://568u0tcafcuo" path="res://content/cutscenes/cutscene.gd" id="1_kuno0"]
+
+[sub_resource type="Gradient" id="Gradient_34pc2"]
+offsets = PackedFloat32Array(0, 0.5413534, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 0.28947368, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_kuno0"]
+gradient = SubResource("Gradient_34pc2")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+metadata/_snap_enabled = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_34pc2"]
+atlas = ExtResource("1_34pc2")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="Animation" id="Animation_p1yma"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Vignette:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hero:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(620, 480)]
+}
+
+[sub_resource type="Animation" id="Animation_kuno0"]
+resource_name = "enter"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Vignette:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hero:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-64, 480), Vector2(620, 480)]
+}
+
+[sub_resource type="Animation" id="Animation_g5w5y"]
+resource_name = "exit"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Hero:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(620, 480), Vector2(1280, 480)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Vignette:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_p1yma"]
+_data = {
+&"RESET": SubResource("Animation_p1yma"),
+&"enter": SubResource("Animation_kuno0"),
+&"exit": SubResource("Animation_g5w5y")
+}
+
+[node name="Cutscene" type="Control" node_paths=PackedStringArray("hero", "animation_player", "lines_label")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kuno0")
+hero = NodePath("Hero")
+animation_player = NodePath("AnimationPlayer")
+lines_label = NodePath("PanelContainer/VBoxContainer/LinesLabel")
+
+[node name="Vignette" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_kuno0")
+
+[node name="Hero" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = 120.0
+offset_right = 20.0
+offset_bottom = 160.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_34pc2")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(512, 128)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -80.0
+offset_top = -128.0
+offset_right = 80.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="LinesLabel" type="Label" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Cutscene Text"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_p1yma")
+}

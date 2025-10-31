@@ -26,6 +26,8 @@ metadata/_custom_type_script = "uid://qk2fns3jmhln"
 radius = 16.0
 
 [node name="HelperHut" type="Area2D"]
+collision_layer = 16
+collision_mask = 0
 script = ExtResource("1_qdfpp")
 helper_scn = ExtResource("2_xluue")
 helper_config = SubResource("Resource_puta4")

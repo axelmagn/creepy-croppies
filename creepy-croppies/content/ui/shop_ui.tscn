@@ -23,6 +23,15 @@ buy_section = NodePath("Panel/MarginContainer/VBoxContainer/MarginContainer/Scro
 sell_section = NodePath("Panel/MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/VBoxContainer/VBoxContainerSell/ItemsToSell")
 shop_item = ExtResource("2_2wmkg")
 
+[node name="Panel2" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"ShadedPanel"
+
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
 anchors_preset = 8

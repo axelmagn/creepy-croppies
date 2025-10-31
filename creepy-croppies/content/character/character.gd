@@ -43,6 +43,8 @@ func _process(_delta: float) -> void:
 	_apply_move()
 
 func request_move(dir: Vector2) -> void:
+	if get_tree().paused:
+		return
 	_input_move += dir
 
 func start_recording_track(track: HelperTrack) -> void:
@@ -54,6 +56,8 @@ func stop_recording_track() -> void:
 		recording_track = null
 
 func request_use_tool() -> void:
+	if get_tree().paused:
+		return
 	var active_tool: Tool = get_active_tool()
 	if not active_tool:
 		printt("active tool not found:", active_tool_idx, self)
@@ -69,6 +73,8 @@ func request_use_tool() -> void:
 
 
 func request_next_tool() -> void:
+	if get_tree().paused:
+		return
 	if tools.is_empty():
 		return
 	active_tool_idx += 1
@@ -76,6 +82,8 @@ func request_next_tool() -> void:
 	active_tool_changed.emit()
 
 func request_prev_tool() -> void:
+	if get_tree().paused:
+		return
 	if tools.is_empty():
 		return
 	active_tool_idx += tools.size() - 1

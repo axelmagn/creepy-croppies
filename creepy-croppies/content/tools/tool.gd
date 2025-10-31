@@ -18,14 +18,14 @@ func can_use(user: Character):
 		return false
 	if not allow_overlaps and user.cast_interact().size() > 0:
 		return false
-	if user.stamina < stamina_cost:
+	if user.stamina <= 0:
 		return false
 	return true
 
 
 func use_primary(user: Character):
 	user.start_cooldown(cooldown)
-	user.set_stamina(user.stamina - stamina_cost)
+	user.set_stamina(max(user.stamina - stamina_cost, 0))
 
 func use_secondary(user: Character):
 	# TODO: deprecate

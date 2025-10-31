@@ -104,10 +104,11 @@ script = ExtResource("15_g37ea")
 lines = Array[String](["Hmmm, a pier.  I wonder if boats use it."])
 metadata/_custom_type_script = "uid://16kpwiuhc11o"
 
-[node name="KingLevel" type="Node2D" node_paths=PackedStringArray("terrain", "character")]
+[node name="KingLevel" type="Node2D" node_paths=PackedStringArray("terrain", "character", "player_reset_marker")]
 script = ExtResource("1_iep8p")
 terrain = NodePath("KingTerrain")
 character = NodePath("Player")
+player_reset_marker = NodePath("PlayerResetMarker")
 
 [node name="KingTerrain" parent="." instance=ExtResource("2_8e4aw")]
 
@@ -208,6 +209,9 @@ cutscene = SubResource("Resource_8av2r")
 [node name="CutsceneTrigger5" parent="." instance=ExtResource("6_gifuw")]
 position = Vector2(391, 456)
 cutscene = SubResource("Resource_ofy86")
+
+[node name="PlayerResetMarker" type="Marker2D" parent="."]
+position = Vector2(398, 100)
 
 [editable path="CutsceneTrigger"]
 [editable path="CutsceneTrigger2"]

@@ -51,13 +51,14 @@ func update_view():
 		printt("found player items")
 		for item_config in Game.player_items.items.keys():
 			printt("found player item:", item_config.name)
-			if item_config.sellable and Game.player_items.items[item_config] > 0:
+			if item_config.sellable:
 			# if item_config.sellable:
 				var shop_item: ShopItem = shop_item.instantiate()
 				shop_item.item_config = item_config
 				shop_item.type = ShopItem.ShopItemType.SELL
 				shop_item.update_view()
 				sell_section.add_child(shop_item)
+				shop_item.action_button.disabled = Game.player_items.items.get(shop_item.item_config, 0) > 0
 
 func _on_close_button_pressed() -> void:
 	print("close button pressed")

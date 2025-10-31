@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=4 uid="uid://c6teftib88pcu"]
+[gd_scene load_steps=4 format=4 uid="uid://bxgiw1dl811ja"]
 
 [ext_resource type="Script" uid="uid://b4tmpxq8y1jj1" path="res://content/terrain/terrain.gd" id="1_bbgfv"]
 [ext_resource type="TileSet" uid="uid://bdptyi3vmfmwk" path="res://content/terrain/sprout_land_tiles.tres" id="2_k5tq6"]

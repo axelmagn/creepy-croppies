@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://bi41vafaqtj0i"]
 
 [ext_resource type="Texture2D" uid="uid://2f1gd0g8ev3e" path="res://assets/sprout_lands_basic/Objects/Basic_Plants.png" id="1_3qg58"]
-[ext_resource type="Script" uid="uid://ddn1tfgyhkfan" path="res://content/plant/plant.gd" id="1_l8vsj"]
+[ext_resource type="Script" uid="uid://ddn1tfgyhkfan" path="res://content/plant/plant_carrot.gd" id="1_l8vsj"]
 [ext_resource type="Resource" uid="uid://0ic5me2vsys0" path="res://content/plant/test_plant_config.tres" id="2_yob3i"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l8vsj"]

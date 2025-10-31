@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://cuw8uygdpglxk"]
+[gd_scene load_steps=35 format=3 uid="uid://cuw8uygdpglxk"]
 
 [ext_resource type="Script" uid="uid://dikj3661rgst8" path="res://content/levels/level.gd" id="1_iep8p"]
 [ext_resource type="PackedScene" uid="uid://brhexstgl81ff" path="res://content/terrain/king_terrain.tscn" id="2_8e4aw"]
@@ -9,13 +9,66 @@
 [ext_resource type="PackedScene" uid="uid://obwxs5xvc524" path="res://content/cutscenes/cutscene_trigger.tscn" id="6_gifuw"]
 [ext_resource type="Resource" uid="uid://378eohomjbg1" path="res://content/cutscenes/ghost_intro.tres" id="7_qwucy"]
 [ext_resource type="PackedScene" uid="uid://bl67eardp3wt" path="res://content/helper/helper_hut.tscn" id="8_gifuw"]
+[ext_resource type="Script" uid="uid://dqx63of8et0be" path="res://content/item/item_config.gd" id="8_jd8ei"]
 [ext_resource type="PackedScene" uid="uid://dy8u031nrj081" path="res://content/item/item.tscn" id="9_n8pfq"]
+[ext_resource type="Resource" uid="uid://dgjictjq4ffj1" path="res://content/item/item_carrot.tres" id="9_rvena"]
+[ext_resource type="Resource" uid="uid://blyj6jmlg7dhd" path="res://content/item/item_potato.tres" id="10_81fcs"]
 [ext_resource type="Resource" uid="uid://gvq8mxymlu20" path="res://content/item/item_carrot_seed.tres" id="10_f50eq"]
 [ext_resource type="Resource" uid="uid://dg78kfg5hnkyy" path="res://content/item/item_turnip_seed.tres" id="11_f50eq"]
+[ext_resource type="Script" uid="uid://1sh2lqokbbvk" path="res://content/item/item_container.gd" id="11_t23yo"]
 [ext_resource type="Texture2D" uid="uid://cfp60tu1kohns" path="res://assets/objects/bridge.png" id="12_f50eq"]
+[ext_resource type="Script" uid="uid://qk2fns3jmhln" path="res://content/helper/helper_config.gd" id="12_hibrm"]
+[ext_resource type="Resource" uid="uid://cx2mwgvwaqm1g" path="res://content/item/item_turnip.tres" id="13_rvena"]
+[ext_resource type="Resource" uid="uid://05ayxfred4rs" path="res://content/item/item_corn.tres" id="13_t23yo"]
+[ext_resource type="Resource" uid="uid://bp4l4u7gypy27" path="res://content/item/item_eggplant.tres" id="14_81fcs"]
 [ext_resource type="Resource" uid="uid://ddtm0b2kmpa4l" path="res://content/cutscenes/helper_intro.tres" id="14_mjs31"]
 [ext_resource type="Script" uid="uid://16kpwiuhc11o" path="res://content/cutscenes/cutscene_config.gd" id="15_g37ea"]
 [ext_resource type="Resource" uid="uid://b0axbo55dl533" path="res://content/cutscenes/boat_intro.tres" id="15_jbyfh"]
+
+[sub_resource type="Resource" id="Resource_14hqh"]
+script = ExtResource("11_t23yo")
+items = Dictionary[ExtResource("8_jd8ei"), int]({
+ExtResource("9_rvena"): 1,
+ExtResource("10_81fcs"): 1
+})
+metadata/_custom_type_script = "uid://1sh2lqokbbvk"
+
+[sub_resource type="Resource" id="Resource_75x37"]
+script = ExtResource("12_hibrm")
+price = SubResource("Resource_14hqh")
+follow_dist = 20.0
+attention_span = 15.0
+metadata/_custom_type_script = "uid://qk2fns3jmhln"
+
+[sub_resource type="Resource" id="Resource_hibrm"]
+script = ExtResource("11_t23yo")
+items = Dictionary[ExtResource("8_jd8ei"), int]({
+ExtResource("13_t23yo"): 2,
+ExtResource("10_81fcs"): 2
+})
+metadata/_custom_type_script = "uid://1sh2lqokbbvk"
+
+[sub_resource type="Resource" id="Resource_26brk"]
+script = ExtResource("12_hibrm")
+price = SubResource("Resource_hibrm")
+follow_dist = 20.0
+attention_span = 20.0
+metadata/_custom_type_script = "uid://qk2fns3jmhln"
+
+[sub_resource type="Resource" id="Resource_81fcs"]
+script = ExtResource("11_t23yo")
+items = Dictionary[ExtResource("8_jd8ei"), int]({
+ExtResource("13_rvena"): 1,
+ExtResource("14_81fcs"): 1
+})
+metadata/_custom_type_script = "uid://1sh2lqokbbvk"
+
+[sub_resource type="Resource" id="Resource_t23yo"]
+script = ExtResource("12_hibrm")
+price = SubResource("Resource_81fcs")
+follow_dist = 20.0
+attention_span = 15.0
+metadata/_custom_type_script = "uid://qk2fns3jmhln"
 
 [sub_resource type="Curve2D" id="Curve2D_41qb8"]
 _data = {
@@ -62,6 +115,18 @@ position = Vector2(-3, 39)
 
 [node name="HelperHut" parent="." instance=ExtResource("8_gifuw")]
 position = Vector2(546, 134)
+helper_config = SubResource("Resource_75x37")
+fix_price = 100
+
+[node name="HelperHut2" parent="." instance=ExtResource("8_gifuw")]
+position = Vector2(28, 193)
+helper_config = SubResource("Resource_26brk")
+fix_price = 200
+
+[node name="HelperHut3" parent="." instance=ExtResource("8_gifuw")]
+position = Vector2(30, 318)
+helper_config = SubResource("Resource_t23yo")
+fix_price = 400
 
 [node name="Item" parent="." instance=ExtResource("9_n8pfq")]
 position = Vector2(188, 132)
@@ -98,13 +163,14 @@ texture = SubResource("AtlasTexture_mjs31")
 
 [node name="Bridge" parent="." instance=ExtResource("6_1g7v2")]
 position = Vector2(208, 232)
+fix_cost = 300
 
 [node name="CutsceneTrigger2" parent="." instance=ExtResource("6_gifuw")]
 position = Vector2(545, 147)
 cutscene = ExtResource("14_mjs31")
 
 [node name="CollisionShape2D" parent="CutsceneTrigger2" index="0"]
-position = Vector2(1, -2)
+position = Vector2(1, 1)
 
 [node name="CutsceneTrigger3" parent="." instance=ExtResource("6_gifuw")]
 position = Vector2(392, 434)

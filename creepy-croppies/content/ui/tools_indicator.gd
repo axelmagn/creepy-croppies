@@ -10,6 +10,28 @@ func _ready() -> void:
 	assert(tool_panel_scn)
 	assert(tool_panels_root)
 	assert(active_tool_label)
+	
+func _process(_delta: float) -> void:
+	for child in tool_panels_root.get_children():
+		if child is ToolPanel:
+			var panel: ToolPanel = child
+			update_tool(panel)
+				
+func update_tool(panel: ToolPanel):
+	if character == null:
+		panel.disable()
+		return
+
+	var t := panel.tool
+	
+	if t is not Seed:
+		panel.enable()
+		return
+	
+	if t is Seed and t.has_enough_resources_to_use():
+		panel.enable()
+	else:
+		panel.disable()
 
 func set_character(character: Character) -> void:
 	self.character = character
@@ -30,4 +52,5 @@ func update_internals() -> void:
 		if i == active_tool_idx:
 			panel.activate()
 		tool_panels_root.add_child(panel)
+		update_tool(panel)
 	active_tool_label.text = character.tools[active_tool_idx].display_name

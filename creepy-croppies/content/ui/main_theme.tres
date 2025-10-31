@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=17 format=3 uid="uid://c55ad4h1x0cgs"]
+[gd_resource type="Theme" load_steps=18 format=3 uid="uid://c55ad4h1x0cgs"]
 
 [ext_resource type="Texture2D" uid="uid://b2qcyt37uvemi" path="res://assets/kenney_ui-pack-pixel-adventure/Tilesheets/Large tiles/Thick outline/tilemap_packed.png" id="1_ky6lw"]
 [ext_resource type="FontFile" uid="uid://dts4e6mk78opx" path="res://assets/kenney_kenney-fonts/Fonts/Kenney Pixel.ttf" id="1_u5b7a"]
@@ -72,6 +72,9 @@ texture_margin_bottom = 8.0
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u5b7a"]
 bg_color = Color(0, 0, 0, 0.7411765)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dq0il"]
+bg_color = Color(0, 0, 0, 1)
+
 [resource]
 default_font_size = 32
 /font_sizes/default_font_size = 24
@@ -90,3 +93,7 @@ Panel/styles/panel = SubResource("StyleBoxTexture_ptrjd")
 PanelContainer/styles/panel = SubResource("StyleBoxTexture_ptrjd")
 ShadedPanel/base_type = &"Panel"
 ShadedPanel/styles/panel = SubResource("StyleBoxFlat_u5b7a")
+TooltipLabel/colors/font_color = Color(1, 1, 1, 1)
+TooltipPanel/constants/content_margin_left = 20
+TooltipPanel/constants/resize_margin = 20
+TooltipPanel/styles/panel = SubResource("StyleBoxFlat_dq0il")

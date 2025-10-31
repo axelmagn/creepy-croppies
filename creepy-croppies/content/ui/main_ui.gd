@@ -26,3 +26,25 @@ func _ready() -> void:
 	shop_ui.disable()
 	bridge_menu.disable()
 	house_menu.disable()
+
+func close_active_menu() -> void:
+	if shop_ui.visible:
+		shop_ui._on_close_button_pressed()
+		return
+	if hut.visible:
+		hut._on_close()
+		return
+	if pause_menu.visible:
+		pause_menu._on_continue()
+		return
+	if house_menu.visible:
+		house_menu._on_close_button_pressed()
+		return
+	if bridge_menu.visible:
+		bridge_menu._on_close_button_pressed()
+		return
+	if day_summary.visible:
+		day_summary._on_continue_pressed()
+		return
+
+	

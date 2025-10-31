@@ -9,3 +9,12 @@ class_name ItemConfig extends Resource
 
 func get_plant() -> PlantConfig:
 	return load(plant_path)
+
+func is_seed() -> bool:
+	return name.ends_with("Seed")
+
+func sort_score() -> int:
+	var score = price
+	if not is_seed():
+		score += 1000
+	return score

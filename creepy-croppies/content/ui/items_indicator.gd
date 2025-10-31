@@ -37,4 +37,4 @@ func update_item_grid() -> void:
 		item_grid.add_child(label)
 		
 func cmp_items(k1: ItemConfig, k2: ItemConfig) -> bool:
-	return k1.name.nocasecmp_to(k2.name) < 0
+	return k1.sort_score() < k2.sort_score()

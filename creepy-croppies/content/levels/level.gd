@@ -10,4 +10,3 @@ func pause():
 	
 func unpause():
 	get_tree().paused = false
-

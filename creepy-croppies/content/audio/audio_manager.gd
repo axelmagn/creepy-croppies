@@ -7,6 +7,7 @@ class_name AudioManager extends Node
 @onready var tool_scythe_player: AudioStreamPlayer = $AudioStreamPlayerToolScythe
 @onready var pick_up_player: AudioStreamPlayer = $AudioStreamPlayerPickUp
 @onready var sell_player: AudioStreamPlayer = $AudioStreamPlayerSell
+@onready var shop_open_player: AudioStreamPlayer = $AudioStreamPlayerShopOpen
 @export var click_sound: AudioStream
 @export var footstep_sound: AudioStream
 @export var plant_seed_sound: AudioStream
@@ -14,6 +15,7 @@ class_name AudioManager extends Node
 @export var tool_scythe_sound: AudioStream
 @export var pick_up_sound: AudioStream
 @export var sell_sound: AudioStream
+@export var shop_open_sound: AudioStream
 
 func _ready() -> void:
 	assert(click_player)
@@ -30,6 +32,8 @@ func _ready() -> void:
 	assert(pick_up_sound)
 	assert(sell_player)
 	assert(sell_sound)
+	assert(shop_open_player)
+	assert(shop_open_sound)
 	click_player.stream = click_sound
 	footstep_player.stream = footstep_sound
 	plant_seed_player.stream = plant_seed_sound
@@ -37,6 +41,7 @@ func _ready() -> void:
 	tool_scythe_player.stream = tool_scythe_sound
 	pick_up_player.stream = pick_up_sound
 	sell_player.stream = sell_sound
+	shop_open_player.stream = shop_open_sound
 
 func play_click():
 	click_player.play()
@@ -64,3 +69,6 @@ func play_pick_up():
 	
 func play_sell():
 	sell_player.play()
+
+func play_shop_open():
+	shop_open_player.play()

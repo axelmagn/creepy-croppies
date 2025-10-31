@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dhhvfktmpi1bi"]
+[gd_scene load_steps=14 format=3 uid="uid://dhhvfktmpi1bi"]
 
 [ext_resource type="Script" uid="uid://dikj3661rgst8" path="res://content/levels/level.gd" id="1_askbe"]
 [ext_resource type="PackedScene" uid="uid://b6ofto02bhrak" path="res://content/player/player.tscn" id="3_lhg3q"]
@@ -12,11 +12,22 @@
 [ext_resource type="PackedScene" uid="uid://obwxs5xvc524" path="res://content/cutscenes/cutscene_trigger.tscn" id="10_w8mtd"]
 [ext_resource type="Resource" uid="uid://378eohomjbg1" path="res://content/cutscenes/ghost_intro.tres" id="11_6qhlk"]
 
-[node name="MainLevel" type="Node2D" node_paths=PackedStringArray("terrain", "character", "shop")]
+[sub_resource type="Curve2D" id="Curve2D_6qhlk"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 499, 471, 0, 0, 0, 0, 586, 470, 0, 0, 0, 0, 621, 442)
+}
+point_count = 3
+
+[sub_resource type="Curve2D" id="Curve2D_vhk8t"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 621, 444, 0, 0, 0, 0, 658, 468, 0, 0, 0, 0, 752, 469)
+}
+point_count = 3
+
+[node name="MainLevel" type="Node2D" node_paths=PackedStringArray("terrain", "character")]
 script = ExtResource("1_askbe")
 terrain = NodePath("Terrain")
 character = NodePath("Player")
-shop = NodePath("Shop")
 metadata/_custom_type_script = "uid://dikj3661rgst8"
 
 [node name="Terrain" parent="." instance=ExtResource("4_ouwjy")]
@@ -40,20 +51,16 @@ position = Vector2(712, 411)
 position = Vector2(553, 270)
 fix_price = 100
 
-[node name="Merchant" parent="." instance=ExtResource("8_rhkly")]
+[node name="Merchant" parent="." node_paths=PackedStringArray("enterPath", "exitPath") instance=ExtResource("8_rhkly")]
 position = Vector2(498, 468)
-enter = NodePath("../MerchantEnter")
-spot = NodePath("../MerchantSpot")
-exit = NodePath("../MerchantExit")
+enterPath = NodePath("../MerchantEnterPath2D")
+exitPath = NodePath("../MerchantExitPath2D")
 
-[node name="MerchantEnter" type="Marker2D" parent="."]
-position = Vector2(498, 468)
+[node name="MerchantEnterPath2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_6qhlk")
 
-[node name="MerchantSpot" type="Marker2D" parent="."]
-position = Vector2(630, 448)
-
-[node name="MerchantExit" type="Marker2D" parent="."]
-position = Vector2(753, 470)
+[node name="MerchantExitPath2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_vhk8t")
 
 [node name="HelperHut2" parent="." instance=ExtResource("8_rhklt")]
 position = Vector2(601, 273)

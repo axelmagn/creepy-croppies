@@ -9,9 +9,10 @@ region = Rect2(0, 112, 16, 16)
 
 [resource]
 script = ExtResource("1_unuib")
-name = "Pumpkin Seed"
+name = "Turnip Seed"
 texture = SubResource("AtlasTexture_unuib")
 price = 4
 buyable = true
 sellable = false
+plant_path = "uid://dy1xvv4a2sogo"
 metadata/_custom_type_script = "uid://dqx63of8et0be"

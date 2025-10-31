@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CutsceneConfig" load_steps=2 format=3 uid="uid://di68almhwuq7d"]
+
+[ext_resource type="Script" uid="uid://16kpwiuhc11o" path="res://content/cutscenes/cutscene_config.gd" id="1_i1t2r"]
+
+[resource]
+script = ExtResource("1_i1t2r")
+lines = Array[String](["Melker's Merchant Marine
+Arrives Daily
+9AM-11AM
+"])
+metadata/_custom_type_script = "uid://16kpwiuhc11o"

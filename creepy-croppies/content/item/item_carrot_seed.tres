@@ -13,4 +13,5 @@ name = "Carrot Seed"
 texture = SubResource("AtlasTexture_u5n4c")
 buyable = true
 sellable = false
+plant_path = "uid://b280d6sjrmq06"
 metadata/_custom_type_script = "uid://dqx63of8et0be"

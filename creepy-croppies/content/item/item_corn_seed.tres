@@ -14,4 +14,5 @@ texture = SubResource("AtlasTexture_1aypq")
 price = 5
 buyable = true
 sellable = false
+plant_path = "uid://cmjxacyv0ftht"
 metadata/_custom_type_script = "uid://dqx63of8et0be"

@@ -21,7 +21,7 @@ func _process(_delta: float) -> void:
 	if (
 		Input.is_action_just_pressed("ui_accept")
 		or Input.is_action_just_pressed("interact")
-		or Input.is_action_just_pressed("tool_primary_use")
+		or Input.is_action_just_pressed("tool_use_primary")
 	):
 		input_proceed.emit()
 

@@ -5,3 +5,7 @@ class_name ItemConfig extends Resource
 @export var price: int = 1
 @export var buyable: bool = false
 @export var sellable: bool = true
+@export_file var plant_path: String
+
+func get_plant() -> PlantConfig:
+	return load(plant_path)

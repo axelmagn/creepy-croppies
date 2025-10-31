@@ -44,15 +44,19 @@ func update_view():
 			var shop_item: ShopItem = shop_item.instantiate()
 			shop_item.item_config = item_config
 			shop_item.type = ShopItem.ShopItemType.BUY
+			var plant = item_config.get_plant()
+			if plant:
+				shop_item.action_button.tooltip_text = plant.tooltip()
 			shop_item.update_view()
 			buy_section.add_child(shop_item)
 
 	if Game.player_items != null:
 		printt("found player items")
-		for item_config in Game.player_items.items.keys():
+		var player_items = Game.player_items.items.keys()
+		player_items.sort_custom(cmp_player_items)
+		for item_config in player_items:
 			printt("found player item:", item_config.name)
 			if item_config.sellable:
-			# if item_config.sellable:
 				var shop_item: ShopItem = shop_item.instantiate()
 				shop_item.item_config = item_config
 				shop_item.type = ShopItem.ShopItemType.SELL
@@ -77,3 +81,5 @@ func _on_sell_all_button_pressed() -> void:
 		Game.player_money += price
 		Game.day.stats.add_income(price)
 		
+func cmp_player_items(k1: ItemConfig, k2: ItemConfig) -> bool:
+	return k1.price < k2.price

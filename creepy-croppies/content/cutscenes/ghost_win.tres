@@ -8,5 +8,6 @@ script = ExtResource("2_aimve")
 hero_texture = ExtResource("1_n8cfw")
 lines = Array[String](["Man, I hate to admit it but 
 you've really turned this place around.", "I'll tell you what - why don't you 
-take care of this place from now on?", "Yeah, I think I've got better things to do in the afterlife.", "Later loser."])
+take care of this place from now on?", "Yeah, it's all yours.  
+I think I'm going to spend all this rent money on a vacation.", "Later loser."])
 metadata/_custom_type_script = "uid://16kpwiuhc11o"

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="CutsceneConfig" load_steps=3 format=3 uid="uid://ddtm0b2kmpa4l"]
+
+[ext_resource type="Texture2D" uid="uid://bkb3e06vx1mwx" path="res://assets/objects/helper.png" id="1_8ppgt"]
+[ext_resource type="Script" uid="uid://16kpwiuhc11o" path="res://content/cutscenes/cutscene_config.gd" id="1_l1pi7"]
+
+[resource]
+script = ExtResource("1_l1pi7")
+hero_texture = ExtResource("1_8ppgt")
+lines = Array[String](["Oh hey, that's my house", "Sorry, I don't think you can sleep here.
+It only fits raccoons.", "But I'll tell you what...", "If you help me fix it up,
+I can help you with your gardening.", "(for a fee of course)"])
+metadata/_custom_type_script = "uid://16kpwiuhc11o"

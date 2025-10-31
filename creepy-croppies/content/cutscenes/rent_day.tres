@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CutsceneConfig" load_steps=3 format=3 uid="uid://df7r4ko2hh6dq"]
+
+[ext_resource type="Script" uid="uid://16kpwiuhc11o" path="res://content/cutscenes/cutscene_config.gd" id="1_7xwi0"]
+[ext_resource type="Texture2D" uid="uid://djr1ekbg87qxg" path="res://content/cutscenes/ghost_hero.tres" id="1_w4xn6"]
+
+[resource]
+script = ExtResource("1_7xwi0")
+hero_texture = ExtResource("1_w4xn6")
+lines = Array[String](["Oh you're still here?
+Good.", "I really do need this week's rent though.", "For ghost stuff."])
+metadata/_custom_type_script = "uid://16kpwiuhc11o"

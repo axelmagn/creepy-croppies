@@ -5,6 +5,7 @@ signal continue_game
 @export var continue_button: Button
 @export var day_stats: DayStatsContent
 
+@export var win_text: String = "You Win"
 @export var success_text: String = "Next Day"
 @export var fail_text: String = "You're Broke!"
 
@@ -36,5 +37,7 @@ func _on_continue_pressed() -> void:
 func update_continue_text() -> void:
 	if Game.player_money < 0:
 		continue_button.text = fail_text
+	elif Game.rent.rent_idx >= Game.rent.rents.size() - 1: # hack	
+		continue_button.text = win_text
 	else:
 		continue_button.text = success_text

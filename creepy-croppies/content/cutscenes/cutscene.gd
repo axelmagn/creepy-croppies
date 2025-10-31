@@ -1,6 +1,7 @@
 class_name Cutscene extends Control
 
 signal input_proceed
+signal finished
 
 @export var hero: TextureRect
 @export var animation_player: AnimationPlayer
@@ -51,3 +52,4 @@ func play(config: CutsceneConfig):
 	visible = false
 	process_mode = Node.PROCESS_MODE_DISABLED
 	get_tree().paused = false
+	finished.emit()

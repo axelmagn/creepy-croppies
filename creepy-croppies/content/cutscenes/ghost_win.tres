@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="CutsceneConfig" load_steps=3 format=3 uid="uid://c4rcv2k0j7dp6"]
+
+[ext_resource type="Texture2D" uid="uid://djr1ekbg87qxg" path="res://content/cutscenes/ghost_hero.tres" id="1_n8cfw"]
+[ext_resource type="Script" uid="uid://16kpwiuhc11o" path="res://content/cutscenes/cutscene_config.gd" id="2_aimve"]
+
+[resource]
+script = ExtResource("2_aimve")
+hero_texture = ExtResource("1_n8cfw")
+lines = Array[String](["Man, I hate to admit it but 
+you've really turned this place around.", "I'll tell you what - why don't you 
+take care of this place from now on?", "Yeah, I think I've got better things to do in the afterlife.", "Later loser."])
+metadata/_custom_type_script = "uid://16kpwiuhc11o"

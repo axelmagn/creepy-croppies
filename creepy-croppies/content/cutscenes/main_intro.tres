@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CutsceneConfig" load_steps=2 format=3 uid="uid://cyfj3x5gpx2yy"]
+
+[ext_resource type="Script" uid="uid://16kpwiuhc11o" path="res://content/cutscenes/cutscene_config.gd" id="1_5jaya"]
+
+[resource]
+script = ExtResource("1_5jaya")
+lines = Array[String](["Finally I made it.", "This small town is the perfect place 
+to work on my video game.", "That's odd...
+", "This is the right address,
+but it looks like the house is abandoned."])
+metadata/_custom_type_script = "uid://16kpwiuhc11o"

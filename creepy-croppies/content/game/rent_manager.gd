@@ -48,7 +48,7 @@ func deduct_rent() -> void:
 	rent_changed.emit()
 
 func get_next_rent_amount() -> int:
-	if rent_idx < 0 or rent_idx > rents.size():
+	if rent_idx < 0 or rent_idx >= rents.size():
 		return -1
 	return rents[rent_idx]
 
@@ -59,3 +59,5 @@ func _on_day_end() -> void:
 func _on_day_start() -> void:
 	if Game.player_money < 0:
 		Game.trigger_game_over(false)
+	elif rent_idx >= rents.size():
+		Game.trigger_game_over(true)

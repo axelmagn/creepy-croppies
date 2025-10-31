@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://ixd4jqkrcxmk"]
+[gd_scene load_steps=38 format=3 uid="uid://ixd4jqkrcxmk"]
 
 [ext_resource type="Script" uid="uid://bogh6746ikc7s" path="res://content/game/game.gd" id="1_r1esr"]
 [ext_resource type="PackedScene" uid="uid://bi41vafaqtj0i" path="res://content/plant/plant.tscn" id="2_dck4f"]
@@ -26,6 +26,12 @@
 [ext_resource type="PackedScene" uid="uid://c1c2k121jo7h3" path="res://content/audio/AudioManager.tscn" id="19_4aeii"]
 [ext_resource type="AudioStream" uid="uid://dlotqxgaeq8aj" path="res://assets/sounds/halloween-background-music.mp3" id="20_ffjvq"]
 [ext_resource type="PackedScene" uid="uid://td0kuaumlteb" path="res://content/cutscenes/cutscene_manager.tscn" id="24_3n3lw"]
+[ext_resource type="Script" uid="uid://lcn4cci0yb03" path="res://content/cutscenes/visitation.gd" id="27_vv337"]
+[ext_resource type="Resource" uid="uid://cyfj3x5gpx2yy" path="res://content/cutscenes/main_intro.tres" id="28_xwcxx"]
+[ext_resource type="Resource" uid="uid://df7r4ko2hh6dq" path="res://content/cutscenes/rent_day.tres" id="29_qbubh"]
+[ext_resource type="Resource" uid="uid://7a84i4mkv3kx" path="res://content/cutscenes/rent_hike.tres" id="30_xwcxx"]
+[ext_resource type="Resource" uid="uid://c4rcv2k0j7dp6" path="res://content/cutscenes/ghost_win.tres" id="31_dhxur"]
+[ext_resource type="Resource" uid="uid://c3rjtnp4lww02" path="res://content/cutscenes/ghost_fail.tres" id="32_gxor3"]
 
 [sub_resource type="Resource" id="Resource_xjc2w"]
 script = ExtResource("3_twpl5")
@@ -37,6 +43,23 @@ script = ExtResource("5_t8pyj")
 item_scn = ExtResource("4_xjc2w")
 propel_speed = 64.0
 metadata/_custom_type_script = "uid://dep5r7js3181m"
+
+[sub_resource type="Resource" id="Resource_dq5g4"]
+script = ExtResource("27_vv337")
+cutscene = ExtResource("28_xwcxx")
+metadata/_custom_type_script = "uid://lcn4cci0yb03"
+
+[sub_resource type="Resource" id="Resource_dhxur"]
+script = ExtResource("27_vv337")
+day = 5
+cutscene = ExtResource("29_qbubh")
+metadata/_custom_type_script = "uid://lcn4cci0yb03"
+
+[sub_resource type="Resource" id="Resource_qbubh"]
+script = ExtResource("27_vv337")
+day = 6
+cutscene = ExtResource("30_xwcxx")
+metadata/_custom_type_script = "uid://lcn4cci0yb03"
 
 [node name="Game" type="Node" node_paths=PackedStringArray("audio", "world", "ui", "time", "rent", "day", "cutscenes")]
 script = ExtResource("1_r1esr")
@@ -119,6 +142,7 @@ script = ExtResource("16_upkcm")
 [node name="RentManager" type="Node" parent="."]
 script = ExtResource("16_qhbyw")
 rent_interval = 5
+rents = Array[int]([100, 10])
 
 [node name="AudioManager" parent="." instance=ExtResource("19_4aeii")]
 
@@ -129,3 +153,6 @@ volume_db = -10.0
 autoplay = true
 
 [node name="CutsceneManager" parent="." instance=ExtResource("24_3n3lw")]
+visitations = Array[ExtResource("27_vv337")]([SubResource("Resource_dq5g4"), SubResource("Resource_dhxur"), SubResource("Resource_qbubh")])
+win_cutscene = ExtResource("31_dhxur")
+fail_cutscene = ExtResource("32_gxor3")

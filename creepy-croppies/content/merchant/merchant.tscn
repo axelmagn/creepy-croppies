@@ -7,5 +7,7 @@
 z_index = 5
 script = ExtResource("1_6lnbc")
 shop = NodePath("Shop")
+appear_hour = 8
+wait_minutes = 120
 
 [node name="Shop" parent="." instance=ExtResource("3_xl4w4")]

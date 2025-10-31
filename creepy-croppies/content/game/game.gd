@@ -106,3 +106,7 @@ func trigger_game_over(win: bool) -> void:
 	get_tree().paused = true
 	ui.game_over_menu.win = win
 	ui.game_over_menu.enable()
+
+
+func cmp_keys(k1: ItemConfig, k2: ItemConfig) -> bool:
+	return k1.price < k2.price

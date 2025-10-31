@@ -25,7 +25,7 @@ func update_item_grid() -> void:
 	for child in item_grid.get_children():
 		child.queue_free()
 	var items = Game.player_items.items.keys()
-	items.sort()
+	items.sort_custom(cmp_items)
 	for item in items:
 		var icon = TextureRect.new()
 		icon.texture = item.texture
@@ -35,3 +35,6 @@ func update_item_grid() -> void:
 		var label = Label.new()
 		label.text = "%d" % Game.player_items.items[item]
 		item_grid.add_child(label)
+		
+func cmp_items(k1: ItemConfig, k2: ItemConfig) -> bool:
+	return k1.name.nocasecmp_to(k2.name) < 0

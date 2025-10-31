@@ -126,8 +126,8 @@ visible = false
 visible = false
 
 [node name="GameTime" parent="." instance=ExtResource("6_pikl6")]
-end_hour = 24
-minute_tick_rate = 0.25
+end_hour = 18
+minute_tick_rate = 0.2
 
 [node name="DayManager" type="Node" parent="." node_paths=PackedStringArray("time", "ui")]
 script = ExtResource("14_dv1sk")
@@ -141,7 +141,7 @@ script = ExtResource("16_upkcm")
 [node name="RentManager" type="Node" parent="."]
 script = ExtResource("16_qhbyw")
 rent_interval = 5
-rents = Array[int]([100, 150, 250, 500, 800])
+rents = Array[int]([20, 25, 30, 35, 40])
 
 [node name="AudioManager" parent="." instance=ExtResource("19_4aeii")]
 

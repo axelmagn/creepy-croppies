@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://cuw8uygdpglxk"]
+[gd_scene load_steps=37 format=3 uid="uid://cuw8uygdpglxk"]
 
 [ext_resource type="Script" uid="uid://dikj3661rgst8" path="res://content/levels/level.gd" id="1_iep8p"]
 [ext_resource type="PackedScene" uid="uid://brhexstgl81ff" path="res://content/terrain/king_terrain.tscn" id="2_8e4aw"]
@@ -24,6 +24,7 @@
 [ext_resource type="Resource" uid="uid://ddtm0b2kmpa4l" path="res://content/cutscenes/helper_intro.tres" id="14_mjs31"]
 [ext_resource type="Script" uid="uid://16kpwiuhc11o" path="res://content/cutscenes/cutscene_config.gd" id="15_g37ea"]
 [ext_resource type="Resource" uid="uid://b0axbo55dl533" path="res://content/cutscenes/boat_intro.tres" id="15_jbyfh"]
+[ext_resource type="PackedScene" uid="uid://cq7kn1ku4f0hn" path="res://content/sign/sign.tscn" id="24_hibrm"]
 
 [sub_resource type="Resource" id="Resource_14hqh"]
 script = ExtResource("11_t23yo")
@@ -85,6 +86,12 @@ point_count = 12
 [sub_resource type="AtlasTexture" id="AtlasTexture_mjs31"]
 atlas = ExtResource("12_f50eq")
 region = Rect2(0, 18, 32, 30)
+
+[sub_resource type="Resource" id="Resource_8av2r"]
+script = ExtResource("15_g37ea")
+lines = Array[String](["Marv's Merchant Boat
+Stops 9AM - 10AM Daily"])
+metadata/_custom_type_script = "uid://16kpwiuhc11o"
 
 [sub_resource type="Resource" id="Resource_jbyfh"]
 script = ExtResource("15_g37ea")
@@ -179,7 +186,11 @@ collision_mask = 32
 cutscene = ExtResource("15_jbyfh")
 
 [node name="CollisionShape2D" parent="CutsceneTrigger3" index="0"]
-position = Vector2(0, -12)
+position = Vector2(1, 30)
+
+[node name="Sign" parent="CutsceneTrigger3" instance=ExtResource("24_hibrm")]
+position = Vector2(-23, 1)
+cutscene = SubResource("Resource_8av2r")
 
 [node name="CutsceneTrigger4" parent="." instance=ExtResource("6_gifuw")]
 position = Vector2(207, 219)

@@ -5,20 +5,33 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m1xjk"]
 bg_color = Color(0.25400394, 0.7143625, 0, 1)
 
-[node name="StaminaIndicator" type="PanelContainer" node_paths=PackedStringArray("progress_bar")]
+[node name="StaminaIndicator" type="HBoxContainer" node_paths=PackedStringArray("progress_bar", "warning_panel")]
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -16.0
-offset_top = -16.0
+offset_left = -32.0
+offset_top = -144.0
 grow_horizontal = 0
 grow_vertical = 0
 script = ExtResource("1_neqs8")
-progress_bar = NodePath("ProgressBar")
+progress_bar = NodePath("ProgressPanel/ProgressBar")
+warning_panel = NodePath("LowStaminaWarning")
 
-[node name="ProgressBar" type="ProgressBar" parent="."]
+[node name="LowStaminaWarning" type="PanelContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="LowStaminaWarning"]
+layout_mode = 2
+text = "Low
+Stamina"
+horizontal_alignment = 1
+
+[node name="ProgressPanel" type="PanelContainer" parent="."]
+layout_mode = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="ProgressPanel"]
 custom_minimum_size = Vector2(16, 128)
 layout_mode = 2
 theme_override_styles/fill = SubResource("StyleBoxFlat_m1xjk")

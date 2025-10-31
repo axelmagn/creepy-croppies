@@ -91,7 +91,7 @@ layout_mode = 2
 layout_mode = 2
 text = "Merchant
 Boat
-10AM-12PM
+11AM-12PM
 Every Day"
 horizontal_alignment = 1
 
@@ -117,5 +117,3 @@ offset_right = 50.0
 
 [node name="StaminaIndicator" parent="." instance=ExtResource("6_7xuoy")]
 layout_mode = 1
-offset_left = -32.0
-offset_top = -144.0

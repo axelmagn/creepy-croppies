@@ -26,6 +26,8 @@ func tick_day() -> void:
 		active_stage_idx += 1
 		update_internals()
 
+func can_harvest() -> bool:
+	return get_active_stage().item_drop != null
 
 func get_active_stage() -> GrowthStage:
 	return config.stages.get(active_stage_idx)

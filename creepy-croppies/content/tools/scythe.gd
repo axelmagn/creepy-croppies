@@ -7,7 +7,7 @@ func can_use(user: Character):
 	for overlap in overlaps:
 		var collider = overlap["collider"]
 		if collider is Plant:
-			return true
+			return collider.can_harvest()
 	return false
 
 func use_primary(user: Character):

@@ -17,4 +17,5 @@ display_name = "Turnip Seed"
 required_terrain_flag = "plantable"
 allow_overlaps = false
 texture = SubResource("AtlasTexture_qpjf0")
+stamina_cost = 6.0
 metadata/_custom_type_script = "uid://cgqcvbtck2hn1"

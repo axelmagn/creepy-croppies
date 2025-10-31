@@ -17,4 +17,5 @@ display_name = "Carrot Seeds"
 required_terrain_flag = "plantable"
 allow_overlaps = false
 texture = SubResource("AtlasTexture_0b03p")
+stamina_cost = 6.0
 metadata/_custom_type_script = "uid://cgqcvbtck2hn1"

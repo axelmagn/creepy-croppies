@@ -182,7 +182,7 @@ cutscene = ExtResource("15_jbyfh")
 position = Vector2(0, -12)
 
 [node name="CutsceneTrigger4" parent="." instance=ExtResource("6_gifuw")]
-position = Vector2(208, 187)
+position = Vector2(207, 219)
 collision_layer = 32
 collision_mask = 32
 cutscene = SubResource("Resource_jbyfh")

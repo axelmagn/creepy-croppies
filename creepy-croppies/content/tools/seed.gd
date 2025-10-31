@@ -6,6 +6,9 @@ class_name Seed extends Tool
 func can_use(user: Character):
 	if not super.can_use(user):
 		return false
+	return has_enough_resources_to_use()
+	
+func has_enough_resources_to_use() -> bool:
 	return Game.player_items.has_enough(consumed_item, 1)
 
 func use_primary(user: Character):

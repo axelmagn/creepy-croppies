@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://cuw8uygdpglxk"]
+
+[ext_resource type="Script" uid="uid://dikj3661rgst8" path="res://content/levels/level.gd" id="1_iep8p"]
+[ext_resource type="PackedScene" uid="uid://dihehhlrsy6w" path="res://content/terrain/king_terrain.tscn" id="2_8e4aw"]
+[ext_resource type="PackedScene" uid="uid://b6ofto02bhrak" path="res://content/player/player.tscn" id="3_aiuew"]
+[ext_resource type="PackedScene" uid="uid://g36a8sfrh3xy" path="res://content/shop/shop.tscn" id="4_aiuew"]
+
+[node name="KingLevel" type="Node2D" node_paths=PackedStringArray("terrain", "character")]
+script = ExtResource("1_iep8p")
+terrain = NodePath("KingTerrain")
+character = NodePath("Player")
+
+[node name="KingTerrain" parent="." instance=ExtResource("2_8e4aw")]
+
+[node name="Player" parent="." instance=ExtResource("3_aiuew")]
+position = Vector2(460, 142)
+
+[node name="Shop" parent="." instance=ExtResource("4_aiuew")]
+position = Vector2(326, 421)

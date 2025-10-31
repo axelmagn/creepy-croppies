@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dj2hnqgf47qho"]
+[gd_scene load_steps=7 format=3 uid="uid://dj2hnqgf47qho"]
 
 [ext_resource type="Theme" uid="uid://c55ad4h1x0cgs" path="res://content/ui/main_theme.tres" id="1_jhhu4"]
 [ext_resource type="Script" uid="uid://hsjnoacosn7v" path="res://content/ui/main_menu.gd" id="1_myo1n"]
 [ext_resource type="Theme" uid="uid://bmx3qwc0068d1" path="res://content/ui/title_theme.tres" id="3_nxgiw"]
+[ext_resource type="PackedScene" uid="uid://dw6q44t5ck45" path="res://content/ui/controls_panel.tscn" id="4_c6fwi"]
 
 [sub_resource type="Gradient" id="Gradient_jhhu4"]
 colors = PackedColorArray(0.8742511, 0.5064472, 0.09918059, 1, 7.797182e-06, 0.61698824, 0.78661567, 1)
@@ -19,8 +20,8 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_jhhu4")
 script = ExtResource("1_myo1n")
-play_button = NodePath("VBoxContainer/VBoxContainer/PlayButton")
-exit_button = NodePath("VBoxContainer/VBoxContainer/ExitButton")
+play_button = NodePath("VBoxContainer/VBoxContainer2/VBoxContainer/PlayButton")
+exit_button = NodePath("VBoxContainer/VBoxContainer2/VBoxContainer/ExitButton")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
@@ -55,14 +56,25 @@ theme = ExtResource("3_nxgiw")
 theme_override_font_sizes/font_size = 64
 text = "Creepy Croppies"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/VBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="PlayButton" type="Button" parent="VBoxContainer/VBoxContainer"]
+[node name="PlayButton" type="Button" parent="VBoxContainer/VBoxContainer2/VBoxContainer"]
 layout_mode = 2
 text = "Play"
 
-[node name="ExitButton" type="Button" parent="VBoxContainer/VBoxContainer"]
+[node name="ExitButton" type="Button" parent="VBoxContainer/VBoxContainer2/VBoxContainer"]
 layout_mode = 2
 text = "Exit"
+
+[node name="Spacer" type="Control" parent="VBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+
+[node name="PanelContainer" parent="VBoxContainer/VBoxContainer2" instance=ExtResource("4_c6fwi")]
+layout_mode = 2
+size_flags_horizontal = 4

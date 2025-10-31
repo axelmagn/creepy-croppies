@@ -16,6 +16,7 @@ func _ready() -> void:
 func enable() -> void:
 	visible = true
 	process_mode = _init_process_mode
+	retry_button.grab_focus()
 
 func disable() -> void:
 	visible = false

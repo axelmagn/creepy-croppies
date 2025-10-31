@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://cuw8uygdpglxk"]
+[gd_scene load_steps=18 format=3 uid="uid://cuw8uygdpglxk"]
 
 [ext_resource type="Script" uid="uid://dikj3661rgst8" path="res://content/levels/level.gd" id="1_iep8p"]
 [ext_resource type="PackedScene" uid="uid://brhexstgl81ff" path="res://content/terrain/king_terrain.tscn" id="2_8e4aw"]
@@ -14,8 +14,6 @@
 [ext_resource type="Resource" uid="uid://dg78kfg5hnkyy" path="res://content/item/item_turnip_seed.tres" id="11_f50eq"]
 [ext_resource type="Texture2D" uid="uid://cfp60tu1kohns" path="res://assets/objects/bridge.png" id="12_f50eq"]
 [ext_resource type="Resource" uid="uid://ddtm0b2kmpa4l" path="res://content/cutscenes/helper_intro.tres" id="14_mjs31"]
-[ext_resource type="Script" uid="uid://16kpwiuhc11o" path="res://content/cutscenes/cutscene_config.gd" id="15_g37ea"]
-[ext_resource type="Resource" uid="uid://b0axbo55dl533" path="res://content/cutscenes/boat_intro.tres" id="15_jbyfh"]
 
 [sub_resource type="Curve2D" id="Curve2D_41qb8"]
 _data = {
@@ -32,12 +30,6 @@ point_count = 12
 [sub_resource type="AtlasTexture" id="AtlasTexture_mjs31"]
 atlas = ExtResource("12_f50eq")
 region = Rect2(0, 18, 32, 30)
-
-[sub_resource type="Resource" id="Resource_jbyfh"]
-script = ExtResource("15_g37ea")
-lines = Array[String](["This bridge is trashed.
-I can't get across."])
-metadata/_custom_type_script = "uid://16kpwiuhc11o"
 
 [node name="KingLevel" type="Node2D" node_paths=PackedStringArray("terrain", "character")]
 script = ExtResource("1_iep8p")
@@ -56,9 +48,10 @@ position = Vector2(373, 56)
 [node name="CutsceneTrigger" parent="." instance=ExtResource("6_gifuw")]
 position = Vector2(400, 53)
 cutscene = ExtResource("7_qwucy")
+finished = null
 
 [node name="CollisionShape2D" parent="CutsceneTrigger" index="0"]
-position = Vector2(-3, 39)
+position = Vector2(-22, 21)
 
 [node name="HelperHut" parent="." instance=ExtResource("8_gifuw")]
 position = Vector2(546, 134)
@@ -102,25 +95,10 @@ position = Vector2(208, 232)
 [node name="CutsceneTrigger2" parent="." instance=ExtResource("6_gifuw")]
 position = Vector2(545, 147)
 cutscene = ExtResource("14_mjs31")
+finished = null
 
 [node name="CollisionShape2D" parent="CutsceneTrigger2" index="0"]
-position = Vector2(1, -2)
-
-[node name="CutsceneTrigger3" parent="." instance=ExtResource("6_gifuw")]
-position = Vector2(392, 434)
-collision_layer = 32
-collision_mask = 32
-cutscene = ExtResource("15_jbyfh")
-
-[node name="CollisionShape2D" parent="CutsceneTrigger3" index="0"]
-position = Vector2(0, -12)
-
-[node name="CutsceneTrigger4" parent="." instance=ExtResource("6_gifuw")]
-position = Vector2(208, 187)
-collision_layer = 32
-collision_mask = 32
-cutscene = SubResource("Resource_jbyfh")
+position = Vector2(1, 6)
 
 [editable path="CutsceneTrigger"]
 [editable path="CutsceneTrigger2"]
-[editable path="CutsceneTrigger3"]

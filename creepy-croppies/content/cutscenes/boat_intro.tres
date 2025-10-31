@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="CutsceneConfig" load_steps=2 format=3 uid="uid://b0axbo55dl533"]
+
+[ext_resource type="Script" uid="uid://16kpwiuhc11o" path="res://content/cutscenes/cutscene_config.gd" id="2_m10mq"]
+
+[resource]
+script = ExtResource("2_m10mq")
+lines = Array[String](["It looks like a boat stops here.", "I wonder what that's about."])
+metadata/_custom_type_script = "uid://16kpwiuhc11o"

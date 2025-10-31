@@ -35,6 +35,8 @@ visible = false
 texture = SubResource("AtlasTexture_8kqjh")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="BrokenBridge"]
+collision_layer = 64
+collision_mask = 64
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BrokenBridge/StaticBody2D"]
 position = Vector2(0, 1)
@@ -44,6 +46,8 @@ shape = SubResource("RectangleShape2D_osvkl")
 texture = SubResource("AtlasTexture_osvkl")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="FixedBridge"]
+collision_layer = 64
+collision_mask = 64
 
 [node name="LeftCollider" type="CollisionShape2D" parent="FixedBridge/StaticBody2D"]
 position = Vector2(-13, 0)

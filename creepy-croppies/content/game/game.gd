@@ -98,6 +98,11 @@ func reset_global_state():
 
 
 func trigger_game_over(win: bool) -> void:
+	if win:
+		ui.cutscene.play(cutscenes.win_cutscene)
+	else:
+		ui.cutscene.play(cutscenes.fail_cutscene)
+	await ui.cutscene.finished
 	get_tree().paused = true
 	ui.game_over_menu.win = win
 	ui.game_over_menu.enable()

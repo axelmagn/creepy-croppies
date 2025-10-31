@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CutsceneConfig" load_steps=3 format=3 uid="uid://c3rjtnp4lww02"]
+
+[ext_resource type="Texture2D" uid="uid://djr1ekbg87qxg" path="res://content/cutscenes/ghost_hero.tres" id="1_828wg"]
+[ext_resource type="Script" uid="uid://16kpwiuhc11o" path="res://content/cutscenes/cutscene_config.gd" id="2_n3x0k"]
+
+[resource]
+script = ExtResource("2_n3x0k")
+hero_texture = ExtResource("1_828wg")
+lines = Array[String](["Aw snap, you don't have the rent?", "Sorry bro, you've got to go."])
+metadata/_custom_type_script = "uid://16kpwiuhc11o"

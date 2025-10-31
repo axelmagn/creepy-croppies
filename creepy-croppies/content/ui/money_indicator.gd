@@ -6,4 +6,4 @@ func _ready() -> void:
 	assert(label)
 
 func _process(_delta: float) -> void:
-	label.text = "$%05d" % Game.player_money
+	label.text = "$%d" % Game.player_money

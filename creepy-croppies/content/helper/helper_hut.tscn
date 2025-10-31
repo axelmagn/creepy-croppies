@@ -37,6 +37,7 @@ size = Vector2(81, 55)
 size = Vector2(71, 47.5)
 
 [node name="HelperHut" type="Area2D" node_paths=PackedStringArray("sprite")]
+scale = Vector2(0.6, 0.6)
 collision_layer = 16
 collision_mask = 0
 script = ExtResource("1_qdfpp")

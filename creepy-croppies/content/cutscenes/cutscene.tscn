@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://2cvpmn6sbih6"]
+[gd_scene load_steps=11 format=3 uid="uid://2cvpmn6sbih6"]
 
 [ext_resource type="Texture2D" uid="uid://6avnfenwflpa" path="res://assets/sprout_lands_basic/Characters/Free Cow Sprites.png" id="1_34pc2"]
 [ext_resource type="Script" uid="uid://568u0tcafcuo" path="res://content/cutscenes/cutscene.gd" id="1_kuno0"]
@@ -16,6 +16,10 @@ metadata/_snap_enabled = true
 [sub_resource type="AtlasTexture" id="AtlasTexture_34pc2"]
 atlas = ExtResource("1_34pc2")
 region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="LabelSettings" id="LabelSettings_kuno0"]
+font_size = 48
+font_color = Color(0.38, 0.38, 0.38, 1)
 
 [sub_resource type="Animation" id="Animation_p1yma"]
 length = 0.001
@@ -128,7 +132,7 @@ grow_vertical = 2
 texture = SubResource("GradientTexture2D_kuno0")
 
 [node name="Hero" type="TextureRect" parent="."]
-custom_minimum_size = Vector2(16, 16)
+custom_minimum_size = Vector2(32, 32)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -137,14 +141,14 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -20.0
 offset_top = 120.0
-offset_right = 20.0
-offset_bottom = 160.0
+offset_right = 28.0
+offset_bottom = 168.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("AtlasTexture_34pc2")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
-custom_minimum_size = Vector2(512, 128)
+custom_minimum_size = Vector2(720, 180)
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -164,6 +168,7 @@ alignment = 1
 [node name="LinesLabel" type="Label" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
 text = "Cutscene Text"
+label_settings = SubResource("LabelSettings_kuno0")
 horizontal_alignment = 1
 vertical_alignment = 1
 

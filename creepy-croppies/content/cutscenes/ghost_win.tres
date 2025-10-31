@@ -1,11 +1,31 @@
-[gd_resource type="Resource" script_class="CutsceneConfig" load_steps=3 format=3 uid="uid://c4rcv2k0j7dp6"]
+[gd_resource type="Resource" script_class="CutsceneConfig" load_steps=9 format=3 uid="uid://c4rcv2k0j7dp6"]
 
-[ext_resource type="Texture2D" uid="uid://djr1ekbg87qxg" path="res://content/cutscenes/ghost_hero.tres" id="1_n8cfw"]
+[ext_resource type="Texture2D" uid="uid://bahau6c85g57a" path="res://assets/objects/James_sprite/James 1.png" id="1_ttr63"]
+[ext_resource type="Texture2D" uid="uid://uxxka42v1e87" path="res://assets/objects/James_sprite/James 2.png" id="2_18tdk"]
 [ext_resource type="Script" uid="uid://16kpwiuhc11o" path="res://content/cutscenes/cutscene_config.gd" id="2_aimve"]
+[ext_resource type="Texture2D" uid="uid://5gltyqlp52fw" path="res://assets/objects/James_sprite/James 3.png" id="3_s262p"]
+[ext_resource type="Texture2D" uid="uid://br65btblbdkrh" path="res://assets/objects/James_sprite/James 4.png" id="4_x17dv"]
+[ext_resource type="Texture2D" uid="uid://bb0mp5p6x11ua" path="res://assets/objects/James_sprite/James 5.png" id="5_j2fq2"]
+[ext_resource type="Texture2D" uid="uid://p36p7mc4nqv6" path="res://assets/objects/James_sprite/James 6.png" id="6_510sm"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_58t2s"]
+frames = 6
+frame_0/texture = ExtResource("1_ttr63")
+frame_0/duration = 0.5
+frame_1/texture = ExtResource("2_18tdk")
+frame_1/duration = 0.5
+frame_2/texture = ExtResource("3_s262p")
+frame_2/duration = 0.5
+frame_3/texture = ExtResource("4_x17dv")
+frame_3/duration = 0.5
+frame_4/texture = ExtResource("5_j2fq2")
+frame_4/duration = 0.5
+frame_5/texture = ExtResource("6_510sm")
+frame_5/duration = 0.5
 
 [resource]
 script = ExtResource("2_aimve")
-hero_texture = ExtResource("1_n8cfw")
+hero_texture = SubResource("AnimatedTexture_58t2s")
 lines = Array[String](["Man, I hate to admit it but 
 you've really turned this place around.", "I'll tell you what - why don't you 
 take care of this place from now on?", "Yeah, it's all yours.  

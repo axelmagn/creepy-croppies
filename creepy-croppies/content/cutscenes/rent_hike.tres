@@ -1,11 +1,31 @@
-[gd_resource type="Resource" script_class="CutsceneConfig" load_steps=3 format=3 uid="uid://7a84i4mkv3kx"]
+[gd_resource type="Resource" script_class="CutsceneConfig" load_steps=9 format=3 uid="uid://7a84i4mkv3kx"]
 
-[ext_resource type="Texture2D" uid="uid://djr1ekbg87qxg" path="res://content/cutscenes/ghost_hero.tres" id="1_i3o35"]
+[ext_resource type="Texture2D" uid="uid://bahau6c85g57a" path="res://assets/objects/James_sprite/James 1.png" id="1_6khia"]
 [ext_resource type="Script" uid="uid://16kpwiuhc11o" path="res://content/cutscenes/cutscene_config.gd" id="2_hv003"]
+[ext_resource type="Texture2D" uid="uid://uxxka42v1e87" path="res://assets/objects/James_sprite/James 2.png" id="2_jplpu"]
+[ext_resource type="Texture2D" uid="uid://5gltyqlp52fw" path="res://assets/objects/James_sprite/James 3.png" id="3_3d6l7"]
+[ext_resource type="Texture2D" uid="uid://br65btblbdkrh" path="res://assets/objects/James_sprite/James 4.png" id="4_wni86"]
+[ext_resource type="Texture2D" uid="uid://bb0mp5p6x11ua" path="res://assets/objects/James_sprite/James 5.png" id="5_xho0a"]
+[ext_resource type="Texture2D" uid="uid://p36p7mc4nqv6" path="res://assets/objects/James_sprite/James 6.png" id="6_qpg8k"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_f23hf"]
+frames = 6
+frame_0/texture = ExtResource("1_6khia")
+frame_0/duration = 0.5
+frame_1/texture = ExtResource("2_jplpu")
+frame_1/duration = 0.5
+frame_2/texture = ExtResource("3_3d6l7")
+frame_2/duration = 0.5
+frame_3/texture = ExtResource("4_wni86")
+frame_3/duration = 0.5
+frame_4/texture = ExtResource("5_xho0a")
+frame_4/duration = 0.5
+frame_5/texture = ExtResource("6_qpg8k")
+frame_5/duration = 0.5
 
 [resource]
 script = ExtResource("2_hv003")
-hero_texture = ExtResource("1_i3o35")
+hero_texture = SubResource("AnimatedTexture_f23hf")
 lines = Array[String](["Man, have you noticed that 
 this place is looking a lot better recently?", "You're welcome.", "Rent is going to have to go up though,
 what with all the improvements.", "I charge market rates."])

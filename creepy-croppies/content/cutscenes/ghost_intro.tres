@@ -1,11 +1,31 @@
-[gd_resource type="Resource" script_class="CutsceneConfig" load_steps=3 format=3 uid="uid://378eohomjbg1"]
+[gd_resource type="Resource" script_class="CutsceneConfig" load_steps=9 format=3 uid="uid://378eohomjbg1"]
 
-[ext_resource type="Texture2D" uid="uid://djr1ekbg87qxg" path="res://content/cutscenes/ghost_hero.tres" id="1_3dojt"]
+[ext_resource type="Texture2D" uid="uid://bahau6c85g57a" path="res://assets/objects/James_sprite/James 1.png" id="1_fmlct"]
 [ext_resource type="Script" uid="uid://16kpwiuhc11o" path="res://content/cutscenes/cutscene_config.gd" id="2_b0koe"]
+[ext_resource type="Texture2D" uid="uid://uxxka42v1e87" path="res://assets/objects/James_sprite/James 2.png" id="2_yclat"]
+[ext_resource type="Texture2D" uid="uid://5gltyqlp52fw" path="res://assets/objects/James_sprite/James 3.png" id="3_rbpgu"]
+[ext_resource type="Texture2D" uid="uid://br65btblbdkrh" path="res://assets/objects/James_sprite/James 4.png" id="4_4e5fb"]
+[ext_resource type="Texture2D" uid="uid://bb0mp5p6x11ua" path="res://assets/objects/James_sprite/James 5.png" id="5_t4r7t"]
+[ext_resource type="Texture2D" uid="uid://p36p7mc4nqv6" path="res://assets/objects/James_sprite/James 6.png" id="6_ptnyo"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_qulwo"]
+frames = 6
+frame_0/texture = ExtResource("1_fmlct")
+frame_0/duration = 0.5
+frame_1/texture = ExtResource("2_yclat")
+frame_1/duration = 0.5
+frame_2/texture = ExtResource("3_rbpgu")
+frame_2/duration = 0.5
+frame_3/texture = ExtResource("4_4e5fb")
+frame_3/duration = 0.5
+frame_4/texture = ExtResource("5_t4r7t")
+frame_4/duration = 0.5
+frame_5/texture = ExtResource("6_ptnyo")
+frame_5/duration = 0.5
 
 [resource]
 script = ExtResource("2_b0koe")
-hero_texture = ExtResource("1_3dojt")
+hero_texture = SubResource("AnimatedTexture_qulwo")
 lines = Array[String](["What's this?  A visitor?", "We don't get many visitors these days.", "Oh well.  I guess you can stay.", "The internet's been out for years now, 
 so there's not much to do.", "Some folks have turned to gardening.", "Anyways, welcome to the island.
 You brought your rent payments right?", "We don't really do volunteer rates any more.

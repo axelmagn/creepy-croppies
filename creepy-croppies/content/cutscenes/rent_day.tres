@@ -1,11 +1,31 @@
-[gd_resource type="Resource" script_class="CutsceneConfig" load_steps=3 format=3 uid="uid://df7r4ko2hh6dq"]
+[gd_resource type="Resource" script_class="CutsceneConfig" load_steps=9 format=3 uid="uid://df7r4ko2hh6dq"]
 
 [ext_resource type="Script" uid="uid://16kpwiuhc11o" path="res://content/cutscenes/cutscene_config.gd" id="1_7xwi0"]
-[ext_resource type="Texture2D" uid="uid://djr1ekbg87qxg" path="res://content/cutscenes/ghost_hero.tres" id="1_w4xn6"]
+[ext_resource type="Texture2D" uid="uid://bahau6c85g57a" path="res://assets/objects/James_sprite/James 1.png" id="1_vf33y"]
+[ext_resource type="Texture2D" uid="uid://uxxka42v1e87" path="res://assets/objects/James_sprite/James 2.png" id="2_tqxe4"]
+[ext_resource type="Texture2D" uid="uid://5gltyqlp52fw" path="res://assets/objects/James_sprite/James 3.png" id="3_epkki"]
+[ext_resource type="Texture2D" uid="uid://br65btblbdkrh" path="res://assets/objects/James_sprite/James 4.png" id="4_ihle0"]
+[ext_resource type="Texture2D" uid="uid://bb0mp5p6x11ua" path="res://assets/objects/James_sprite/James 5.png" id="5_lgnxh"]
+[ext_resource type="Texture2D" uid="uid://p36p7mc4nqv6" path="res://assets/objects/James_sprite/James 6.png" id="6_5ixx8"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_ltnb2"]
+frames = 6
+frame_0/texture = ExtResource("1_vf33y")
+frame_0/duration = 0.5
+frame_1/texture = ExtResource("2_tqxe4")
+frame_1/duration = 0.5
+frame_2/texture = ExtResource("3_epkki")
+frame_2/duration = 0.5
+frame_3/texture = ExtResource("4_ihle0")
+frame_3/duration = 0.5
+frame_4/texture = ExtResource("5_lgnxh")
+frame_4/duration = 0.5
+frame_5/texture = ExtResource("6_5ixx8")
+frame_5/duration = 0.5
 
 [resource]
 script = ExtResource("1_7xwi0")
-hero_texture = ExtResource("1_w4xn6")
+hero_texture = SubResource("AnimatedTexture_ltnb2")
 lines = Array[String](["Oh you're still here?
 Good.", "I really do need this week's rent though.", "For ghost stuff."])
 metadata/_custom_type_script = "uid://16kpwiuhc11o"

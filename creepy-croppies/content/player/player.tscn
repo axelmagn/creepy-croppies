@@ -222,6 +222,7 @@ texture_filter = 3
 collision_layer = 33
 collision_mask = 33
 script = ExtResource("1_y66qv")
+max_speed = 96.0
 interact_collision = 18
 tmp_test_plant = ExtResource("2_i4jjh")
 tools = Array[ExtResource("3_bkj32")]([ExtResource("4_bkj32"), ExtResource("5_bkj32"), ExtResource("9_v250f"), ExtResource("10_q05y8"), ExtResource("7_cvehv"), ExtResource("8_vx4xa"), ExtResource("11_sks62"), ExtResource("6_cvehv")])

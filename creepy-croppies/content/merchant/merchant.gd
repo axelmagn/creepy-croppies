@@ -68,6 +68,7 @@ func _set_state(new_state: MerchantState) -> void:
 	match state:
 		MerchantState.STATE_HIDDEN:
 			visible = false
+			global_position = enterPath.curve.sample_baked(0)
 		MerchantState.STATE_WALKING_TO_SPOT:
 			visible = true
 			shop.is_interactable = false

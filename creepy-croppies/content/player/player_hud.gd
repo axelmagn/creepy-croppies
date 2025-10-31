@@ -9,6 +9,7 @@ class_name PlayerHUD extends Control
 @export var can_use_label: Label
 @export var custom_label: Label
 
+@export var interact_notifier: Control
 @export var tools_indicator: ToolsIndicator
 @export var stamina_indicator: StaminaIndicator
 
@@ -22,6 +23,7 @@ func _ready() -> void:
 	assert(focus_cell_label)
 	assert(can_use_label)
 	assert(custom_label)
+	assert(interact_notifier)
 
 	assert(tools_indicator)
 	assert(stamina_indicator)
@@ -57,12 +59,16 @@ func update_view() -> void:
 			focus_cell_label.text = "%s %s" % [tcoord.layer.name, str(tcoord.coord)]
 		else:
 			focus_cell_label.text = "NONE"
+
+		interact_notifier.visible = player.can_interact()
+
 	else:
 		action_state_label.text = "N/A"
 		facing_dir_label.text = "N/A"
 		tool_label.text = "N/A"
 		focus_cell_label.text = "N/A"
 		return
+
 
 
 

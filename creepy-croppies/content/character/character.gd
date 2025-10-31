@@ -232,6 +232,16 @@ func interact():
 		if object["collider"].has_method("interact"):
 			printt("found definitely interactable collider:", object)
 			object["collider"].interact()
+
+func can_interact():
+	printt("attempting to interact")
+	var objects: Array[Dictionary] = cast_interact()
+	for object in objects:
+		printt("found potentially interactable collider:", object)
+		print(object)
+		if object["collider"].has_method("interact"):
+			return true
+	return false
 	
 func set_stamina(value: float) -> void:
 	if stamina == value:

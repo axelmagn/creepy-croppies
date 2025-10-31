@@ -57,7 +57,7 @@ metadata/_custom_type_script = "uid://lcn4cci0yb03"
 
 [sub_resource type="Resource" id="Resource_qbubh"]
 script = ExtResource("27_vv337")
-day = 6
+day = 7
 cutscene = ExtResource("30_xwcxx")
 metadata/_custom_type_script = "uid://lcn4cci0yb03"
 
@@ -141,7 +141,7 @@ script = ExtResource("16_upkcm")
 [node name="RentManager" type="Node" parent="."]
 script = ExtResource("16_qhbyw")
 rent_interval = 5
-rents = Array[int]([20, 25, 30, 35, 40])
+rents = Array[int]([20, 25, 30, 35, 40, 45, 50, 60, 70, 80, 90, 100, 120, 140, 160, 180, 200])
 
 [node name="AudioManager" parent="." instance=ExtResource("19_4aeii")]
 

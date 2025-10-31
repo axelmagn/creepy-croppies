@@ -48,10 +48,10 @@ func harvest() -> void:
 	queue_free()
 
 	# unwater tile
-	var tcoord = Game.active_level.terrain.get_showing_cell(pos)
-	printt("unwatering terrain:", str(tcoord.layer), str(tcoord.coord))
-	assert(tcoord)
-	Game.active_level.terrain.unwater(tcoord)
+	# var tcoord = Game.active_level.terrain.get_showing_cell(pos)
+	# printt("unwatering terrain:", str(tcoord.layer), str(tcoord.coord))
+	# assert(tcoord)
+	# Game.active_level.terrain.unwater(tcoord)
 
 	# drop items
 	if stage.item_drop:

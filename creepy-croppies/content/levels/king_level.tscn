@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://cuw8uygdpglxk"]
+[gd_scene load_steps=39 format=3 uid="uid://cuw8uygdpglxk"]
 
 [ext_resource type="Script" uid="uid://dikj3661rgst8" path="res://content/levels/level.gd" id="1_iep8p"]
 [ext_resource type="PackedScene" uid="uid://brhexstgl81ff" path="res://content/terrain/king_terrain.tscn" id="2_8e4aw"]
@@ -92,6 +92,16 @@ region = Rect2(0, 18, 32, 30)
 script = ExtResource("15_g37ea")
 lines = Array[String](["This bridge is trashed.
 I can't get across."])
+metadata/_custom_type_script = "uid://16kpwiuhc11o"
+
+[sub_resource type="Resource" id="Resource_8av2r"]
+script = ExtResource("15_g37ea")
+lines = Array[String](["It looks like something would grow here."])
+metadata/_custom_type_script = "uid://16kpwiuhc11o"
+
+[sub_resource type="Resource" id="Resource_ofy86"]
+script = ExtResource("15_g37ea")
+lines = Array[String](["Hmmm, a pier.  I wonder if boats use it."])
 metadata/_custom_type_script = "uid://16kpwiuhc11o"
 
 [node name="KingLevel" type="Node2D" node_paths=PackedStringArray("terrain", "character")]
@@ -190,6 +200,14 @@ cutscene = SubResource("Resource_jbyfh")
 [node name="Sign" parent="." instance=ExtResource("24_hibrm")]
 position = Vector2(366, 432)
 cutscene = ExtResource("25_hibrm")
+
+[node name="CutsceneTrigger3" parent="." instance=ExtResource("6_gifuw")]
+position = Vector2(480, 256)
+cutscene = SubResource("Resource_8av2r")
+
+[node name="CutsceneTrigger5" parent="." instance=ExtResource("6_gifuw")]
+position = Vector2(391, 456)
+cutscene = SubResource("Resource_ofy86")
 
 [editable path="CutsceneTrigger"]
 [editable path="CutsceneTrigger2"]

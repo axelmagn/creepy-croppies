@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://dihehhlrsy6w"]
+[gd_scene load_steps=16 format=4 uid="uid://brhexstgl81ff"]
 
 [ext_resource type="TileSet" uid="uid://bdj4jpa45demi" path="res://content/terrain/custom_tileset.tres" id="1_c4iqu"]
 [ext_resource type="Script" uid="uid://b4tmpxq8y1jj1" path="res://content/terrain/terrain.gd" id="1_lt2qf"]
@@ -228,4 +228,5 @@ tile_set = ExtResource("1_c4iqu")
 [node name="objects" type="TileMapLayer" parent="."]
 texture_filter = 3
 tile_map_data = PackedByteArray("AAAMAA0AAQACAAAAAAAMAA4AAQACAAEAAAAMAA8AAQACAAIAAAANAA0AAQADAAAAAAANAA4AAQADAAEAAAANAA8AAQADAAIAAAA=")
+enabled = false
 tile_set = SubResource("TileSet_6146c")

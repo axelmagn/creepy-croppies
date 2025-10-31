@@ -1,34 +1,39 @@
 class_name Merchant extends Node2D
 
-@export var enter: NodePath
-@export var spot: NodePath
-@export var exit: NodePath
+@export var shop: Shop
+@export var enterPath: Path2D
+@export var exitPath: Path2D
 @export var appear_hour: int = 10 # hour of day
-@export var travel_minutes := 30 # minutes
+@export var enter_travel_minutes := 30 # minutes
+@export var exit_travel_minutes := 30 # minutes
 @export var wait_minutes: int = 60 # minutes
 
 enum MerchantState { STATE_HIDDEN, STATE_WALKING_TO_SPOT, STATE_WAITING, STATE_WALKING_TO_EXIT }
 
 var state: MerchantState = MerchantState.STATE_HIDDEN
 
-var start : Vector2
-var target : Vector2
 var elapsed_travel_minutes := 0
 var elapsed_waiting_minutes := 0
+var current_path: Curve2D
+var total_travel_duration := 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	assert(enter)
-	assert(spot)
-	assert(exit)
+	assert(shop)
+	assert(enterPath)
+	assert(exitPath)
 	Game.time.minute_tick.connect(_on_minute_tick)
+	Game.time.day_start.connect(_on_day_start)
+	_set_state(MerchantState.STATE_HIDDEN)
+	
+func _on_day_start() -> void:
 	_set_state(MerchantState.STATE_HIDDEN)
 
-func _set_move_target(new_target: Vector2) -> void:
-	start = global_position
-	target = new_target
-	travel_minutes = 30
+func _init_move_path(path : Curve2D, travel_duration) -> void:
+	current_path = path
+	total_travel_duration = travel_duration
 	elapsed_travel_minutes = 0
+	global_position = path.sample_baked(0)
 	
 func _on_minute_tick() -> void:
 	match state:
@@ -48,9 +53,11 @@ func _on_minute_tick() -> void:
 			
 func _move_step() -> bool:
 	elapsed_travel_minutes += 1
-	var t = clamp(float(elapsed_travel_minutes) / travel_minutes, 0.0, 1.0)
+	var t = clamp(float(elapsed_travel_minutes) / total_travel_duration, 0.0, 1.0)
 	var eased_t := 0.5 - cos(t * PI) * 0.5 # ease in out
-	global_position = start.lerp(target, eased_t)
+	var current := current_path.get_baked_length() * eased_t
+	global_position = current_path.sample_baked(current)
+		
 	if t >= 1.0:
 		return true
 	return false
@@ -63,12 +70,14 @@ func _set_state(new_state: MerchantState) -> void:
 			visible = false
 		MerchantState.STATE_WALKING_TO_SPOT:
 			visible = true
-			global_position = get_node(enter).position
-			_set_move_target(get_node(spot).position)
+			shop.is_interactable = false
+			_init_move_path(enterPath.curve, enter_travel_minutes)
 		MerchantState.STATE_WAITING:
 			visible = true
-			global_position = get_node(spot).position
 			elapsed_waiting_minutes = 0
+			shop.is_interactable = true
+			Game.audio.play_shop_open()
 		MerchantState.STATE_WALKING_TO_EXIT:
 			visible = true
-			_set_move_target(get_node(exit).position)
+			shop.is_interactable = false
+			_init_move_path(exitPath.curve, exit_travel_minutes)

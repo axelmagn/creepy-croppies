@@ -8,8 +8,9 @@
 atlas = ExtResource("2_jlk80")
 region = Rect2(80, 80, 32, 16)
 
-[node name="Merchant" type="Node2D"]
+[node name="Merchant" type="Node2D" node_paths=PackedStringArray("shop")]
 script = ExtResource("1_6lnbc")
+shop = NodePath("Shop")
 
 [node name="Boat" type="Sprite2D" parent="."]
 scale = Vector2(2, 2)

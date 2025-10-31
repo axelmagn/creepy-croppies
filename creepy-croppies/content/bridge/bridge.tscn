@@ -1,0 +1,65 @@
+[gd_scene load_steps=10 format=3 uid="uid://cilonyl1i77ws"]
+
+[ext_resource type="Script" uid="uid://7ywl0qo4s4xx" path="res://content/bridge/bridge.gd" id="1_osvkl"]
+[ext_resource type="Texture2D" uid="uid://cfp60tu1kohns" path="res://assets/objects/bridge.png" id="2_0uvh1"]
+[ext_resource type="Script" uid="uid://dnycdcruwr3n8" path="res://content/bridge/bridge_interaction.gd" id="3_8kqjh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8kqjh"]
+atlas = ExtResource("2_0uvh1")
+region = Rect2(32, 0, 32, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_osvkl"]
+size = Vector2(30, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_osvkl"]
+atlas = ExtResource("2_0uvh1")
+region = Rect2(0, 0, 32, 48)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_8kqjh"]
+a = Vector2(0, -14)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_b0h4w"]
+a = Vector2(0, -14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0uvh1"]
+size = Vector2(30, 34)
+
+[node name="Bridge" type="Node2D" node_paths=PackedStringArray("broken_bridge", "broken_bridge_collider", "fixed_bridge")]
+script = ExtResource("1_osvkl")
+broken_bridge = NodePath("BrokenBridge")
+broken_bridge_collider = NodePath("BrokenBridge/StaticBody2D/CollisionShape2D")
+fixed_bridge = NodePath("FixedBridge")
+
+[node name="BrokenBridge" type="Sprite2D" parent="."]
+visible = false
+texture = SubResource("AtlasTexture_8kqjh")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="BrokenBridge"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BrokenBridge/StaticBody2D"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_osvkl")
+
+[node name="FixedBridge" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_osvkl")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="FixedBridge"]
+
+[node name="LeftCollider" type="CollisionShape2D" parent="FixedBridge/StaticBody2D"]
+position = Vector2(-13, 0)
+shape = SubResource("SegmentShape2D_8kqjh")
+
+[node name="RightCollider" type="CollisionShape2D" parent="FixedBridge/StaticBody2D"]
+position = Vector2(13, 0)
+shape = SubResource("SegmentShape2D_b0h4w")
+
+[node name="InteractionArea2D" type="Area2D" parent="." node_paths=PackedStringArray("bridge")]
+visible = false
+collision_layer = 16
+collision_mask = 0
+script = ExtResource("3_8kqjh")
+bridge = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea2D"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_0uvh1")

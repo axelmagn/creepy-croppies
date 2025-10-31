@@ -23,6 +23,10 @@ func _ready() -> void:
 	assert(enterPath)
 	assert(exitPath)
 	Game.time.minute_tick.connect(_on_minute_tick)
+	Game.time.day_start.connect(_on_day_start)
+	_set_state(MerchantState.STATE_HIDDEN)
+	
+func _on_day_start() -> void:
 	_set_state(MerchantState.STATE_HIDDEN)
 
 func _init_move_path(path : Curve2D, travel_duration) -> void:

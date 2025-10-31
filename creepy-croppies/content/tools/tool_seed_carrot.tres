@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="Seed" load_steps=6 format=3 uid="uid://bk4723ikcgvw"]
+
+[ext_resource type="Resource" uid="uid://gvq8mxymlu20" path="res://content/item/item_carrot_seed.tres" id="1_3p0dm"]
+[ext_resource type="Resource" uid="uid://b280d6sjrmq06" path="res://content/plant/plant_carrot.tres" id="2_0b03p"]
+[ext_resource type="Script" uid="uid://cgqcvbtck2hn1" path="res://content/tools/seed.gd" id="3_u7jhw"]
+[ext_resource type="Texture2D" uid="uid://cb372f22eu8xj" path="res://assets/cozy_farm/farming/crops_all.png" id="4_2byry"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0b03p"]
+atlas = ExtResource("4_2byry")
+region = Rect2(0, 0, 16, 16)
+
+[resource]
+script = ExtResource("3_u7jhw")
+plant = ExtResource("2_0b03p")
+consumed_item = ExtResource("1_3p0dm")
+display_name = "Carrot Seeds"
+required_terrain_flag = "plantable"
+allow_overlaps = false
+texture = SubResource("AtlasTexture_0b03p")
+metadata/_custom_type_script = "uid://cgqcvbtck2hn1"

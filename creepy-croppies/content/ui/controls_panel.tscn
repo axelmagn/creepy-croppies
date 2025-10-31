@@ -107,7 +107,7 @@ horizontal_alignment = 1
 
 [node name="GridContainer" type="GridContainer" parent="MarginContainer/ControlsPanel/VBoxContainer"]
 layout_mode = 2
-columns = 2
+columns = 3
 
 [node name="Action" type="Label" parent="MarginContainer/ControlsPanel/VBoxContainer/GridContainer"]
 layout_mode = 2
@@ -123,22 +123,27 @@ layout_mode = 2
 texture = SubResource("AtlasTexture_kofyr")
 expand_mode = 2
 
-[node name="TextureRect2" type="TextureRect" parent="MarginContainer/ControlsPanel/VBoxContainer/GridContainer/Bindings"]
+[node name="Bindings7" type="HBoxContainer" parent="MarginContainer/ControlsPanel/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 2
+
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer/ControlsPanel/VBoxContainer/GridContainer/Bindings7"]
 layout_mode = 2
 texture = SubResource("AtlasTexture_mj6nr")
 expand_mode = 2
 
-[node name="TextureRect3" type="TextureRect" parent="MarginContainer/ControlsPanel/VBoxContainer/GridContainer/Bindings"]
+[node name="TextureRect3" type="TextureRect" parent="MarginContainer/ControlsPanel/VBoxContainer/GridContainer/Bindings7"]
 layout_mode = 2
 texture = SubResource("AtlasTexture_24exw")
 expand_mode = 2
 
-[node name="TextureRect4" type="TextureRect" parent="MarginContainer/ControlsPanel/VBoxContainer/GridContainer/Bindings"]
+[node name="TextureRect4" type="TextureRect" parent="MarginContainer/ControlsPanel/VBoxContainer/GridContainer/Bindings7"]
 layout_mode = 2
 texture = SubResource("AtlasTexture_ph36t")
 expand_mode = 2
 
-[node name="TextureRect5" type="TextureRect" parent="MarginContainer/ControlsPanel/VBoxContainer/GridContainer/Bindings"]
+[node name="TextureRect5" type="TextureRect" parent="MarginContainer/ControlsPanel/VBoxContainer/GridContainer/Bindings7"]
 layout_mode = 2
 texture = SubResource("AtlasTexture_ysh57")
 expand_mode = 2
@@ -157,7 +162,12 @@ layout_mode = 2
 texture = SubResource("AtlasTexture_dc1o0")
 expand_mode = 2
 
-[node name="TextureRect2" type="TextureRect" parent="MarginContainer/ControlsPanel/VBoxContainer/GridContainer/Bindings2"]
+[node name="Bindings8" type="HBoxContainer" parent="MarginContainer/ControlsPanel/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 2
+
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer/ControlsPanel/VBoxContainer/GridContainer/Bindings8"]
 layout_mode = 2
 texture = SubResource("AtlasTexture_ofm12")
 expand_mode = 2
@@ -176,12 +186,17 @@ layout_mode = 2
 texture = SubResource("AtlasTexture_n2h5d")
 expand_mode = 2
 
-[node name="TextureRect2" type="TextureRect" parent="MarginContainer/ControlsPanel/VBoxContainer/GridContainer/Bindings3"]
+[node name="Bindings9" type="HBoxContainer" parent="MarginContainer/ControlsPanel/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 2
+
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer/ControlsPanel/VBoxContainer/GridContainer/Bindings9"]
 layout_mode = 2
 texture = SubResource("AtlasTexture_155df")
 expand_mode = 2
 
-[node name="TextureRect3" type="TextureRect" parent="MarginContainer/ControlsPanel/VBoxContainer/GridContainer/Bindings3"]
+[node name="TextureRect3" type="TextureRect" parent="MarginContainer/ControlsPanel/VBoxContainer/GridContainer/Bindings9"]
 layout_mode = 2
 texture = SubResource("AtlasTexture_317lv")
 expand_mode = 3
@@ -200,12 +215,17 @@ layout_mode = 2
 texture = SubResource("AtlasTexture_yyxgp")
 expand_mode = 2
 
-[node name="TextureRect2" type="TextureRect" parent="MarginContainer/ControlsPanel/VBoxContainer/GridContainer/Bindings4"]
+[node name="Bindings10" type="HBoxContainer" parent="MarginContainer/ControlsPanel/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 2
+
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer/ControlsPanel/VBoxContainer/GridContainer/Bindings10"]
 layout_mode = 2
 texture = SubResource("AtlasTexture_ulvrb")
 expand_mode = 2
 
-[node name="TextureRect3" type="TextureRect" parent="MarginContainer/ControlsPanel/VBoxContainer/GridContainer/Bindings4"]
+[node name="TextureRect3" type="TextureRect" parent="MarginContainer/ControlsPanel/VBoxContainer/GridContainer/Bindings10"]
 layout_mode = 2
 texture = SubResource("AtlasTexture_r5knf")
 expand_mode = 3
@@ -224,12 +244,17 @@ layout_mode = 2
 texture = SubResource("AtlasTexture_go0wr")
 expand_mode = 2
 
-[node name="TextureRect2" type="TextureRect" parent="MarginContainer/ControlsPanel/VBoxContainer/GridContainer/Bindings5"]
+[node name="Bindings11" type="HBoxContainer" parent="MarginContainer/ControlsPanel/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 2
+
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer/ControlsPanel/VBoxContainer/GridContainer/Bindings11"]
 layout_mode = 2
 texture = SubResource("AtlasTexture_iesdj")
 expand_mode = 2
 
-[node name="TextureRect3" type="TextureRect" parent="MarginContainer/ControlsPanel/VBoxContainer/GridContainer/Bindings5"]
+[node name="TextureRect3" type="TextureRect" parent="MarginContainer/ControlsPanel/VBoxContainer/GridContainer/Bindings11"]
 layout_mode = 2
 texture = SubResource("AtlasTexture_4xj76")
 expand_mode = 3
@@ -248,7 +273,12 @@ layout_mode = 2
 texture = SubResource("AtlasTexture_ekjdd")
 expand_mode = 2
 
-[node name="TextureRect2" type="TextureRect" parent="MarginContainer/ControlsPanel/VBoxContainer/GridContainer/Bindings6"]
+[node name="Bindings12" type="HBoxContainer" parent="MarginContainer/ControlsPanel/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 2
+
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer/ControlsPanel/VBoxContainer/GridContainer/Bindings12"]
 layout_mode = 2
 texture = SubResource("AtlasTexture_meom1")
 expand_mode = 2

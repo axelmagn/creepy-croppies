@@ -128,3 +128,5 @@ menu_pause={
 2d_physics/layer_3="cursor"
 2d_physics/layer_4="item"
 2d_physics/layer_5="shop"
+2d_physics/layer_6="cutscene"
+2d_physics/layer_7="static_prop"

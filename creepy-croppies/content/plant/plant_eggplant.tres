@@ -1,0 +1,100 @@
+[gd_resource type="Resource" script_class="PlantConfig" load_steps=24 format=3 uid="uid://7b8uy76fbsjd"]
+
+[ext_resource type="Script" uid="uid://cu6flw0wv5h4e" path="res://content/plant/plant_config.gd" id="1_ftxn8"]
+[ext_resource type="Script" uid="uid://dottpy2k3wk" path="res://content/plant/growth_stage.gd" id="2_xoy74"]
+[ext_resource type="Resource" uid="uid://bim45tw5ka1y1" path="res://content/item/item_eggplant_seed.tres" id="3_abprj"]
+[ext_resource type="Script" uid="uid://c43nopgdmv1r5" path="res://content/item/item_drop.gd" id="4_fjyh0"]
+[ext_resource type="Resource" uid="uid://bp4l4u7gypy27" path="res://content/item/item_eggplant.tres" id="5_ftxn8"]
+
+[sub_resource type="Resource" id="Resource_jlld2"]
+script = ExtResource("4_fjyh0")
+item = ExtResource("3_abprj")
+min_count = 1
+max_count = 1
+metadata/_custom_type_script = "uid://c43nopgdmv1r5"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2huwn"]
+load_path = "res://.godot/imported/crops_all.png-3c0efb43e2a3e044d9d631409e832beb.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5jdpm"]
+atlas = SubResource("CompressedTexture2D_2huwn")
+region = Rect2(32, 160, 16, 16)
+
+[sub_resource type="Resource" id="Resource_2huwn"]
+script = ExtResource("2_xoy74")
+texture = SubResource("AtlasTexture_5jdpm")
+item_drop = SubResource("Resource_jlld2")
+metadata/_custom_type_script = "uid://dottpy2k3wk"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7x8s6"]
+load_path = "res://.godot/imported/crops_all.png-3c0efb43e2a3e044d9d631409e832beb.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yua3g"]
+atlas = SubResource("CompressedTexture2D_7x8s6")
+region = Rect2(48, 160, 16, 16)
+
+[sub_resource type="Resource" id="Resource_8k3yu"]
+script = ExtResource("2_xoy74")
+day = 1
+texture = SubResource("AtlasTexture_yua3g")
+metadata/_custom_type_script = "uid://dottpy2k3wk"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ft738"]
+load_path = "res://.godot/imported/crops_all.png-3c0efb43e2a3e044d9d631409e832beb.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7x8s6"]
+atlas = SubResource("CompressedTexture2D_ft738")
+region = Rect2(64, 160, 16, 16)
+
+[sub_resource type="Resource" id="Resource_r7qr7"]
+script = ExtResource("2_xoy74")
+day = 2
+texture = SubResource("AtlasTexture_7x8s6")
+metadata/_custom_type_script = "uid://dottpy2k3wk"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_1ngc7"]
+load_path = "res://.godot/imported/crops_all.png-3c0efb43e2a3e044d9d631409e832beb.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7tr2c"]
+atlas = SubResource("CompressedTexture2D_1ngc7")
+region = Rect2(80, 160, 16, 16)
+
+[sub_resource type="Resource" id="Resource_ft738"]
+script = ExtResource("2_xoy74")
+day = 3
+texture = SubResource("AtlasTexture_7tr2c")
+metadata/_custom_type_script = "uid://dottpy2k3wk"
+
+[sub_resource type="Resource" id="Resource_faumm"]
+script = ExtResource("4_fjyh0")
+item = ExtResource("5_ftxn8")
+min_count = 1
+max_count = 3
+metadata/_custom_type_script = "uid://c43nopgdmv1r5"
+
+[sub_resource type="Resource" id="Resource_mnbrq"]
+script = ExtResource("4_fjyh0")
+item = ExtResource("5_ftxn8")
+min_count = 1
+max_count = 3
+metadata/_custom_type_script = "uid://c43nopgdmv1r5"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_vuqtl"]
+load_path = "res://.godot/imported/crops_all.png-3c0efb43e2a3e044d9d631409e832beb.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_spbkv"]
+atlas = SubResource("CompressedTexture2D_vuqtl")
+region = Rect2(96, 160, 16, 16)
+
+[sub_resource type="Resource" id="Resource_7ktpk"]
+script = ExtResource("2_xoy74")
+day = 4
+texture = SubResource("AtlasTexture_spbkv")
+item_drop = SubResource("Resource_faumm")
+seed_drop = SubResource("Resource_mnbrq")
+metadata/_custom_type_script = "uid://dottpy2k3wk"
+
+[resource]
+script = ExtResource("1_ftxn8")
+stages = Array[ExtResource("2_xoy74")]([SubResource("Resource_2huwn"), SubResource("Resource_8k3yu"), SubResource("Resource_r7qr7"), SubResource("Resource_ft738"), SubResource("Resource_7ktpk")])
+metadata/_custom_type_script = "uid://cu6flw0wv5h4e"

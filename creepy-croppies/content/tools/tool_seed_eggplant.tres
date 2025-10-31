@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="Seed" load_steps=6 format=3 uid="uid://bjftafkrr6ik6"]
+
+[ext_resource type="Resource" uid="uid://bim45tw5ka1y1" path="res://content/item/item_eggplant_seed.tres" id="1_lop1p"]
+[ext_resource type="Resource" uid="uid://7b8uy76fbsjd" path="res://content/plant/plant_eggplant.tres" id="2_mmp0v"]
+[ext_resource type="Script" uid="uid://cgqcvbtck2hn1" path="res://content/tools/seed.gd" id="3_52et7"]
+[ext_resource type="Texture2D" uid="uid://cb372f22eu8xj" path="res://assets/cozy_farm/farming/crops_all.png" id="4_eu7eu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0fohu"]
+atlas = ExtResource("4_eu7eu")
+region = Rect2(0, 160, 16, 16)
+
+[resource]
+script = ExtResource("3_52et7")
+plant = ExtResource("2_mmp0v")
+consumed_item = ExtResource("1_lop1p")
+display_name = "Eggplant Seeds"
+required_terrain_flag = "plantable"
+allow_overlaps = false
+texture = SubResource("AtlasTexture_0fohu")
+metadata/_custom_type_script = "uid://cgqcvbtck2hn1"

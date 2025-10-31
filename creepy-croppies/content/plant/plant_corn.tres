@@ -1,0 +1,86 @@
+[gd_resource type="Resource" script_class="PlantConfig" load_steps=20 format=3 uid="uid://cmjxacyv0ftht"]
+
+[ext_resource type="Script" uid="uid://cu6flw0wv5h4e" path="res://content/plant/plant_config.gd" id="1_jfsx4"]
+[ext_resource type="Script" uid="uid://dottpy2k3wk" path="res://content/plant/growth_stage.gd" id="2_43h58"]
+[ext_resource type="Resource" uid="uid://dqb81a4nmh008" path="res://content/item/item_corn_seed.tres" id="3_mcd5v"]
+[ext_resource type="Script" uid="uid://c43nopgdmv1r5" path="res://content/item/item_drop.gd" id="4_mcd5v"]
+[ext_resource type="Texture2D" uid="uid://cb372f22eu8xj" path="res://assets/cozy_farm/farming/crops_all.png" id="5_43h58"]
+[ext_resource type="Resource" uid="uid://05ayxfred4rs" path="res://content/item/item_corn.tres" id="6_jfsx4"]
+
+[sub_resource type="Resource" id="Resource_7pd53"]
+script = ExtResource("4_mcd5v")
+item = ExtResource("3_mcd5v")
+min_count = 1
+max_count = 1
+metadata/_custom_type_script = "uid://c43nopgdmv1r5"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_63gdi"]
+atlas = ExtResource("5_43h58")
+region = Rect2(32, 64, 16, 16)
+
+[sub_resource type="Resource" id="Resource_rh7dw"]
+script = ExtResource("2_43h58")
+texture = SubResource("AtlasTexture_63gdi")
+item_drop = SubResource("Resource_7pd53")
+metadata/_custom_type_script = "uid://dottpy2k3wk"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mcd5v"]
+atlas = ExtResource("5_43h58")
+region = Rect2(48, 64, 16, 16)
+
+[sub_resource type="Resource" id="Resource_m3rba"]
+script = ExtResource("2_43h58")
+day = 1
+texture = SubResource("AtlasTexture_mcd5v")
+metadata/_custom_type_script = "uid://dottpy2k3wk"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m3rba"]
+atlas = ExtResource("5_43h58")
+region = Rect2(64, 64, 16, 16)
+
+[sub_resource type="Resource" id="Resource_ure1u"]
+script = ExtResource("2_43h58")
+day = 2
+texture = SubResource("AtlasTexture_m3rba")
+metadata/_custom_type_script = "uid://dottpy2k3wk"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kkq6c"]
+atlas = ExtResource("5_43h58")
+region = Rect2(80, 64, 16, 16)
+
+[sub_resource type="Resource" id="Resource_jfsx4"]
+script = ExtResource("2_43h58")
+day = 3
+texture = SubResource("AtlasTexture_kkq6c")
+metadata/_custom_type_script = "uid://dottpy2k3wk"
+
+[sub_resource type="Resource" id="Resource_63gdi"]
+script = ExtResource("4_mcd5v")
+item = ExtResource("6_jfsx4")
+min_count = 1
+max_count = 3
+metadata/_custom_type_script = "uid://c43nopgdmv1r5"
+
+[sub_resource type="Resource" id="Resource_mcd5v"]
+script = ExtResource("4_mcd5v")
+item = ExtResource("3_mcd5v")
+min_count = 1
+max_count = 3
+metadata/_custom_type_script = "uid://c43nopgdmv1r5"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jfsx4"]
+atlas = ExtResource("5_43h58")
+region = Rect2(96, 64, 16, 16)
+
+[sub_resource type="Resource" id="Resource_43h58"]
+script = ExtResource("2_43h58")
+day = 4
+texture = SubResource("AtlasTexture_jfsx4")
+item_drop = SubResource("Resource_63gdi")
+seed_drop = SubResource("Resource_mcd5v")
+metadata/_custom_type_script = "uid://dottpy2k3wk"
+
+[resource]
+script = ExtResource("1_jfsx4")
+stages = Array[ExtResource("2_43h58")]([SubResource("Resource_rh7dw"), SubResource("Resource_m3rba"), SubResource("Resource_ure1u"), SubResource("Resource_jfsx4"), SubResource("Resource_43h58")])
+metadata/_custom_type_script = "uid://cu6flw0wv5h4e"

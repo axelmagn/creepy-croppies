@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="Seed" load_steps=6 format=3 uid="uid://blebbbra77dl8"]
+
+[ext_resource type="Resource" uid="uid://bptybi2x16g4w" path="res://content/item/item_pumpkin_seed.tres" id="1_mkxt0"]
+[ext_resource type="Resource" uid="uid://cgxrjmegtk6yi" path="res://content/plant/plant_pumpkin.tres" id="2_cioi3"]
+[ext_resource type="Script" uid="uid://cgqcvbtck2hn1" path="res://content/tools/seed.gd" id="3_4swq8"]
+[ext_resource type="Texture2D" uid="uid://cb372f22eu8xj" path="res://assets/cozy_farm/farming/crops_all.png" id="4_uh4ub"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_skdgh"]
+atlas = ExtResource("4_uh4ub")
+region = Rect2(0, 48, 16, 16)
+
+[resource]
+script = ExtResource("3_4swq8")
+plant = ExtResource("2_cioi3")
+consumed_item = ExtResource("1_mkxt0")
+display_name = "Pumpkin Seed"
+required_terrain_flag = "plantable"
+allow_overlaps = false
+texture = SubResource("AtlasTexture_skdgh")
+metadata/_custom_type_script = "uid://cgqcvbtck2hn1"

@@ -1,4 +1,4 @@
 class_name CutsceneConfig extends Resource
 
 @export var hero_texture: Texture
-@export var lines: Array[String]
+@export_multiline var lines: Array[String]

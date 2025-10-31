@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://ixd4jqkrcxmk"]
+[gd_scene load_steps=27 format=3 uid="uid://ixd4jqkrcxmk"]
 
 [ext_resource type="Script" uid="uid://bogh6746ikc7s" path="res://content/game/game.gd" id="1_r1esr"]
 [ext_resource type="PackedScene" uid="uid://bi41vafaqtj0i" path="res://content/plant/plant.tscn" id="2_dck4f"]
@@ -23,6 +23,7 @@
 [ext_resource type="Script" uid="uid://cje7qy2x248ac" path="res://content/input/input_manager.gd" id="16_upkcm"]
 [ext_resource type="PackedScene" uid="uid://c1c2k121jo7h3" path="res://content/audio/AudioManager.tscn" id="19_4aeii"]
 [ext_resource type="AudioStream" uid="uid://dlotqxgaeq8aj" path="res://assets/sounds/halloween-background-music.mp3" id="20_ffjvq"]
+[ext_resource type="PackedScene" uid="uid://td0kuaumlteb" path="res://content/cutscenes/cutscene_manager.tscn" id="24_3n3lw"]
 
 [sub_resource type="Resource" id="Resource_xjc2w"]
 script = ExtResource("3_twpl5")
@@ -116,3 +117,5 @@ process_mode = 3
 stream = ExtResource("20_ffjvq")
 volume_db = -10.0
 autoplay = true
+
+[node name="CutsceneManager" parent="." instance=ExtResource("24_3n3lw")]

@@ -10,6 +10,12 @@ signal input_proceed
 @export var exit_anim: StringName = "exit"
 
 
+func _ready() -> void:
+	assert(hero)
+	assert(animation_player)
+	assert(lines_label)
+
+
 func _process(_delta: float) -> void:
 	if (
 		Input.is_action_just_pressed("ui_accept")
@@ -20,11 +26,15 @@ func _process(_delta: float) -> void:
 
 func play(config: CutsceneConfig):
 
-	hero.texture = config.texture
+	hero.texture = config.hero_texture
 
 	visible = true
 	process_mode = Node.PROCESS_MODE_ALWAYS
+	# hack
+	var timer = get_tree().create_timer(.1)
+	await timer.timeout
 	get_tree().paused = true
+
 
 	lines_label.visible = false
 	animation_player.play(enter_anim)

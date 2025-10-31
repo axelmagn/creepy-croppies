@@ -1,6 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://td0kuaumlteb"]
+[gd_scene load_steps=5 format=3 uid="uid://td0kuaumlteb"]
 
 [ext_resource type="Script" uid="uid://b8dnu5qr1m1mk" path="res://content/cutscenes/cutscenes_manager.gd" id="1_oy8gq"]
+[ext_resource type="Script" uid="uid://lcn4cci0yb03" path="res://content/cutscenes/visitation.gd" id="2_0j0rj"]
+[ext_resource type="Resource" uid="uid://xwrkdj3cqig" path="res://content/cutscenes/cow_test_cutscene.tres" id="3_axd20"]
+
+[sub_resource type="Resource" id="Resource_dq5g4"]
+script = ExtResource("2_0j0rj")
+cutscene = ExtResource("3_axd20")
+metadata/_custom_type_script = "uid://lcn4cci0yb03"
 
 [node name="CutsceneManager" type="Node"]
 script = ExtResource("1_oy8gq")
+visitations = Array[ExtResource("2_0j0rj")]([SubResource("Resource_dq5g4")])

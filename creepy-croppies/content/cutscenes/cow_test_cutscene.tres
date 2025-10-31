@@ -1,7 +1,15 @@
-[gd_resource type="Resource" script_class="CutsceneConfig" load_steps=2 format=3 uid="uid://xwrkdj3cqig"]
+[gd_resource type="Resource" script_class="CutsceneConfig" load_steps=4 format=3 uid="uid://xwrkdj3cqig"]
 
-[ext_resource type="Script" uid="uid://16kpwiuhc11o" path="res://content/cutscenes/cutscene_config.gd" id="1_048ff"]
+[ext_resource type="Texture2D" uid="uid://6avnfenwflpa" path="res://assets/sprout_lands_basic/Characters/Free Cow Sprites.png" id="1_ygjax"]
+[ext_resource type="Script" uid="uid://16kpwiuhc11o" path="res://content/cutscenes/cutscene_config.gd" id="2_s12au"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tbax8"]
+atlas = ExtResource("1_ygjax")
+region = Rect2(0, 0, 32, 32)
 
 [resource]
-script = ExtResource("1_048ff")
+script = ExtResource("2_s12au")
+hero_texture = SubResource("AtlasTexture_tbax8")
+lines = Array[String](["I'm a singing cow", "moo moo moo
+la la la", "la di da", "goodbye"])
 metadata/_custom_type_script = "uid://16kpwiuhc11o"

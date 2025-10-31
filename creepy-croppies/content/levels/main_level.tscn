@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dhhvfktmpi1bi"]
+[gd_scene load_steps=12 format=3 uid="uid://dhhvfktmpi1bi"]
 
 [ext_resource type="Script" uid="uid://dikj3661rgst8" path="res://content/levels/level.gd" id="1_askbe"]
 [ext_resource type="PackedScene" uid="uid://b6ofto02bhrak" path="res://content/player/player.tscn" id="3_lhg3q"]
@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://g36a8sfrh3xy" path="res://content/shop/shop.tscn" id="7_eim2b"]
 [ext_resource type="PackedScene" uid="uid://bl67eardp3wt" path="res://content/helper/helper_hut.tscn" id="8_rhklt"]
 [ext_resource type="PackedScene" uid="uid://bxdidkys0vkam" path="res://content/merchant/merchant.tscn" id="8_rhkly"]
+[ext_resource type="PackedScene" uid="uid://obwxs5xvc524" path="res://content/cutscenes/cutscene_trigger.tscn" id="10_w8mtd"]
+[ext_resource type="Resource" uid="uid://378eohomjbg1" path="res://content/cutscenes/ghost_intro.tres" id="11_6qhlk"]
 
 [node name="MainLevel" type="Node2D" node_paths=PackedStringArray("terrain", "character", "shop")]
 script = ExtResource("1_askbe")
@@ -36,8 +38,6 @@ position = Vector2(712, 411)
 
 [node name="HelperHut" parent="." instance=ExtResource("8_rhklt")]
 position = Vector2(553, 270)
-collision_layer = 16
-collision_mask = 0
 fix_price = 100
 
 [node name="Merchant" parent="." instance=ExtResource("8_rhkly")]
@@ -57,3 +57,7 @@ position = Vector2(753, 470)
 
 [node name="HelperHut2" parent="." instance=ExtResource("8_rhklt")]
 position = Vector2(601, 273)
+
+[node name="CutsceneTrigger" parent="." instance=ExtResource("10_w8mtd")]
+position = Vector2(679, 278)
+cutscene = ExtResource("11_6qhlk")

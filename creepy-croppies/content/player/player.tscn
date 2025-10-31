@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://d32jwm5torsmv" path="res://assets/sprout_lands_basic/Characters/Basic Charakter Spritesheet.png" id="2_oq5wi"]
 [ext_resource type="Script" uid="uid://fij8pm0a6ytj" path="res://content/tools/tool.gd" id="3_bkj32"]
 [ext_resource type="Resource" uid="uid://cbgetlc22i6l" path="res://content/tools/watering_can.tres" id="4_bkj32"]
-[ext_resource type="Resource" uid="uid://dmory34pyw5b7" path="res://content/tools/scythe.tres" id="5_bkj32"]
+[ext_resource type="Resource" uid="uid://1croiuqutd76" path="res://content/tools/scythe.tres" id="5_bkj32"]
 [ext_resource type="Resource" uid="uid://cwkciq0pi20lj" path="res://content/tools/seed_wheat.tres" id="7_vx4xa"]
 [ext_resource type="Resource" uid="uid://dui7j7ptnikpj" path="res://content/tools/seed_radish.tres" id="8_5unhu"]
 [ext_resource type="Texture2D" uid="uid://d1gpte07vmnn8" path="res://assets/kenney_crosshair-pack/PNG/White/crosshair026.png" id="10_cvehv"]
@@ -22,6 +22,7 @@ radius = 8.0
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("cursor", "cooldown_timer", "magnet_area", "pickup_area")]
 z_index = 2
+collision_mask = 33
 script = ExtResource("1_y66qv")
 interact_collision = 18
 tmp_test_plant = ExtResource("2_i4jjh")
@@ -63,7 +64,7 @@ collision_mask = 8
 shape = SubResource("CircleShape2D_bkj32")
 
 [node name="PickupArea" type="Area2D" parent="."]
-collision_mask = 8
+collision_mask = 40
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PickupArea"]
 shape = SubResource("CircleShape2D_rmk25")

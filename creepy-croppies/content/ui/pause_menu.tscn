@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cpprvyahw8xkc"]
+[gd_scene load_steps=4 format=3 uid="uid://cpprvyahw8xkc"]
 
 [ext_resource type="Script" uid="uid://xyo806xq74ku" path="res://content/ui/pause_menu.gd" id="1_3ghem"]
 [ext_resource type="Theme" uid="uid://cavmbd5qbntu7" path="res://content/ui/header_theme.tres" id="1_fuxsr"]
+[ext_resource type="PackedScene" uid="uid://dw6q44t5ck45" path="res://content/ui/controls_panel.tscn" id="3_i0qsc"]
 
 [node name="PauseMenu" type="Control" node_paths=PackedStringArray("continue_button", "exit_button")]
 layout_mode = 3
@@ -11,8 +12,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_3ghem")
-continue_button = NodePath("PanelContainer/VBoxContainer/ContinueButton")
-exit_button = NodePath("PanelContainer/VBoxContainer/ExitButton")
+continue_button = NodePath("VBoxContainer/PanelContainer/VBoxContainer/ContinueButton")
+exit_button = NodePath("VBoxContainer/PanelContainer/VBoxContainer/ExitButton")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -23,35 +24,42 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_type_variation = &"ShadedPanel"
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -8.0
-offset_top = -8.0
-offset_right = 8.0
-offset_bottom = 8.0
+offset_left = -94.0
+offset_top = -82.0
+offset_right = 94.0
+offset_bottom = 82.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
 layout_mode = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("1_fuxsr")
 
-[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/PanelContainer"]
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/VBoxContainer/PanelContainer"]
 layout_mode = 2
 text = "Paused"
+horizontal_alignment = 1
 
-[node name="ContinueButton" type="Button" parent="PanelContainer/VBoxContainer"]
+[node name="ContinueButton" type="Button" parent="VBoxContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2
 text = "Continue"
 
-[node name="ExitButton" type="Button" parent="PanelContainer/VBoxContainer"]
+[node name="ExitButton" type="Button" parent="VBoxContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2
 text = "Exit"
+
+[node name="ControlsPanel" parent="VBoxContainer" instance=ExtResource("3_i0qsc")]
+layout_mode = 2

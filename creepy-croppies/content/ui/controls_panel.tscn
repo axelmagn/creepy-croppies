@@ -1,0 +1,254 @@
+[gd_scene load_steps=20 format=3 uid="uid://dw6q44t5ck45"]
+
+[ext_resource type="Texture2D" uid="uid://do2sktlwkfj42" path="res://assets/kenney_input-prompts-pixel-16/Tilemap/tilemap_packed.png" id="1_yyxgp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kofyr"]
+atlas = ExtResource("1_yyxgp")
+region = Rect2(128, 192, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mj6nr"]
+atlas = ExtResource("1_yyxgp")
+region = Rect2(288, 160, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_24exw"]
+atlas = ExtResource("1_yyxgp")
+region = Rect2(288, 176, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ph36t"]
+atlas = ExtResource("1_yyxgp")
+region = Rect2(304, 176, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ysh57"]
+atlas = ExtResource("1_yyxgp")
+region = Rect2(320, 176, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dc1o0"]
+atlas = ExtResource("1_yyxgp")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ofm12"]
+atlas = ExtResource("1_yyxgp")
+region = Rect2(336, 176, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n2h5d"]
+atlas = ExtResource("1_yyxgp")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_155df"]
+atlas = ExtResource("1_yyxgp")
+region = Rect2(144, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_317lv"]
+atlas = ExtResource("1_yyxgp")
+region = Rect2(496, 224, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yyxgp"]
+atlas = ExtResource("1_yyxgp")
+region = Rect2(160, 272, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ulvrb"]
+atlas = ExtResource("1_yyxgp")
+region = Rect2(304, 160, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r5knf"]
+atlas = ExtResource("1_yyxgp")
+region = Rect2(208, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_go0wr"]
+atlas = ExtResource("1_yyxgp")
+region = Rect2(144, 272, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iesdj"]
+atlas = ExtResource("1_yyxgp")
+region = Rect2(272, 160, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4xj76"]
+atlas = ExtResource("1_yyxgp")
+region = Rect2(192, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ekjdd"]
+atlas = ExtResource("1_yyxgp")
+region = Rect2(320, 368, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_meom1"]
+atlas = ExtResource("1_yyxgp")
+region = Rect2(272, 128, 16, 16)
+
+[node name="PanelContainer" type="PanelContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -155.0
+offset_top = -112.0
+offset_right = 155.0
+offset_bottom = 112.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="ControlsPanel" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/ControlsPanel"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/ControlsPanel/VBoxContainer"]
+layout_mode = 2
+text = "Controls"
+horizontal_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/ControlsPanel/VBoxContainer"]
+layout_mode = 2
+columns = 2
+
+[node name="Action" type="Label" parent="MarginContainer/ControlsPanel/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Move"
+
+[node name="Bindings" type="HBoxContainer" parent="MarginContainer/ControlsPanel/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/ControlsPanel/VBoxContainer/GridContainer/Bindings"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_kofyr")
+expand_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer/ControlsPanel/VBoxContainer/GridContainer/Bindings"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_mj6nr")
+expand_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="MarginContainer/ControlsPanel/VBoxContainer/GridContainer/Bindings"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_24exw")
+expand_mode = 2
+
+[node name="TextureRect4" type="TextureRect" parent="MarginContainer/ControlsPanel/VBoxContainer/GridContainer/Bindings"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_ph36t")
+expand_mode = 2
+
+[node name="TextureRect5" type="TextureRect" parent="MarginContainer/ControlsPanel/VBoxContainer/GridContainer/Bindings"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_ysh57")
+expand_mode = 2
+
+[node name="Action2" type="Label" parent="MarginContainer/ControlsPanel/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Interact"
+
+[node name="Bindings2" type="HBoxContainer" parent="MarginContainer/ControlsPanel/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/ControlsPanel/VBoxContainer/GridContainer/Bindings2"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_dc1o0")
+expand_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer/ControlsPanel/VBoxContainer/GridContainer/Bindings2"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_ofm12")
+expand_mode = 2
+
+[node name="Action3" type="Label" parent="MarginContainer/ControlsPanel/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Use Tool"
+
+[node name="Bindings3" type="HBoxContainer" parent="MarginContainer/ControlsPanel/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/ControlsPanel/VBoxContainer/GridContainer/Bindings3"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_n2h5d")
+expand_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer/ControlsPanel/VBoxContainer/GridContainer/Bindings3"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_155df")
+expand_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="MarginContainer/ControlsPanel/VBoxContainer/GridContainer/Bindings3"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_317lv")
+expand_mode = 3
+
+[node name="Action4" type="Label" parent="MarginContainer/ControlsPanel/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Next Tool"
+
+[node name="Bindings4" type="HBoxContainer" parent="MarginContainer/ControlsPanel/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/ControlsPanel/VBoxContainer/GridContainer/Bindings4"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_yyxgp")
+expand_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer/ControlsPanel/VBoxContainer/GridContainer/Bindings4"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_ulvrb")
+expand_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="MarginContainer/ControlsPanel/VBoxContainer/GridContainer/Bindings4"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_r5knf")
+expand_mode = 3
+
+[node name="Action5" type="Label" parent="MarginContainer/ControlsPanel/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Previous Tool"
+
+[node name="Bindings5" type="HBoxContainer" parent="MarginContainer/ControlsPanel/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/ControlsPanel/VBoxContainer/GridContainer/Bindings5"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_go0wr")
+expand_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer/ControlsPanel/VBoxContainer/GridContainer/Bindings5"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_iesdj")
+expand_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="MarginContainer/ControlsPanel/VBoxContainer/GridContainer/Bindings5"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_4xj76")
+expand_mode = 3
+
+[node name="Action6" type="Label" parent="MarginContainer/ControlsPanel/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Pause"
+
+[node name="Bindings6" type="HBoxContainer" parent="MarginContainer/ControlsPanel/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/ControlsPanel/VBoxContainer/GridContainer/Bindings6"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_ekjdd")
+expand_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer/ControlsPanel/VBoxContainer/GridContainer/Bindings6"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_meom1")
+expand_mode = 2

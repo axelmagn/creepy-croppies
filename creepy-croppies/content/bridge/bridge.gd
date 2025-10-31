@@ -20,6 +20,7 @@ func fix() -> void:
 		return
 		
 	Game.player_money -= fix_cost
+	Game.day.stats.expenses += fix_cost
 	is_fixed = true
 	broken_bridge.hide()
 	broken_bridge_collider.disabled = true

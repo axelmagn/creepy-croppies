@@ -11,4 +11,7 @@ region = Rect2(0, 80, 16, 16)
 script = ExtResource("1_yg5qp")
 name = "Potato Seed"
 texture = SubResource("AtlasTexture_yg5qp")
+price = 2
+buyable = true
+sellable = false
 metadata/_custom_type_script = "uid://dqx63of8et0be"

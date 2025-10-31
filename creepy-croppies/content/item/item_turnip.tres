@@ -11,4 +11,5 @@ region = Rect2(64, 0, 16, 16)
 script = ExtResource("1_nvqny")
 name = "Turnip"
 texture = SubResource("AtlasTexture_nvqny")
+price = 18
 metadata/_custom_type_script = "uid://dqx63of8et0be"

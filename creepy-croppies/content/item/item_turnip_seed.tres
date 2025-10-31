@@ -11,4 +11,7 @@ region = Rect2(0, 112, 16, 16)
 script = ExtResource("1_unuib")
 name = "Pumpkin Seed"
 texture = SubResource("AtlasTexture_unuib")
+price = 4
+buyable = true
+sellable = false
 metadata/_custom_type_script = "uid://dqx63of8et0be"

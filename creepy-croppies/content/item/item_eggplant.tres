@@ -9,6 +9,7 @@ region = Rect2(0, 16, 16, 16)
 
 [resource]
 script = ExtResource("1_1fol7")
-name = "Potato"
+name = "Eggplant"
 texture = SubResource("AtlasTexture_1fol7")
+price = 28
 metadata/_custom_type_script = "uid://dqx63of8et0be"

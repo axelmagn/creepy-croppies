@@ -11,4 +11,5 @@ region = Rect2(64, 32, 16, 16)
 script = ExtResource("1_g6kvn")
 name = "Pumpkin"
 texture = SubResource("AtlasTexture_utoc6")
+price = 60
 metadata/_custom_type_script = "uid://dqx63of8et0be"

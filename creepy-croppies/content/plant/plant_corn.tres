@@ -40,7 +40,7 @@ region = Rect2(64, 64, 16, 16)
 
 [sub_resource type="Resource" id="Resource_ure1u"]
 script = ExtResource("2_43h58")
-day = 2
+day = 4
 texture = SubResource("AtlasTexture_m3rba")
 metadata/_custom_type_script = "uid://dottpy2k3wk"
 
@@ -50,7 +50,7 @@ region = Rect2(80, 64, 16, 16)
 
 [sub_resource type="Resource" id="Resource_jfsx4"]
 script = ExtResource("2_43h58")
-day = 3
+day = 6
 texture = SubResource("AtlasTexture_kkq6c")
 metadata/_custom_type_script = "uid://dottpy2k3wk"
 
@@ -74,7 +74,7 @@ region = Rect2(96, 64, 16, 16)
 
 [sub_resource type="Resource" id="Resource_43h58"]
 script = ExtResource("2_43h58")
-day = 4
+day = 8
 texture = SubResource("AtlasTexture_jfsx4")
 item_drop = SubResource("Resource_63gdi")
 seed_drop = SubResource("Resource_mcd5v")

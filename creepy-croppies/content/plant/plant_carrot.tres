@@ -1,15 +1,15 @@
-[gd_resource type="Resource" script_class="PlantConfig" load_steps=25 format=3 uid="uid://b280d6sjrmq06"]
+[gd_resource type="Resource" script_class="PlantConfig" load_steps=19 format=3 uid="uid://b280d6sjrmq06"]
 
-[ext_resource type="Script" uid="uid://cu6flw0wv5h4e" path="res://content/plant/plant_config.gd" id="1_dgu8v"]
-[ext_resource type="Script" uid="uid://dottpy2k3wk" path="res://content/plant/growth_stage.gd" id="2_p7u8e"]
-[ext_resource type="Resource" uid="uid://gvq8mxymlu20" path="res://content/item/item_carrot_seed.tres" id="3_vwgdo"]
-[ext_resource type="Script" uid="uid://c43nopgdmv1r5" path="res://content/item/item_drop.gd" id="4_lotsy"]
-[ext_resource type="Resource" uid="uid://dgjictjq4ffj1" path="res://content/item/item_carrot.tres" id="5_26sn8"]
-[ext_resource type="Resource" uid="uid://dqb81a4nmh008" path="res://content/item/item_corn_seed.tres" id="6_3cym4"]
+[ext_resource type="Script" uid="uid://cu6flw0wv5h4e" path="res://content/plant/plant_config.gd" id="1_jlld2"]
+[ext_resource type="Script" uid="uid://dottpy2k3wk" path="res://content/plant/growth_stage.gd" id="2_5jdpm"]
+[ext_resource type="Resource" uid="uid://dqb81a4nmh008" path="res://content/item/item_corn_seed.tres" id="3_2huwn"]
+[ext_resource type="Resource" uid="uid://gvq8mxymlu20" path="res://content/item/item_carrot_seed.tres" id="3_o32ew"]
+[ext_resource type="Script" uid="uid://c43nopgdmv1r5" path="res://content/item/item_drop.gd" id="4_yua3g"]
+[ext_resource type="Resource" uid="uid://dgjictjq4ffj1" path="res://content/item/item_carrot.tres" id="5_5jdpm"]
 
 [sub_resource type="Resource" id="Resource_5jdpm"]
-script = ExtResource("4_lotsy")
-item = ExtResource("3_vwgdo")
+script = ExtResource("4_yua3g")
+item = ExtResource("3_o32ew")
 min_count = 1
 max_count = 1
 metadata/_custom_type_script = "uid://c43nopgdmv1r5"
@@ -22,22 +22,9 @@ atlas = SubResource("CompressedTexture2D_2huwn")
 region = Rect2(32, 0, 16, 16)
 
 [sub_resource type="Resource" id="Resource_8k3yu"]
-script = ExtResource("2_p7u8e")
+script = ExtResource("2_5jdpm")
 texture = SubResource("AtlasTexture_yua3g")
 item_drop = SubResource("Resource_5jdpm")
-metadata/_custom_type_script = "uid://dottpy2k3wk"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7x8s6"]
-load_path = "res://.godot/imported/crops_all.png-3c0efb43e2a3e044d9d631409e832beb.ctex"
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_r7qr7"]
-atlas = SubResource("CompressedTexture2D_7x8s6")
-region = Rect2(48, 0, 16, 16)
-
-[sub_resource type="Resource" id="Resource_7tr2c"]
-script = ExtResource("2_p7u8e")
-day = 1
-texture = SubResource("AtlasTexture_r7qr7")
 metadata/_custom_type_script = "uid://dottpy2k3wk"
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ft738"]
@@ -48,34 +35,21 @@ atlas = SubResource("CompressedTexture2D_ft738")
 region = Rect2(64, 0, 16, 16)
 
 [sub_resource type="Resource" id="Resource_mnbrq"]
-script = ExtResource("2_p7u8e")
-day = 2
+script = ExtResource("2_5jdpm")
+day = 1
 texture = SubResource("AtlasTexture_faumm")
 metadata/_custom_type_script = "uid://dottpy2k3wk"
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_1ngc7"]
-load_path = "res://.godot/imported/crops_all.png-3c0efb43e2a3e044d9d631409e832beb.ctex"
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vuqtl"]
-atlas = SubResource("CompressedTexture2D_1ngc7")
-region = Rect2(80, 0, 16, 16)
-
-[sub_resource type="Resource" id="Resource_spbkv"]
-script = ExtResource("2_p7u8e")
-day = 3
-texture = SubResource("AtlasTexture_vuqtl")
-metadata/_custom_type_script = "uid://dottpy2k3wk"
-
 [sub_resource type="Resource" id="Resource_xcwey"]
-script = ExtResource("4_lotsy")
-item = ExtResource("5_26sn8")
+script = ExtResource("4_yua3g")
+item = ExtResource("5_5jdpm")
 min_count = 1
-max_count = 3
+max_count = 2
 metadata/_custom_type_script = "uid://c43nopgdmv1r5"
 
 [sub_resource type="Resource" id="Resource_i4tct"]
-script = ExtResource("4_lotsy")
-item = ExtResource("6_3cym4")
+script = ExtResource("4_yua3g")
+item = ExtResource("3_2huwn")
 min_count = 1
 max_count = 3
 metadata/_custom_type_script = "uid://c43nopgdmv1r5"
@@ -88,14 +62,14 @@ atlas = SubResource("CompressedTexture2D_ogmd0")
 region = Rect2(96, 0, 16, 16)
 
 [sub_resource type="Resource" id="Resource_f6dm8"]
-script = ExtResource("2_p7u8e")
-day = 4
+script = ExtResource("2_5jdpm")
+day = 2
 texture = SubResource("AtlasTexture_1dvia")
 item_drop = SubResource("Resource_xcwey")
 seed_drop = SubResource("Resource_i4tct")
 metadata/_custom_type_script = "uid://dottpy2k3wk"
 
 [resource]
-script = ExtResource("1_dgu8v")
-stages = Array[ExtResource("2_p7u8e")]([SubResource("Resource_8k3yu"), SubResource("Resource_7tr2c"), SubResource("Resource_mnbrq"), SubResource("Resource_spbkv"), SubResource("Resource_f6dm8")])
+script = ExtResource("1_jlld2")
+stages = Array[ExtResource("2_5jdpm")]([SubResource("Resource_8k3yu"), SubResource("Resource_mnbrq"), SubResource("Resource_f6dm8")])
 metadata/_custom_type_script = "uid://cu6flw0wv5h4e"

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="PlantConfig" load_steps=24 format=3 uid="uid://dngqdioyngqey"]
+[gd_resource type="Resource" script_class="PlantConfig" load_steps=22 format=3 uid="uid://dngqdioyngqey"]
 
 [ext_resource type="Script" uid="uid://cu6flw0wv5h4e" path="res://content/plant/plant_config.gd" id="1_qy640"]
 [ext_resource type="Script" uid="uid://dottpy2k3wk" path="res://content/plant/growth_stage.gd" id="2_uqh8w"]
@@ -26,34 +26,28 @@ texture = SubResource("AtlasTexture_uqh8w")
 item_drop = SubResource("Resource_uqh8w")
 metadata/_custom_type_script = "uid://dottpy2k3wk"
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7x8s6"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_1ngc7"]
 load_path = "res://.godot/imported/crops_all.png-3c0efb43e2a3e044d9d631409e832beb.ctex"
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_5kl1c"]
-atlas = SubResource("CompressedTexture2D_7x8s6")
+[sub_resource type="AtlasTexture" id="AtlasTexture_y7got"]
+atlas = SubResource("CompressedTexture2D_1ngc7")
 region = Rect2(48, 80, 16, 16)
+
+[sub_resource type="Resource" id="Resource_qy640"]
+script = ExtResource("2_uqh8w")
+day = 1
+texture = SubResource("AtlasTexture_y7got")
+metadata/_custom_type_script = "uid://dottpy2k3wk"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hdwfx"]
+atlas = SubResource("CompressedTexture2D_1ngc7")
+region = Rect2(64, 80, 16, 16)
 
 [sub_resource type="Resource" id="Resource_uvxqw"]
 script = ExtResource("2_uqh8w")
-day = 1
-texture = SubResource("AtlasTexture_5kl1c")
-metadata/_custom_type_script = "uid://dottpy2k3wk"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ft738"]
-load_path = "res://.godot/imported/crops_all.png-3c0efb43e2a3e044d9d631409e832beb.ctex"
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5vg4n"]
-atlas = SubResource("CompressedTexture2D_ft738")
-region = Rect2(64, 80, 16, 16)
-
-[sub_resource type="Resource" id="Resource_m2p4j"]
-script = ExtResource("2_uqh8w")
 day = 2
-texture = SubResource("AtlasTexture_5vg4n")
+texture = SubResource("AtlasTexture_hdwfx")
 metadata/_custom_type_script = "uid://dottpy2k3wk"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_1ngc7"]
-load_path = "res://.godot/imported/crops_all.png-3c0efb43e2a3e044d9d631409e832beb.ctex"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7vxae"]
 atlas = SubResource("CompressedTexture2D_1ngc7")
@@ -96,5 +90,5 @@ metadata/_custom_type_script = "uid://dottpy2k3wk"
 
 [resource]
 script = ExtResource("1_qy640")
-stages = Array[ExtResource("2_uqh8w")]([SubResource("Resource_hdwfx"), SubResource("Resource_uvxqw"), SubResource("Resource_m2p4j"), SubResource("Resource_p6nok"), SubResource("Resource_jvkon")])
+stages = Array[ExtResource("2_uqh8w")]([SubResource("Resource_hdwfx"), SubResource("Resource_qy640"), SubResource("Resource_uvxqw"), SubResource("Resource_p6nok"), SubResource("Resource_jvkon")])
 metadata/_custom_type_script = "uid://cu6flw0wv5h4e"

@@ -1,5 +1,6 @@
 class_name Merchant extends Node2D
 
+@export var shop: Shop
 @export var enterPath: Path2D
 @export var exitPath: Path2D
 @export var appear_hour: int = 10 # hour of day
@@ -18,6 +19,7 @@ var total_travel_duration := 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	assert(shop)
 	assert(enterPath)
 	assert(exitPath)
 	Game.time.minute_tick.connect(_on_minute_tick)
@@ -64,10 +66,14 @@ func _set_state(new_state: MerchantState) -> void:
 			visible = false
 		MerchantState.STATE_WALKING_TO_SPOT:
 			visible = true
+			shop.is_interactable = false
 			_init_move_path(enterPath.curve, enter_travel_minutes)
 		MerchantState.STATE_WAITING:
 			visible = true
 			elapsed_waiting_minutes = 0
+			shop.is_interactable = true
+			Game.audio.play_shop_open()
 		MerchantState.STATE_WALKING_TO_EXIT:
 			visible = true
+			shop.is_interactable = false
 			_init_move_path(exitPath.curve, exit_travel_minutes)

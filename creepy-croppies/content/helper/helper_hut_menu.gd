@@ -26,6 +26,7 @@ func update_internals() -> void:
 
 	fix_button.visible = not hut.is_fixed
 	fix_button.disabled = not hut.can_fix()
+	fix_button.text = "Fix: $%d" % hut.fix_price
 
 	record_button.visible = hut.is_fixed
 	record_button.disabled = not hut.can_record_routine()

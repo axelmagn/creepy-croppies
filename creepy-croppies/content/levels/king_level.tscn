@@ -101,7 +101,7 @@ metadata/_custom_type_script = "uid://16kpwiuhc11o"
 
 [sub_resource type="Resource" id="Resource_ofy86"]
 script = ExtResource("15_g37ea")
-lines = Array[String](["Hmmm, a pier.  I wonder if boats use it."])
+lines = Array[String](["A pier.  I wonder if boats stop here."])
 metadata/_custom_type_script = "uid://16kpwiuhc11o"
 
 [node name="KingLevel" type="Node2D" node_paths=PackedStringArray("terrain", "character", "player_reset_marker")]

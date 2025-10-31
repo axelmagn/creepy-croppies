@@ -11,5 +11,4 @@ region = Rect2(32, 0, 16, 16)
 script = ExtResource("1_1fd50")
 display_name = "Scythe"
 texture = SubResource("AtlasTexture_cvehv")
-stamina_cost = 4.0
 metadata/_custom_type_script = "uid://v6ts0vjwtkop"

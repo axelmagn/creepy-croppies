@@ -1,9 +1,22 @@
-[gd_scene load_steps=5 format=3 uid="uid://cuw8uygdpglxk"]
+[gd_scene load_steps=8 format=3 uid="uid://cuw8uygdpglxk"]
 
 [ext_resource type="Script" uid="uid://dikj3661rgst8" path="res://content/levels/level.gd" id="1_iep8p"]
-[ext_resource type="PackedScene" uid="uid://dihehhlrsy6w" path="res://content/terrain/king_terrain.tscn" id="2_8e4aw"]
+[ext_resource type="PackedScene" path="res://content/terrain/king_terrain.tscn" id="2_8e4aw"]
 [ext_resource type="PackedScene" uid="uid://b6ofto02bhrak" path="res://content/player/player.tscn" id="3_aiuew"]
 [ext_resource type="PackedScene" uid="uid://g36a8sfrh3xy" path="res://content/shop/shop.tscn" id="4_aiuew"]
+[ext_resource type="PackedScene" uid="uid://bxdidkys0vkam" path="res://content/merchant/merchant.tscn" id="5_41qb8"]
+
+[sub_resource type="Curve2D" id="Curve2D_41qb8"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -146, 388, 0, 0, 0, 0, -49, 389, 0, 0, 0, 0, -20, 406, 0, 0, 0, 0, -10, 428, 0, 0, 0, 0, -2, 452, 0, 0, 0, 0, 25, 471, 0, 0, 0, 0, 65, 475, 0, 0, 0, 0, 364, 474, 0, 0, 0, 0, 390, 462)
+}
+point_count = 9
+
+[sub_resource type="Curve2D" id="Curve2D_1g7v2"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 390, 463, 0, 0, 0, 0, 432, 474, 0, 0, 0, 0, 519, 475, 0, 0, 0, 0, 543, 459, 0, 0, 0, 0, 553, 436, 0, 0, 0, 0, 564, 418, 0, 0, 0, 0, 584, 411, 0, 0, 0, 0, 606, 411, 0, 0, 0, 0, 628, 413, 0, 0, 0, 0, 635, 438, 0, 0, 0, 0, 651, 454, 0, 0, 0, 0, 686, 459)
+}
+point_count = 12
 
 [node name="KingLevel" type="Node2D" node_paths=PackedStringArray("terrain", "character")]
 script = ExtResource("1_iep8p")
@@ -17,3 +30,16 @@ position = Vector2(460, 142)
 
 [node name="Shop" parent="." instance=ExtResource("4_aiuew")]
 position = Vector2(326, 421)
+
+[node name="Merchant" parent="." node_paths=PackedStringArray("enterPath", "exitPath") instance=ExtResource("5_41qb8")]
+position = Vector2(-146, 386)
+enterPath = NodePath("../MerchantEnterPath")
+exitPath = NodePath("../MerchantExitPath")
+enter_travel_minutes = 60
+exit_travel_minutes = 40
+
+[node name="MerchantEnterPath" type="Path2D" parent="."]
+curve = SubResource("Curve2D_41qb8")
+
+[node name="MerchantExitPath" type="Path2D" parent="."]
+curve = SubResource("Curve2D_1g7v2")

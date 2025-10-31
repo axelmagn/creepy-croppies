@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://obwxs5xvc524"]
+
+[ext_resource type="Script" uid="uid://c4660vuu8p5t" path="res://content/cutscenes/cutscene_trigger.gd" id="1_cgr7y"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bmrra"]
+radius = 32.0
+
+[node name="CutsceneTrigger" type="Area2D"]
+collision_layer = 33
+collision_mask = 33
+input_pickable = false
+script = ExtResource("1_cgr7y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_bmrra")

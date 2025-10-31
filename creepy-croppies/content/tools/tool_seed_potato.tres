@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="Seed" load_steps=6 format=3 uid="uid://cq4hxrrkgi7lq"]
+
+[ext_resource type="Resource" uid="uid://ckraaqekatq8s" path="res://content/item/item_potato_seed.tres" id="1_cks0j"]
+[ext_resource type="Resource" uid="uid://dngqdioyngqey" path="res://content/plant/plant_potato.tres" id="2_tmjhb"]
+[ext_resource type="Script" uid="uid://cgqcvbtck2hn1" path="res://content/tools/seed.gd" id="3_6ojs8"]
+[ext_resource type="Texture2D" uid="uid://cb372f22eu8xj" path="res://assets/cozy_farm/farming/crops_all.png" id="4_kuem4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cks0j"]
+atlas = ExtResource("4_kuem4")
+region = Rect2(0, 80, 16, 16)
+
+[resource]
+script = ExtResource("3_6ojs8")
+plant = ExtResource("2_tmjhb")
+consumed_item = ExtResource("1_cks0j")
+display_name = "Potato Seed"
+required_terrain_flag = "plantable"
+allow_overlaps = false
+texture = SubResource("AtlasTexture_cks0j")
+metadata/_custom_type_script = "uid://cgqcvbtck2hn1"

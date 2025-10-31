@@ -1,0 +1,76 @@
+[gd_resource type="Resource" script_class="PlantConfig" load_steps=18 format=3 uid="uid://dy1xvv4a2sogo"]
+
+[ext_resource type="Script" uid="uid://cu6flw0wv5h4e" path="res://content/plant/plant_config.gd" id="1_5funm"]
+[ext_resource type="Script" uid="uid://dottpy2k3wk" path="res://content/plant/growth_stage.gd" id="2_v6283"]
+[ext_resource type="Resource" uid="uid://dg78kfg5hnkyy" path="res://content/item/item_turnip_seed.tres" id="3_v6283"]
+[ext_resource type="Script" uid="uid://c43nopgdmv1r5" path="res://content/item/item_drop.gd" id="4_hbtjn"]
+[ext_resource type="Texture2D" uid="uid://c4db0vwbfcevo" path="res://assets/objects/crops.png" id="5_iprvw"]
+[ext_resource type="Resource" uid="uid://cx2mwgvwaqm1g" path="res://content/item/item_turnip.tres" id="6_5funm"]
+
+[sub_resource type="Resource" id="Resource_7pd53"]
+script = ExtResource("4_hbtjn")
+item = ExtResource("3_v6283")
+min_count = 1
+max_count = 1
+metadata/_custom_type_script = "uid://c43nopgdmv1r5"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5funm"]
+atlas = ExtResource("5_iprvw")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="Resource" id="Resource_rh7dw"]
+script = ExtResource("2_v6283")
+texture = SubResource("AtlasTexture_5funm")
+item_drop = SubResource("Resource_7pd53")
+metadata/_custom_type_script = "uid://dottpy2k3wk"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v6283"]
+atlas = ExtResource("5_iprvw")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="Resource" id="Resource_xb258"]
+script = ExtResource("2_v6283")
+day = 1
+texture = SubResource("AtlasTexture_v6283")
+metadata/_custom_type_script = "uid://dottpy2k3wk"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7pd53"]
+atlas = ExtResource("5_iprvw")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="Resource" id="Resource_hbtjn"]
+script = ExtResource("2_v6283")
+day = 4
+texture = SubResource("AtlasTexture_7pd53")
+metadata/_custom_type_script = "uid://dottpy2k3wk"
+
+[sub_resource type="Resource" id="Resource_v6283"]
+script = ExtResource("4_hbtjn")
+item = ExtResource("6_5funm")
+min_count = 1
+max_count = 4
+metadata/_custom_type_script = "uid://c43nopgdmv1r5"
+
+[sub_resource type="Resource" id="Resource_pckpv"]
+script = ExtResource("4_hbtjn")
+item = ExtResource("3_v6283")
+min_count = 1
+max_count = 4
+metadata/_custom_type_script = "uid://c43nopgdmv1r5"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hbtjn"]
+atlas = ExtResource("5_iprvw")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="Resource" id="Resource_iprvw"]
+script = ExtResource("2_v6283")
+day = 6
+texture = SubResource("AtlasTexture_hbtjn")
+item_drop = SubResource("Resource_v6283")
+seed_drop = SubResource("Resource_pckpv")
+metadata/_custom_type_script = "uid://dottpy2k3wk"
+
+[resource]
+script = ExtResource("1_5funm")
+stages = Array[ExtResource("2_v6283")]([SubResource("Resource_rh7dw"), SubResource("Resource_xb258"), SubResource("Resource_hbtjn"), SubResource("Resource_iprvw")])
+metadata/_custom_type_script = "uid://cu6flw0wv5h4e"

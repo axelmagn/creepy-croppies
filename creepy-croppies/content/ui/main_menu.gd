@@ -11,11 +11,13 @@ func _ready() -> void:
 	play_button.pressed.connect(_on_play_pressed)
 	exit_button.pressed.connect(_on_exit_pressed)
 	_init_process_mode = process_mode
+	play_button.grab_focus()
 
 func enable() -> void:
 	visible = true
 	process_mode = _init_process_mode
 	get_tree().paused = true
+	play_button.grab_focus()
 
 func disable() -> void:
 	visible = false

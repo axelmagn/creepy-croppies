@@ -14,6 +14,7 @@ signal player_money_changed
 @export var main_level_scn: PackedScene
 @export var rent: RentManager
 @export var day: DayManager
+@export var cutscenes: CutscenesManager
 
 @export var init_player_items: ItemContainer
 @export var init_player_money: int = 10
@@ -42,6 +43,7 @@ func _ready() -> void:
 	assert(rent)
 	assert(day)
 	assert(audio)
+	assert(cutscenes)
 
 	player_items = init_player_items.duplicate()
 	player_items.items = init_player_items.items.duplicate()

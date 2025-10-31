@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="Seed" load_steps=6 format=3 uid="uid://bmkr23qu6imnd"]
+
+[ext_resource type="Resource" uid="uid://dg78kfg5hnkyy" path="res://content/item/item_turnip_seed.tres" id="1_2766s"]
+[ext_resource type="Resource" uid="uid://dy1xvv4a2sogo" path="res://content/plant/plant_turnip.tres" id="2_x425c"]
+[ext_resource type="Script" uid="uid://cgqcvbtck2hn1" path="res://content/tools/seed.gd" id="3_0lx5x"]
+[ext_resource type="Texture2D" uid="uid://cb372f22eu8xj" path="res://assets/cozy_farm/farming/crops_all.png" id="4_fanpx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qpjf0"]
+atlas = ExtResource("4_fanpx")
+region = Rect2(0, 112, 16, 16)
+
+[resource]
+script = ExtResource("3_0lx5x")
+plant = ExtResource("2_x425c")
+consumed_item = ExtResource("1_2766s")
+display_name = "Turnip Seed"
+required_terrain_flag = "plantable"
+allow_overlaps = false
+texture = SubResource("AtlasTexture_qpjf0")
+metadata/_custom_type_script = "uid://cgqcvbtck2hn1"

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ItemConfig" load_steps=4 format=3 uid="uid://bim45tw5ka1y1"]
+
+[ext_resource type="Script" uid="uid://dqx63of8et0be" path="res://content/item/item_config.gd" id="1_0fohu"]
+[ext_resource type="Texture2D" uid="uid://cb372f22eu8xj" path="res://assets/cozy_farm/farming/crops_all.png" id="2_k3415"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0fohu"]
+atlas = ExtResource("2_k3415")
+region = Rect2(0, 160, 16, 16)
+
+[resource]
+script = ExtResource("1_0fohu")
+name = "Eggplant Seed"
+texture = SubResource("AtlasTexture_0fohu")
+price = 8
+buyable = true
+sellable = false
+metadata/_custom_type_script = "uid://dqx63of8et0be"

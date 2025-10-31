@@ -1,6 +1,7 @@
 class_name Shop extends Area2D
 
 var is_showing: bool = false
+var is_interactable := true
 
 func _ready() -> void:
 	Game.ui.shop_ui.close.connect(hide_shop)
@@ -8,6 +9,9 @@ func _ready() -> void:
 		
 func interact():
 	print("interact")
+	if !is_interactable:
+		return
+	
 	if is_showing:
 		hide_shop()
 	else:

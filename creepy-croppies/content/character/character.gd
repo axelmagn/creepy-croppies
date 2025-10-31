@@ -19,6 +19,8 @@ signal stamina_changed
 @export var max_stamina: float = 100
 @export var recording_poll_rate: float = 0.1
 
+@export var animated_sprite: AnimatedSprite2D
+
 var _input_move: Vector2 = Vector2.ZERO
 var facing_dir: Vector2 = Vector2.DOWN
 var active_tool_idx: int = 0
@@ -136,6 +138,7 @@ func _apply_move() -> void:
 	update_facing_dir()
 	move_and_slide()
 	update_cursor()
+	update_animated_sprite()
 	
 	if velocity.length_squared() > 0:
 		Game.audio.play_footstep()
@@ -156,6 +159,21 @@ func update_facing_dir() -> void:
 			best_match = dir
 			best_dot = x
 	facing_dir = best_match
+
+func update_animated_sprite() -> void:
+	if not animated_sprite:
+		return
+	if velocity.length() < 0.5:
+		animated_sprite.pause()
+	else:
+		if (facing_dir - Vector2.UP).length() < 0.1:
+			animated_sprite.play("up")
+		if (facing_dir - Vector2.DOWN).length() < 0.1:
+			animated_sprite.play("down")
+		if (facing_dir - Vector2.LEFT).length() < 0.1:
+			animated_sprite.play("left")
+		if (facing_dir - Vector2.RIGHT).length() < 0.1:
+			animated_sprite.play("right")
 
 func update_cursor() -> void:
 	if not cursor or not Game.active_level or not Game.active_level.terrain:
@@ -197,6 +215,7 @@ func set_stamina(value: float) -> void:
 		return
 	stamina = value
 	stamina_changed.emit()
+
 
 func _on_magnet_body_entered(body: Node2D) -> void:
 	if body is Item:

@@ -1,18 +1,34 @@
-[gd_resource type="Resource" script_class="ItemContainer" load_steps=7 format=3 uid="uid://bnkbjme5y2iy7"]
+[gd_resource type="Resource" script_class="ItemContainer" load_steps=15 format=3 uid="uid://bnkbjme5y2iy7"]
 
 [ext_resource type="Script" uid="uid://dqx63of8et0be" path="res://content/item/item_config.gd" id="1_uvo8a"]
-[ext_resource type="Resource" uid="uid://bxanckxw3qwl5" path="res://content/item/item_wheat.tres" id="2_k6add"]
-[ext_resource type="Resource" uid="uid://gvni2qnigbkt" path="res://content/item/item_radish.tres" id="3_yddea"]
-[ext_resource type="Resource" uid="uid://b47jndxtask0c" path="res://content/item/item_radish_seed.tres" id="4_4ou1c"]
-[ext_resource type="Resource" uid="uid://bpxpxj7loip6" path="res://content/item/item_wheat_seed.tres" id="5_6jgte"]
+[ext_resource type="Resource" uid="uid://1ovl8rdiggb3" path="res://content/item/item_pumpkin.tres" id="2_0ejd8"]
+[ext_resource type="Resource" uid="uid://bptybi2x16g4w" path="res://content/item/item_pumpkin_seed.tres" id="3_8rf1o"]
+[ext_resource type="Resource" uid="uid://dg78kfg5hnkyy" path="res://content/item/item_turnip_seed.tres" id="4_b3882"]
+[ext_resource type="Resource" uid="uid://cx2mwgvwaqm1g" path="res://content/item/item_turnip.tres" id="5_uvo8a"]
 [ext_resource type="Script" uid="uid://1sh2lqokbbvk" path="res://content/item/item_container.gd" id="6_ubb76"]
+[ext_resource type="Resource" uid="uid://dgjictjq4ffj1" path="res://content/item/item_carrot.tres" id="6_wxtg3"]
+[ext_resource type="Resource" uid="uid://gvq8mxymlu20" path="res://content/item/item_carrot_seed.tres" id="7_lkjxp"]
+[ext_resource type="Resource" uid="uid://05ayxfred4rs" path="res://content/item/item_corn.tres" id="8_ums44"]
+[ext_resource type="Resource" uid="uid://dqb81a4nmh008" path="res://content/item/item_corn_seed.tres" id="9_lfr8c"]
+[ext_resource type="Resource" uid="uid://blyj6jmlg7dhd" path="res://content/item/item_potato.tres" id="10_boaoc"]
+[ext_resource type="Resource" uid="uid://ckraaqekatq8s" path="res://content/item/item_potato_seed.tres" id="11_io88p"]
+[ext_resource type="Resource" uid="uid://bp4l4u7gypy27" path="res://content/item/item_eggplant.tres" id="12_6b7v3"]
+[ext_resource type="Resource" uid="uid://bim45tw5ka1y1" path="res://content/item/item_eggplant_seed.tres" id="13_3muyw"]
 
 [resource]
 script = ExtResource("6_ubb76")
 items = Dictionary[ExtResource("1_uvo8a"), int]({
-ExtResource("2_k6add"): 0,
-ExtResource("3_yddea"): 0,
-ExtResource("4_4ou1c"): 3,
-ExtResource("5_6jgte"): 3
+ExtResource("2_0ejd8"): 0,
+ExtResource("3_8rf1o"): 10,
+ExtResource("4_b3882"): 10,
+ExtResource("5_uvo8a"): 0,
+ExtResource("6_wxtg3"): 0,
+ExtResource("7_lkjxp"): 10,
+ExtResource("8_ums44"): 0,
+ExtResource("9_lfr8c"): 10,
+ExtResource("10_boaoc"): 0,
+ExtResource("11_io88p"): 10,
+ExtResource("12_6b7v3"): 0,
+ExtResource("13_3muyw"): 10
 })
 metadata/_custom_type_script = "uid://1sh2lqokbbvk"

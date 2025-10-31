@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="Seed" load_steps=6 format=3 uid="uid://u0o58dlvd24j"]
+
+[ext_resource type="Resource" uid="uid://dqb81a4nmh008" path="res://content/item/item_corn_seed.tres" id="1_i38xd"]
+[ext_resource type="Resource" uid="uid://cmjxacyv0ftht" path="res://content/plant/plant_corn.tres" id="2_pehwm"]
+[ext_resource type="Script" uid="uid://cgqcvbtck2hn1" path="res://content/tools/seed.gd" id="3_iyqg6"]
+[ext_resource type="Texture2D" uid="uid://cb372f22eu8xj" path="res://assets/cozy_farm/farming/crops_all.png" id="4_kqqkn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i38xd"]
+atlas = ExtResource("4_kqqkn")
+region = Rect2(0, 64, 16, 16)
+
+[resource]
+script = ExtResource("3_iyqg6")
+plant = ExtResource("2_pehwm")
+consumed_item = ExtResource("1_i38xd")
+display_name = "Corn Seeds"
+required_terrain_flag = "plantable"
+allow_overlaps = false
+texture = SubResource("AtlasTexture_i38xd")
+metadata/_custom_type_script = "uid://cgqcvbtck2hn1"

@@ -9,6 +9,7 @@ class_name MainUI extends CanvasLayer
 @export var pause_menu: PauseMenu
 @export var cutscene: Cutscene
 @export var bridge_menu: BridgeMenu
+@export var house_menu: HouseMenu
 
 func _ready() -> void:
 	assert(main_menu)
@@ -20,6 +21,8 @@ func _ready() -> void:
 	assert(pause_menu)
 	assert(cutscene)
 	assert(bridge_menu)
+	assert(house_menu)
 	day_summary.disable()
 	shop_ui.disable()
 	bridge_menu.disable()
+	house_menu.disable()

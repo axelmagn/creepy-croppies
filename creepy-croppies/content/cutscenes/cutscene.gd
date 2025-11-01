@@ -28,6 +28,7 @@ func _process(_delta: float) -> void:
 func play(config: CutsceneConfig):
 
 	hero.texture = config.hero_texture
+	lines_label.text = ""
 
 	visible = true
 	process_mode = Node.PROCESS_MODE_ALWAYS

@@ -7,4 +7,4 @@ func use_primary(user: Character):
 	var tcoord = user.get_interact_terrain()
 	Game.active_level.terrain.water(tcoord)
 	Game.audio.play_tool_watering()
-	print("used watering can")
+	# print("used watering can")

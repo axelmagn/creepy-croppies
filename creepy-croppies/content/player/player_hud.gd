@@ -69,9 +69,6 @@ func update_view() -> void:
 		focus_cell_label.text = "N/A"
 		return
 
-
-
-
 func register_player(player: Character) -> void:
 	self.player = player
 	tools_indicator.set_character(player)

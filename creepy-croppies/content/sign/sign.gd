@@ -6,5 +6,5 @@ func _ready() -> void:
 	assert(cutscene)
 
 func interact() -> void:
-	printt("sign interacted")
+	# printt("sign interacted")
 	Game.ui.cutscene.play(cutscene)

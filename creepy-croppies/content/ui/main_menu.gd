@@ -28,12 +28,12 @@ func disable() -> void:
 	get_tree().paused = false
 
 func _on_play_pressed() -> void:
-	print("play pressed")
+	# print("play pressed")
 	Game.audio.play_click()
 	Game.load_level(Game.main_level_scn)
 	disable()
 
 func _on_exit_pressed() -> void:
-	print("exit pressed")
+	# print("exit pressed")
 	Game.audio.play_click()
 	get_tree().quit()

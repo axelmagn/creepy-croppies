@@ -31,7 +31,7 @@ func disable() -> void:
 	process_mode = Node.PROCESS_MODE_DISABLED
 
 func _on_continue_pressed() -> void:
-	print("continue pressed")
+	# print("continue pressed")
 	Game.audio.play_click()
 	continue_game.emit()
 

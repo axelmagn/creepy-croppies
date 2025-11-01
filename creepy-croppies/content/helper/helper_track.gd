@@ -84,7 +84,7 @@ class MethodAction extends Action:
 
 	func _init(method: Callable, args: Array[Variant]):
 		super._init()
-		printt("adding method:", method, method.get_bound_arguments_count(), method.get_argument_count())
+		# printt("adding method:", method, method.get_bound_arguments_count(), method.get_argument_count())
 		_method = method.unbind(1) # unbind the object from the method
 		_args = args
 	
@@ -92,7 +92,7 @@ class MethodAction extends Action:
 		var cb = _method.bind(character)
 		if not _args.is_empty():
 			cb = cb.bindv(_args)
-		printt("bound callback:", cb, cb.get_bound_arguments_count(), cb.get_argument_count())
+		# printt("bound callback:", cb, cb.get_bound_arguments_count(), cb.get_argument_count())
 		var ltdt = dt(last_time_usec)
 		# printt("tween::prop::dt", ltdt)
 		tween.tween_callback(cb).set_delay(ltdt)

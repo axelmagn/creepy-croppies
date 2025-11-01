@@ -62,12 +62,12 @@ func request_use_tool() -> void:
 		return
 	var active_tool: Tool = get_active_tool()
 	if not active_tool:
-		printt("active tool not found:", active_tool_idx, self)
+		# printt("active tool not found:", active_tool_idx, self)
 		return
 	if not active_tool.can_use(self):
 		# printt("cannot use active tool:", active_tool_idx, self)
 		return
-	printt("using tool:", active_tool_idx, self)
+	# printt("using tool:", active_tool_idx, self)
 	active_tool.use_primary(self)
 	if recording_track:
 		recording_track.record_move(global_position, facing_dir)
@@ -226,14 +226,14 @@ func cast_interact() -> Array[Dictionary]:
 func interact():
 	var objects: Array[Dictionary] = cast_interact()
 	for object in objects:
-		print(object)
+		# print(object)
 		if object["collider"].has_method("interact"):
 			object["collider"].interact()
 
 func can_interact():
 	var objects: Array[Dictionary] = cast_interact()
 	for object in objects:
-		print(object)
+		# print(object)
 		if object["collider"].has_method("interact"):
 			return true
 	return false
@@ -254,9 +254,9 @@ func _on_magnet_body_exited(body: Node2D) -> void:
 		body.attractor = null
 
 func _on_pickup_body_entered(body: Node2D) -> void:
-	printt("detected pickup collision")
+	# printt("detected pickup collision")
 	if body is Item:
-		printt("picked up item:", body.config.name)
+		# printt("picked up item:", body.config.name)
 		Game.player_items.add_item(body.config, 1)
 		Game.audio.play_pick_up()
 		body.queue_free()

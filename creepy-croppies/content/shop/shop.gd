@@ -8,7 +8,7 @@ func _ready() -> void:
 	Game.ui.shop_ui.disable()
 		
 func interact():
-	print("interact")
+	# print("interact")
 	if !is_interactable:
 		return
 	
@@ -18,13 +18,13 @@ func interact():
 		show_shop()
 
 func show_shop() -> void:
-	print("show_shop")
+	# print("show_shop")
 	Game.ui.shop_ui.enable()
 	Game.pause_game()
 	is_showing = true
 	
 func hide_shop() -> void:
-	print("hide_shop")
+	# print("hide_shop")
 	Game.ui.shop_ui.disable()
 	Game.unpause_game()
 	is_showing = false

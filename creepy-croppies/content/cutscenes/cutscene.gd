@@ -47,7 +47,7 @@ func play(config: CutsceneConfig):
 		var t = get_tree().create_timer(0.1)
 		await t.timeout
 		await input_proceed
-		printt("finished line:", line)
+		# printt("finished line:", line)
 	lines_label.visible = true
 	animation_player.play(exit_anim)
 	await animation_player.animation_finished

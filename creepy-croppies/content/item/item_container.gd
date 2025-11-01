@@ -7,7 +7,7 @@ signal items_changed
 
 func add_item(item: ItemConfig, count: int) -> void:
 	items[item] = items.get(item, 0) + count
-	printt("item count:", item.name, items[item])
+	# printt("item count:", item.name, items[item])
 	items_changed.emit()
 	
 func has_enough(item: ItemConfig, count: int) -> bool:

@@ -51,11 +51,11 @@ func update_view():
 			buy_section.add_child(shop_item)
 
 	if Game.player_items != null:
-		printt("found player items")
+		# printt("found player items")
 		var player_items = Game.player_items.items.keys()
 		player_items.sort_custom(cmp_player_items)
 		for item_config in player_items:
-			printt("found player item:", item_config.name)
+			# printt("found player item:", item_config.name)
 			if item_config.sellable:
 				var shop_item: ShopItem = shop_item.instantiate()
 				shop_item.item_config = item_config
@@ -65,7 +65,7 @@ func update_view():
 				shop_item.action_button.disabled = Game.player_items.items.get(shop_item.item_config, 0) > 0
 
 func _on_close_button_pressed() -> void:
-	print("close button pressed")
+	# print("close button pressed")
 	Game.audio.play_click()
 	close.emit()
 

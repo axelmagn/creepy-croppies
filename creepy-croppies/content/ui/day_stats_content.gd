@@ -25,7 +25,7 @@ func update_internals() -> void:
 
 
 func write_line(text: String, amt_sign: String, amount: int) -> void:
-	printt("writing line:", text, amt_sign, amount)
+	# printt("writing line:", text, amt_sign, amount)
 	var text_label = Label.new()
 	text_label.text = text
 	text_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT

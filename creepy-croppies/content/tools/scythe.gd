@@ -21,4 +21,4 @@ func use_primary(user: Character):
 			collider.harvest()
 	# TODO: scythe functionality
 	Game.audio.play_tool_scythe()
-	print("used scythe")
+	# print("used scythe")

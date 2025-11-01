@@ -33,8 +33,8 @@ func apply_inputs() -> void:
 			character.request_prev_tool()
 
 		# debug inputs
-		if Input.is_action_just_pressed("debug_next_day"):
-			Game.time.debug_advance_day()
+		# if Input.is_action_just_pressed("debug_next_day"):
+		# 	Game.time.debug_advance_day()
 			
 		# interact with objects
 		if Input.is_action_just_pressed("interact"):

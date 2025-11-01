@@ -11,6 +11,9 @@ func _ready() -> void:
 	play_button.pressed.connect(_on_play_pressed)
 	exit_button.pressed.connect(_on_exit_pressed)
 	_init_process_mode = process_mode
+	if OS.get_name() == "Web":
+		exit_button.disabled = true
+		exit_button.visible = false
 	play_button.grab_focus()
 
 func enable() -> void:

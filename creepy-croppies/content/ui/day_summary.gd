@@ -23,6 +23,7 @@ func enable() -> void:
 	visible = true
 	process_mode = _init_process_mode
 	day_stats.update_internals()
+	continue_button.grab_focus()
 
 
 func disable() -> void:

@@ -42,5 +42,5 @@ func apply_inputs() -> void:
 		if Input.is_action_just_pressed("menu_pause") and Game.active_level:
 				Game.ui.pause_menu.enable()
 	else:
-		if Input.is_action_just_pressed("interact") or Input.is_action_just_pressed("ui_cancel"):
+		if Input.is_action_just_pressed("ui_cancel"):
 			Game.ui.close_active_menu()

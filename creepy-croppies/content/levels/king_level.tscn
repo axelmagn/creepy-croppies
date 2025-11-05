@@ -113,7 +113,7 @@ player_reset_marker = NodePath("PlayerResetMarker")
 [node name="KingTerrain" parent="." instance=ExtResource("2_8e4aw")]
 
 [node name="Player" parent="." instance=ExtResource("3_aiuew")]
-position = Vector2(214, 35)
+position = Vector2(445, 171)
 collision_mask = 97
 
 [node name="House" parent="." instance=ExtResource("5_pdf8x")]

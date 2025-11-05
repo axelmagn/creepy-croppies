@@ -19,4 +19,5 @@ func update_internals() -> void:
 	self.progress_bar.max_value = character.max_stamina
 	self.progress_bar.value = character.stamina
 	self.progress_bar.min_value = 0
-	warning_panel.visible = character.stamina / float(character.max_stamina) < 0.2
+	# warning_panel.visible = character.stamina / float(character.max_stamina) < 0.2
+	warning_panel.visible = false

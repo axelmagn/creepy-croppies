@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dt4q1xkadfoc5"]
+[gd_scene load_steps=6 format=3 uid="uid://dt4q1xkadfoc5"]
 
 [ext_resource type="Theme" uid="uid://dwwduca38fsi3" path="res://content/ui/tools_indicator_theme.tres" id="1_c8ex1"]
 [ext_resource type="Texture2D" uid="uid://cg4b0ahl4eb0g" path="res://assets/sprout_lands_basic/Objects/Basic_tools_and_meterials.png" id="1_heill"]
@@ -8,14 +8,29 @@
 atlas = ExtResource("1_heill")
 region = Rect2(0, 0, 16, 16)
 
-[node name="ToolPanel" type="PanelContainer" node_paths=PackedStringArray("texture_rect")]
+[sub_resource type="LabelSettings" id="LabelSettings_c8ex1"]
+font_size = 32
+font_color = Color(0.26, 0.26, 0.26, 1)
+outline_size = 4
+
+[node name="ToolPanel" type="PanelContainer" node_paths=PackedStringArray("texture_rect", "count_label")]
 texture_filter = 3
 theme = ExtResource("1_c8ex1")
 script = ExtResource("1_rrv2x")
 texture_rect = NodePath("TextureRect")
+count_label = NodePath("ItemCount")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 texture = SubResource("AtlasTexture_7xuoy")
 stretch_mode = 4
+
+[node name="ItemCount" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+mouse_filter = 1
+text = "10"
+label_settings = SubResource("LabelSettings_c8ex1")
+horizontal_alignment = 2

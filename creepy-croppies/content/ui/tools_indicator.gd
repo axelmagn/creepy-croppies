@@ -23,12 +23,16 @@ func update_tool(panel: ToolPanel):
 		return
 
 	var t := panel.tool
-	
+
 	if t is not Seed:
 		panel.enable()
+		panel.count_label.visible = false
 		return
+
+	panel.count_label.visible = true
+	panel.count_label.text = str(t.item_count())
 	
-	if t is Seed and t.has_enough_resources_to_use():
+	if t.has_enough_resources_to_use():
 		panel.enable()
 	else:
 		panel.disable()
@@ -52,5 +56,9 @@ func update_internals() -> void:
 		if i == active_tool_idx:
 			panel.activate()
 		tool_panels_root.add_child(panel)
+		panel.clicked.connect(_on_tool_panel_clicked.bind(i))
 		update_tool(panel)
 	active_tool_label.text = character.tools[active_tool_idx].display_name
+
+func _on_tool_panel_clicked(idx: int) -> void:
+	Game.active_player.set_tool(idx)

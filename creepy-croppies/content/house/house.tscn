@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://c0s67r8u1fb60" path="res://content/house/house_interaction.gd" id="2_46850"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gifuw"]
-size = Vector2(134, 47)
+size = Vector2(143, 68.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cx4hi"]
 size = Vector2(38, 24)
@@ -17,7 +17,7 @@ collision_layer = 64
 collision_mask = 64
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(1, 6)
+position = Vector2(-0.5, -4.75)
 shape = SubResource("RectangleShape2D_gifuw")
 
 [node name="Area2D" type="Area2D" parent="."]

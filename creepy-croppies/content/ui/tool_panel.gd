@@ -1,13 +1,21 @@
 class_name ToolPanel extends PanelContainer
 
+signal clicked
+
 @export var texture_rect: TextureRect
 @export var active_theme_variation: StringName = "ActivePanelContainer"
 @export var inactive_theme_variation: StringName = ""
+@export var count_label: Label
 
 var tool: Tool
 
 func _ready() -> void:
 	assert(texture_rect)
+	assert(count_label)
+
+func _gui_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton and event.button_index == MouseButton.MOUSE_BUTTON_LEFT:
+		clicked.emit()
 
 func set_tool(tool: Tool) -> void:
 	self.tool = tool

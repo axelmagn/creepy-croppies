@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c65b2rbxswdam"]
+[gd_scene load_steps=13 format=3 uid="uid://c65b2rbxswdam"]
 
 [ext_resource type="Script" uid="uid://87w3ni3sy4xf" path="res://content/player/player_hud.gd" id="1_ebjuq"]
 [ext_resource type="Theme" uid="uid://c55ad4h1x0cgs" path="res://content/ui/main_theme.tres" id="2_b3hcm"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bmcmo6g1y21dd" path="res://content/ui/rent_indicator.tscn" id="5_qro0s"]
 [ext_resource type="PackedScene" uid="uid://do0wo04y6tf6h" path="res://content/player/stamina_indicator.tscn" id="6_7xuoy"]
 [ext_resource type="Texture2D" uid="uid://do2sktlwkfj42" path="res://assets/kenney_input-prompts-pixel-16/Tilemap/tilemap_packed.png" id="9_ecb7i"]
+[ext_resource type="Script" uid="uid://73a7mh50k5hr" path="res://content/player/stamina_warning.gd" id="10_p7sj8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p7sj8"]
 atlas = ExtResource("9_ecb7i")
@@ -147,3 +148,30 @@ expand_mode = 2
 layout_mode = 2
 texture = SubResource("AtlasTexture_ecb7i")
 expand_mode = 2
+
+[node name="StaminaWarning" type="PanelContainer" parent="." node_paths=PackedStringArray("label")]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -240.0
+offset_right = 100.0
+offset_bottom = -136.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("10_p7sj8")
+label = NodePath("MarginContainer/Label")
+
+[node name="MarginContainer" type="MarginContainer" parent="StaminaWarning"]
+layout_mode = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="Label" type="Label" parent="StaminaWarning/MarginContainer"]
+layout_mode = 2
+text = "Low Stamina"

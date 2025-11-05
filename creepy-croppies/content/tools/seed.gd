@@ -11,6 +11,9 @@ func can_use(user: Character):
 func has_enough_resources_to_use() -> bool:
 	return Game.player_items.has_enough(consumed_item, 1)
 
+func item_count() -> int:
+	return Game.player_items.items.get(consumed_item, 0)
+
 func use_primary(user: Character):
 	if not can_use(user):
 		return
